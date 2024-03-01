@@ -15,7 +15,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 Route::post('/login', [AuthController::class, 'login'])
     ->middleware('guest')
@@ -39,4 +39,9 @@ Route::group(['middleware'=>['auth','web']],function(){
     Route::get('product_invoice_view/{invoice_id}',[ProductController::class,'productInvoiceShow'])->name('product_invoice_view');
     Route::get('payment_status/{invoice_id}',[ProductController::class,'paymentStatus'])->name('payment_status');
     Route::post('payment_status/{invoice_id}',[ProductController::class,'productInvoiveStatus'])->name('payment_invoice_status');
+    Route::get('payment_status_list',[ProductController::class,'productInvoiveStatusList'])->name('payment_status_list');
+    Route::get('payment_status_list_show/{id}',[ProductController::class,'productInvoiveStatusListShow'])->name('payment_status_list_show');
+    Route::get('payment_status_list_edit/{id}',[ProductController::class,'productInvoiveStatusListEdit'])->name('payment_status_list_edit');
+    Route::post('payment_status_list_update/{id}',[ProductController::class,'productInvoiveStatusListUpdate'])->name('payment_status_list_update');
+
 });

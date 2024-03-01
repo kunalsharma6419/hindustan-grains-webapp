@@ -15,10 +15,10 @@ class ProductController extends Controller
 {
     public function myInvoice()
     {
-        $product=Product::all();
+        $product=Product::orderBy('id','desc')->get();
         return view('pramoter.my_invoice',compact('product'));
     }
-    
+
     public function product_Search($id)
     {
         $product = Product::find($id);
@@ -49,7 +49,7 @@ class ProductController extends Controller
                 'selling_price' => $request->selling_price[$key],
                 'total_price' => $request->totalprice[$key],
                 'invoice_id' => $ordernumber,
-            ]); 
+            ]);
             $createdIds[] = $productInvoice->id;
             $product = Product::findOrFail($request->id[$key]);
             $product->quantity -= $request->quantity[$key];
@@ -75,7 +75,7 @@ class ProductController extends Controller
     }
 
 
-    public function numberToWords($number) 
+    public function numberToWords($number)
     {
         $ones = array(
             1 => 'one', 2 => 'two', 3 => 'three', 4 => 'four', 5 => 'five',
@@ -122,7 +122,7 @@ class ProductController extends Controller
 
     public function productInvoice()
     {
-        $customer_data=CustomerInvoice::where('promoter_id',Auth::user()->id)->get();
+        $customer_data=CustomerInvoice::where('promoter_id',Auth::user()->id) ->orderBy('id','desc')->get();
         return view('pramoter.product_invoice',compact('customer_data'));
     }
 
@@ -135,6 +135,7 @@ class ProductController extends Controller
                         ->select('products.*', 'product_invoices.quantity', 'product_invoices.total_price')
                         ->where('product_invoices.invoice_id', $invoice_id)
                         ->where('product_invoices.promoter_id', $promoter_id)
+                         ->orderBy('id','desc')
                         ->get();
         $customer_get=CustomerInvoice::where('promoter_id',$promoter_id)->where('invoice_id',$invoice_id)->first();
         $englishnumber=$this->numberToWords($orderTotal);
@@ -143,13 +144,14 @@ class ProductController extends Controller
     }
 
     public function paymentStatus($invoice_id)
-    {   
+    {
         $promoter_id=Auth::user()->id;
         $orderTotal = ProductInvoice::where('promoter_id',$promoter_id)->where('invoice_id', $invoice_id)->sum('total_price');
         $productData = ProductInvoice::join('products', 'product_invoices.product_id', '=', 'products.id')
                         ->select('products.*', 'product_invoices.quantity', 'product_invoices.total_price')
                         ->where('product_invoices.invoice_id', $invoice_id)
                         ->where('product_invoices.promoter_id', $promoter_id)
+                        ->orderBy('id','desc')
                         ->get();
         $customer_get=CustomerInvoice::where('promoter_id',$promoter_id)->where('invoice_id',$invoice_id)->first();
         return view('pramoter.payment_status', compact('orderTotal','productData','invoice_id','customer_get'));
@@ -172,8 +174,9 @@ class ProductController extends Controller
             'amount_paid'=>$request->amount_paid,
             'amount_due'=>$request->amount_due,
             'payment_percentage'=>$request->payment_percentage,
-        ];         
-        if($files = $request->file('payment_proff')){
+            'payment_status'=>$request->payment_status,
+        ];
+        if($files = $request->file('payment_prof')){
             $fileDetails = [];
             foreach ($files as $file) {
                 $fileName = $file->getClientOriginalName();
@@ -181,7 +184,7 @@ class ProductController extends Controller
                 $file->move(public_path('invoice_proff'), $fileName);
                 $fileDetails[] = $filePath;
             }
-             $data['payment_proof']= json_encode($fileDetails);           
+            $data['payment_proof']= json_encode($fileDetails);
         }
         $res=PaymentStatus::create($data);
         if($res){
@@ -189,7 +192,70 @@ class ProductController extends Controller
         }else{
             return redirect()->route('product_invoice')->with('error','errors somethinsg');
         }
-        
+
     }
+
+    public function productInvoiveStatusList()
+    {
+        $promoter_id=Auth::user()->id;
+        $payment_status=PaymentStatus::where('promoter_id',$promoter_id)->orderBy('id','desc')->get();
+        return view('pramoter.payment_status_list',compact('payment_status'));
+    }
+
+    public function productInvoiveStatusListShow($id)
+    {
+        $promoter_id=Auth::user()->id;
+        $payment_status=PaymentStatus::where('promoter_id',$promoter_id)->find($id);
+        $customer=CustomerInvoice::where('promoter_id',$promoter_id)->where('id',$payment_status->customer_id)->first();        
+        return view('pramoter.payment_status_list_show',compact('payment_status','customer'));
+    }
+
+    public function productInvoiveStatusListEdit($id)
+    {
+        $promoter_id=Auth::user()->id;
+        $productData=PaymentStatus::where('promoter_id',$promoter_id)->find($id);
+        $customer_get=CustomerInvoice::where('promoter_id',$promoter_id)->where('id',$productData->customer_id)->first(); 
+        return view('pramoter.payment_status_edit', compact('productData','customer_get'));
+  
+    }
+
+   public function productInvoiveStatusListUpdate(Request $request, $id)
+{   
+    $request->validate([
+        'amount_paid'=>'required',
+        'payment_status'=>'required',
+        'payment_mode'=>'required',
+    ]);
+    
+    $promoter_id = Auth::user()->id;
+    $data = [
+        'promoter_id' => $promoter_id,
+        'customer_id' => $request->customer_id,
+        'payment_mode' => $request->payment_mode,
+        'amount_paid' => $request->amount_paid,
+        'amount_due' => $request->amount_due,
+        'payment_percentage' => $request->payment_percentage,
+        'payment_status' => $request->payment_status,
+    ];
+    if ($request->hasFile('payment_prof')) {
+        $file = $request->file('payment_prof');
+        $fileName = $file->getClientOriginalName();
+        $filePath = '/invoice_proff/' . $fileName;
+        $file->move(public_path('invoice_proff'), $fileName);
+        $data['payment_proof'] = $filePath;
+    }
+
+    $paymentStatus = PaymentStatus::where('promoter_id',$promoter_id)->find($id);
+    if (!$paymentStatus) {
+        return redirect()->back()->with('error', 'Payment status not found');
+    }
+
+    $res = $paymentStatus->update($data);
+    if ($res) {
+        return redirect()->back()->with('success', 'Payment Update Successfully');
+    } else {
+        return redirect()->back()->with('error', 'Error updating payment');
+    }
+}
 
 }

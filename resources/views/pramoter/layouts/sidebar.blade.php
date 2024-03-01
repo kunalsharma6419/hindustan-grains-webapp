@@ -18,5 +18,11 @@
 	      <span class="menu-title">Invoice List</span>
 	    </a>
 	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="{{route('payment_status_list')}}">
+	      <i class="mdi mdi-grid-large menu-icon"></i>
+	      <span class="menu-title">Payment Status</span>
+	    </a>
+	  </li>
 	</ul>
 </nav>

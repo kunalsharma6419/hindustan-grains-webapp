@@ -13,7 +13,7 @@
 		        {{ session('success') }}
 		    </div>
 		@endif
-		<form accept="{{route('payment_invoice_status',$invoice_id)}}" method="post" enctype="multipart/form-data" multiple>
+		<form action="{{route('payment_status_list_update',$productData->id)}}" method="post" enctype="multipart/form-data" multiple>
 			@csrf
 			<input type="hidden" name="customer_id" value="{{$customer_get->id}}">
 			@if ($errors->any())
@@ -29,7 +29,7 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Invoice No.</label>
-                    <input type="text" class="form-control" value="{{$invoice_id}}" name="invoive_id" placeholder="Enter full name..." readonly>
+                    <input type="text" class="form-control" value="{{$productData->invoice_id}}" name="invoive_id" placeholder="Enter full name..." readonly>
                 </div>
 			</div>
 			<div class="col-md-4">
@@ -47,7 +47,7 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Grand Total Amount of invoice</label>
-                    <input type="text" class="form-control" value="{{$orderTotal}}" id="grantTotal" name="grant_total" placeholder="Enter full name..." readonly>
+                    <input type="text" class="form-control" value="{{$productData->grant_total}}" id="grantTotal" name="grant_total" placeholder="Enter full name..." readonly>
                 </div>
 			</div>
 			<div class="col-md-4">
@@ -67,19 +67,19 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Amount Paid</label>
-                    <input type="text" class="form-control" onkeyup="amount(this)" placeholder="Enter Amount..." name="amount_paid">
+                    <input type="text" class="form-control" onkeyup="amount(this)" placeholder="Enter Amount..." value="{{$productData->amount_paid}}" name="amount_paid">
                 </div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Amount Due</label>
-                    <input type="text" class="form-control" id="amountDue" placeholder="" name="amount_due" readonly>
+                    <input type="text" class="form-control" id="amountDue" placeholder="" name="amount_due" value="{{$productData->amount_due}}" readonly>
                 </div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Payment Percentage</label>
-                    <input type="text" class="form-control" id="Percentage" placeholder="" name="payment_percentage" readonly>
+                    <input type="text" class="form-control" id="Percentage" placeholder="" name="payment_percentage" value="{{$productData->payment_percentage}}" readonly>
                 </div>
 			</div>
 			<div class="col-md-4">
@@ -96,11 +96,11 @@
 			<div class="col-md-12">
 				<div class="form-group">
 					<label>Payment Proff</label>
-                    <input type="file" class="form-control" name="payment_prof[]" multiple>
+                    <input type="file" class="form-control" name="payment_prof">
                 </div>
 			</div>
 			<div class="col-md-12">
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary">Update</button>
 			</div>
 		</div>
 		</form>
