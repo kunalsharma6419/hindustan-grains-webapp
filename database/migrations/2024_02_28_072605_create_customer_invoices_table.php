@@ -17,7 +17,7 @@ class CreateCustomerInvoicesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('promoter_id');     
             $table->foreign('promoter_id')->references('id')->on('users');
-            $table->string('invoice_id');     
+            $table->string('invoice_id',255);     
             $table->foreign('invoice_id')->references('invoice_id')->on('product_invoices');
             $table->string('name');
             $table->string('phone_number');

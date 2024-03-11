@@ -75,51 +75,6 @@ class ProductController extends Controller
     }
 
 
-    public function numberToWords($number)
-    {
-        $ones = array(
-            1 => 'one', 2 => 'two', 3 => 'three', 4 => 'four', 5 => 'five',
-            6 => 'six', 7 => 'seven', 8 => 'eight', 9 => 'nine', 10 => 'ten',
-            11 => 'eleven', 12 => 'twelve', 13 => 'thirteen', 14 => 'fourteen',
-            15 => 'fifteen', 16 => 'sixteen', 17 => 'seventeen', 18 => 'eighteen',
-            19 => 'nineteen'
-        );
-        $tens = array(
-            2 => 'twenty', 3 => 'thirty', 4 => 'forty', 5 => 'fifty',
-            6 => 'sixty', 7 => 'seventy', 8 => 'eighty', 9 => 'ninety'
-        );
-
-        $words = array();
-        if ($number < 0) {
-            $words[] = 'minus';
-            $number = abs($number);
-        }
-
-        if ($number < 20) {
-            $words[] = $ones[$number];
-        } elseif ($number < 100) {
-            $words[] = $tens[($number / 10)];
-            if ($number % 10) {
-                $words[] = $ones[$number % 10];
-            }
-        } elseif ($number < 1000) {
-            $words[] = $ones[($number / 100)] . ' hundred';
-            if ($number % 100) {
-                $words[] = $this->numberToWords($number % 100);
-            }
-        } else {
-            $baseUnit = array('', 'thousand', 'million', 'billion', 'trillion', 'quadrillion');
-            $base = pow(1000, floor(log($number, 1000)));
-            $unit = $number / $base;
-            $words[] = $this->numberToWords($unit) . ' ' . $baseUnit[floor(log($number, 1000))];
-            if ($number % $base) {
-                $words[] = $this->numberToWords($number % $base);
-            }
-        }
-
-        return implode(' ', $words);
-    }
-
     public function productInvoice()
     {
         $customer_data=CustomerInvoice::where('promoter_id',Auth::user()->id) ->orderBy('id','desc')->get();
@@ -213,21 +168,27 @@ class ProductController extends Controller
     public function productInvoiveStatusListEdit($id)
     {
         $promoter_id=Auth::user()->id;
-        $productData=PaymentStatus::where('promoter_id',$promoter_id)->find($id);
-        $customer_get=CustomerInvoice::where('promoter_id',$promoter_id)->where('id',$productData->customer_id)->first(); 
+        $product_id=PaymentStatus::where('promoter_id',$promoter_id)->latest()->find($id);
+
+        $customer_get=CustomerInvoice::where('promoter_id',$promoter_id)->where('id',$product_id->customer_id)->first(); 
+        $productData=PaymentStatus::where('promoter_id',$promoter_id)->where('invoice_id',$customer_get->invoice_id)->latest()->first();
+
         return view('pramoter.payment_status_edit', compact('productData','customer_get'));
   
     }
 
-   public function productInvoiveStatusListUpdate(Request $request, $id)
-{   
+ public function productInvoiveStatusListUpdate(Request $request,$id)
+{
+    //dd($request->all());
     $request->validate([
-        'amount_paid'=>'required',
-        'payment_status'=>'required',
-        'payment_mode'=>'required',
+        'amount_paid' => 'required',
+        'payment_status' => 'required',
+        'payment_mode' => 'required',
     ]);
-    
     $promoter_id = Auth::user()->id;
+
+    $productData=PaymentStatus::where('promoter_id',$promoter_id)->where('customer_id',$request->customer_id)->where('invoice_id',$request->invoive_id)->first();
+   
     $data = [
         'promoter_id' => $promoter_id,
         'customer_id' => $request->customer_id,
@@ -236,6 +197,8 @@ class ProductController extends Controller
         'amount_due' => $request->amount_due,
         'payment_percentage' => $request->payment_percentage,
         'payment_status' => $request->payment_status,
+        'invoice_id' => $request->invoive_id,
+        'grant_total' =>$productData->grant_total,
     ];
     if ($request->hasFile('payment_prof')) {
         $file = $request->file('payment_prof');
@@ -245,17 +208,13 @@ class ProductController extends Controller
         $data['payment_proof'] = $filePath;
     }
 
-    $paymentStatus = PaymentStatus::where('promoter_id',$promoter_id)->find($id);
-    if (!$paymentStatus) {
-        return redirect()->back()->with('error', 'Payment status not found');
-    }
-
-    $res = $paymentStatus->update($data);
+    $res = PaymentStatus::create($data);
     if ($res) {
-        return redirect()->back()->with('success', 'Payment Update Successfully');
+        return redirect()->back()->with('success', 'Payment Inserted Successfully');
     } else {
-        return redirect()->back()->with('error', 'Error updating payment');
+        return redirect()->back()->with('error', 'Error inserting payment');
     }
 }
+
 
 }

@@ -1,4 +1,4 @@
-@extends('pramoter.layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
 <div class="row card">
@@ -20,13 +20,14 @@
 						<th>Sr.No.</th>
 						<th>Invoice id</th>
 						<th>Customer Name</th>
+						<th>Promoter Name</th>
 						<th width="10%">Grant Total</th>
 						<th>Amount Paid</th>
-						<th>Amound Due</th>
-						<th>Due Payment Percentage</th>
+						<th>Amount Due</th>
+						<th>Payment Percentage</th>
 						<th>Payment Mode</th>
 						<th>Status</th>
-						<th>Action</th>
+						<!-- <th>Action</th> -->
 					</tr>
 				</thead>
 				<tbody>
@@ -34,15 +35,17 @@
 						@foreach($payment_status as $payment)
 							@php
 								$customer=\App\Models\CustomerInvoice::where('id',$payment->customer_id)->first();
+								$promoter=\App\Models\User::where('id',$customer->promoter_id)->first();
 							@endphp	
 							<tr>
 								<td>{{$loop->index+1}}</td>
 								<td>{{$payment->invoice_id}}</td>
 								<td>{{$customer->name}}</td>
-								<td>Rs.{{$payment->grant_total}}</td>
-								<td>Rs.{{$payment->amount_paid}}</td>
-								<td>Rs.{{$payment->amount_due}}</td>
-								<td>{{$payment->payment_percentage}}%</td>
+								<td>{{$promoter->name}}</td>
+								<td>{{$payment->grant_total}}</td>
+								<td>{{$payment->amount_paid}}</td>
+								<td>{{$payment->amount_due}}</td>
+								<td>{{$payment->payment_percentage}}</td>
 								<td>{{$payment->payment_mode}}</td>
 								<td>
 									@if($payment->payment_status=='pending')
@@ -55,9 +58,9 @@
 										<button class="btn btn-danger btn-sm">Fully Paid</button>
 									@endif
 								</td>
-								<td><a href="{{route('payment_status_list_show',$payment->id)}}" class="btn btn-outline-primary btn-sm">View</a>
+								<!-- <td><a href="{{route('payment_status_list_show',$payment->id)}}" class="btn btn-outline-primary btn-sm">View</a>
 									@if($payment->payment_status != 'fully paid')
-								<a href="{{route('payment_status_list_edit',$payment->id)}}" class="btn btn-outline-success btn-sm">Add Pyament Status</a></td>
+								<a href="{{route('payment_status_list_edit',$payment->id)}}" class="btn btn-outline-success btn-sm">Update Pyament Status</a></td> -->
 								@endif
 							</tr>
 						@endforeach

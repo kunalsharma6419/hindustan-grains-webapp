@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <span><strong>Invoice No.</strong>{{ $ordernumber }}</span><br>
-                                <span><strong>Sales Man.</strong>{{ Auth::user()->name }}</span>
+                                <span><strong>Sales Man.</strong>{{ $promoter_name->name }}</span>
 
                             </div>
                             <div class="col-6">

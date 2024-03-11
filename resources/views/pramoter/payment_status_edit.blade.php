@@ -46,8 +46,10 @@
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
+
 					<label>Grand Total Amount of invoice</label>
-                    <input type="text" class="form-control" value="{{$productData->grant_total}}" id="grantTotal" name="grant_total" placeholder="Enter full name..." readonly>
+                    <input type="text" class="form-control" value="{{ is_null($productData->grant_total) ? $productData->grant_total  : $productData->amount_due }}" id="grantTotal" name="grant_total" placeholder="Enter full name..." readonly>
+
                 </div>
 			</div>
 			<div class="col-md-4">
@@ -67,18 +69,18 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Amount Paid</label>
-                    <input type="text" class="form-control" onkeyup="amount(this)" placeholder="Enter Amount..." value="{{$productData->amount_paid}}" name="amount_paid">
+                    <input type="text" class="form-control" onkeyup="amount(this)" placeholder="Enter Amount..." value="" name="amount_paid">
                 </div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Amount Due</label>
-                    <input type="text" class="form-control" id="amountDue" placeholder="" name="amount_due" value="{{$productData->amount_due}}" readonly>
+                    <input type="text" class="form-control" id="amountDue" placeholder="" name="amount_due" value="" readonly>
                 </div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<label>Payment Percentage</label>
+					<label>Due Payment Percentage</label>
                     <input type="text" class="form-control" id="Percentage" placeholder="" name="payment_percentage" value="{{$productData->payment_percentage}}" readonly>
                 </div>
 			</div>
@@ -87,7 +89,7 @@
 					<label>Payment Status</label>
                     <select name="payment_status" class="form-select">
 						<option value="Pending">Pending</option>
-						<option value="Iniated">Iniated</option>
+						<option value="initiated">Initiated</option>
 						<option value="Half paid">Half paid</option>
 						<option value="Fully paid">Fully paid</option>
 					</select>

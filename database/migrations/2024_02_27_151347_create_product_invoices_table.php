@@ -22,7 +22,7 @@ class CreateProductInvoicesTable extends Migration
             $table->integer('quantity');
             $table->decimal('selling_price', 10, 2);
             $table->decimal('total_price', 10, 2);
-            $table->string('invoice_id');
+            $table->string('invoice_id',255);
             $table->softDeletes();                  
             $table->timestamps();
         });

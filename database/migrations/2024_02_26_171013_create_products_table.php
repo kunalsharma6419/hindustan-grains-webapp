@@ -16,8 +16,6 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('promoter_id');
-            $table->foreign('promoter_id')->references('id')->on('users');
             $table->integer('quantity');
             $table->decimal('original_price', 10, 2);
             $table->decimal('selling_price', 10, 2);

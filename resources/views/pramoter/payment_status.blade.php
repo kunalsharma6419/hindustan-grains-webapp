@@ -78,7 +78,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<label>Payment Percentage</label>
+					<label>Due Payment Percentage</label>
                     <input type="text" class="form-control" id="Percentage" placeholder="" name="payment_percentage" readonly>
                 </div>
 			</div>
@@ -87,7 +87,7 @@
 					<label>Payment Status</label>
                     <select name="payment_status" class="form-select">
 						<option value="Pending">Pending</option>
-						<option value="Iniated">Iniated</option>
+						<option value="initiated">Initiated</option>
 						<option value="Half paid">Half paid</option>
 						<option value="Fully paid">Fully paid</option>
 					</select>
