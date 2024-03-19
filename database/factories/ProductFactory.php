@@ -17,12 +17,14 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'quantity' => $this->faker->numberBetween(1, 100),
             'original_price' => $this->faker->randomFloat(2, 1, 1000),
-            'selling_price' => $this->faker->randomFloat(2, 1, 1000),
             'image' => $this->faker->imageUrl(),
             'short_description' => $this->faker->sentence,
             'long_description' => $this->faker->paragraph,
+            'retailer_price'=>$this->faker->randomFloat(2, 1, 1000),
+            'distributer_price'=>$this->faker->randomFloat(2, 1, 1000),
+            'packs_quantity'=>$this->faker->numberBetween(1, 1000),
+            'pack_ingredient_quantity'=>$this->faker->randomFloat(2, 1, 1000),
             'deleted_at' => null,
         ];
     }

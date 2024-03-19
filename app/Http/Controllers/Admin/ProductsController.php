@@ -15,7 +15,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products=Product::orderBy('quantity','ASC')->get();
+        $products=Product::orderBy('id','desc')->get();
         return view('admin.product.index',compact('products'));
     }
 
@@ -41,16 +41,20 @@ class ProductsController extends Controller
             'name' => 'required',
             'quantity' => 'required',
             'original_price' => 'required',
-            'selling_price' => 'required',
+            'ingredient_quantity' => 'required',
+            'retailer_price' => 'required',
+            'distributor_price' => 'required',
             'short_description' => 'required',
             'long_description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming you're uploading an image
         ]);
         $product = new Product();
         $product->name = $validatedData['name'];
-        $product->quantity = $validatedData['quantity'];
+        $product->packs_quantity = $validatedData['quantity'];
+        $product->pack_ingredient_quantity = $validatedData['ingredient_quantity'];
         $product->original_price = $validatedData['original_price'];
-        $product->selling_price = $validatedData['selling_price'];
+        $product->retailer_price = $validatedData['retailer_price'];
+        $product->distributer_price = $validatedData['distributor_price'];
         $product->short_description = $validatedData['short_description'];
         $product->long_description = $validatedData['long_description'];
         if ($request->hasFile('image')) {
@@ -96,22 +100,27 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request->all());
         $validatedData = $request->validate([
-            'name' => 'required',
+           'name' => 'required',
             'quantity' => 'required',
             'original_price' => 'required',
-            'selling_price' => 'required',
+            'ingredient_quantity' => 'required',
+            'retailer_price' => 'required',
+            'distributor_price' => 'required',
             'short_description' => 'required',
             'long_description' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming you're uploading an image
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $product = Product::find($id);
 
         $product->name = $validatedData['name'];
-        $product->quantity = $validatedData['quantity'];
+        $product->packs_quantity = $validatedData['quantity'];
+        $product->pack_ingredient_quantity = $validatedData['ingredient_quantity'];
         $product->original_price = $validatedData['original_price'];
-        $product->selling_price = $validatedData['selling_price'];
+        $product->retailer_price = $validatedData['retailer_price'];
+        $product->distributer_price = $validatedData['distributor_price'];
         $product->short_description = $validatedData['short_description'];
         $product->long_description = $validatedData['long_description'];
 

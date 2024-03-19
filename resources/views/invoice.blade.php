@@ -77,14 +77,7 @@
                 </tr>
             </tbody>
         </table>
-        @php
-            $totalorder = $orderTotal;
-            $discountPercentage = 5;
-            $discountAmount = ($discountPercentage / 100) * $totalorder;
-            $result = $totalorder - $discountAmount;
-            $formattedResult = number_format($result, 2);
-        @endphp
-
+       
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -101,7 +94,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($productData as $product)
+               @foreach ($productData as $product)
+                    @php
+                        $sgst = $customer_get->customer_type == 'distributer' ? 2.5 : 0;
+                        $cgst = $customer_get->customer_type == 'distributer' ? 2.5 : 0;
+                    @endphp
                     <tr>
                         <td class="border-right"><strong>{{ $loop->index + 1 }}.</strong></td>
                         <td class="border-right">{{ $product->quantity }}</td>
@@ -110,13 +107,28 @@
                         <td class="border-right">{{ $product->original_price }}</td>
                         <td class="border-right">{{ $product->selling_price }}</td>
                         <td class="border-right">0</td>
-                        <td class="border-right">2.5</td>
-                        <td class="border-right">2.5</td>
+                        <td class="border-right">{{ $sgst }}</td>
+                        <td class="border-right">{{ $cgst }}</td>
                         <td>{{ $product->total_price }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+       @php
+            $totalorder = $orderTotal;
+            $discountPercentage = $customer_get->customer_type == 'distributer' ? 5 : 0;
+            $discountAmount = ($discountPercentage / 100) * $totalorder;
+            $result = $totalorder - $discountAmount;
+            $formattedResult = number_format($result, 2);
+
+            $sgst = 0;
+            $cgst = 0;
+
+            if ($customer_get->customer_type == 'distributer') {
+                $sgst = ($result * 2.5) / 100;
+                $cgst = ($result * 2.5) / 100;
+            }
+        @endphp
 
         <br>
         <div class="row">

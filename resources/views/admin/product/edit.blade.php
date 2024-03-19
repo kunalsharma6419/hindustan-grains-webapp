@@ -16,13 +16,19 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Product Name</label>
-	                    <input type="text" class="form-control" name="name" value="{{$products->name}}" name="invoive_id" placeholder="Enter full name...">
+	                    <input type="text" class="form-control" name="name" value="{{$products->name}}"  placeholder="Enter full name...">
 	                </div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Quentity</label>
-	                    <input type="number" class="form-control" name="quantity" value="{{$products->quantity}}" name="invoive_id" placeholder="Enter full name...">
+	                    <input type="number" class="form-control" name="quantity" value="{{$products->packs_quantity}}" name="invoive_id" placeholder="Enter full name...">
+	                </div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Ingredient Quentity</label>
+	                    <input type="number" class="form-control" name="ingredient_quantity" value="{{$products->pack_ingredient_quantity}}"  placeholder="Enter full name...">
 	                </div>
 				</div>
 				<div class="col-md-4">
@@ -33,8 +39,14 @@
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<label>Selling Price</label>
-	                    <input type="number" class="form-control" name="selling_price" value="{{$products->selling_price}}" placeholder="Enter full name...">
+						<label>Retailer Price</label>
+	                    <input type="number" class="form-control" name="retailer_price" value="{{$products->retailer_price}}" placeholder="Enter full name...">
+	                </div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Distributer Price</label>
+	                    <input type="number" class="form-control" name="distributor_price" value="{{$products->distributer_price}}" placeholder="Enter full name...">
 	                </div>
 				</div>
 				<div class="col-md-4">

@@ -21,9 +21,11 @@
             <th>#</th>
             <th>Image</th>
             <th>Product</th>
-            <th>Quantity</th>
+            <th>Quantity<br><span style="font-size:10px;color:red;">(Packs No.)</span></th>
+            <th>Ingredient quantity<br><span style="font-size:10px;color:red;">(In grams.)</span></th>
             <th>Original Price</th>
-            <th>Selling Price</th>
+            <th>Retailer Price</th>
+            <th>Distributor Price</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -36,9 +38,11 @@
                   <img src="{{asset($product->image)}}" width="10%" class="img-fluid">
                  </td>
                 <td>{{$product->name}}</td>
-                <td>{{$product->quantity}}</td>
+                <td>{{$product->packs_quantity}}</td>
+                <td>{{$product->pack_ingredient_quantity}}</td>
                 <td>{{$product->original_price}}</td>
-                <td>{{$product->selling_price}}</td>
+                <td>{{$product->retailer_price}}</td>
+                <td>{{$product->distributer_price}}</td>
                 <td>
                   <a href="{{route('product.edit',$product->id)}}" class="btn btn-outline-success btn-sm">Edit</a>
                   <a href="{{route('product.show',$product->id)}}" class="btn btn-outline-primary btn-sm">View</a>
