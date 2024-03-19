@@ -7,14 +7,21 @@ use Illuminate\Http\Request;
 use App\Models\PaymentStatus;
 use App\Models\CustomerInvoice;
 use App\Models\ProductInvoice;
+use App\Models\Product;
 use App\Models\User;
 use Auth;
 
 class AdminController extends Controller
 {
     public function index()
-    {
-        return view('admin.index');
+    {   
+        $user=User::count();
+        $product=Product::count();
+        $ProductInvoice=ProductInvoice::count();
+        $producttotalgrant=ProductInvoice::sum('total_price');
+        $customer=CustomerInvoice::count();
+        $paymentstatus=PaymentStatus::sum('amount_paid');
+        return view('admin.index',compact('user','product','ProductInvoice','customer','producttotalgrant','paymentstatus'));
     }
 
     public function invoiceList()
