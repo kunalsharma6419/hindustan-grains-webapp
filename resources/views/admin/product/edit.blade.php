@@ -22,7 +22,7 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Quentity</label>
-	                    <input type="number" class="form-control" name="quantity" value="{{$products->packs_quantity}}" name="invoive_id" placeholder="Enter full name...">
+	                    <input type="number" class="form-control" name="quantity" value="{{$products->packs_quantity}}"  placeholder="Enter full name...">
 	                </div>
 				</div>
 				<div class="col-md-4">
@@ -34,7 +34,7 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Original Price</label>
-	                    <input type="number" class="form-control" name="original_price" value="{{$products->original_price}}" name="invoive_id" placeholder="Enter full name...">
+	                    <input type="number" class="form-control" name="original_price" value="{{$products->original_price}}"  placeholder="Enter full name...">
 	                </div>
 				</div>
 				<div class="col-md-4">
