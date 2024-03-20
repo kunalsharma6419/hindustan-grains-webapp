@@ -21,7 +21,7 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {   
+    {
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
@@ -30,6 +30,8 @@ class AuthController extends Controller
                 return redirect()->intended('/admin/dashboard');
             } elseif ($user->usertype == 2) {
                 return redirect()->intended('/promoter/home');
+            } else {
+                return redirect()->route('dashboard');
             }
         }
         else{

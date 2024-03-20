@@ -173,18 +173,28 @@
                         @endif
                         <p class="fw-light text-muted mb-0">{{ Auth::user()->email }}</p>
                     </div>
-                    <a class="dropdown-item"><i
-                            class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span
-                            class="badge badge-pill badge-danger">1</span></a>
-                    <a class="dropdown-item"><i
+                    <a class="dropdown-item" href="{{ route('profile.show') }}"><i
+                            class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
+                    {{-- <a class="dropdown-item"><i
                             class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
                     <a class="dropdown-item"><i
                             class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
                         Activity</a>
                     <a class="dropdown-item"><i
-                            class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
-                    <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign
-                        Out</a>
+                            class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a> --}}
+                    {{-- <a class="dropdown-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            <i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign
+                            Out
+                        </form>
+                    </a> --}}
+                    <form method="POST" action="{{ route('logout') }}" class="dropdown-item" x-data>
+                        @csrf
+
+                        <x-jet-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                            <i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>{{ __('Log Out') }}
+                        </x-jet-dropdown-link>
+                    </form>
                 </div>
             </li>
         </ul>

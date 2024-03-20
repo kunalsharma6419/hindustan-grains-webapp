@@ -2,32 +2,33 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin2 </title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="{{asset('assets/vendors/feather/feather.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/vendors/ti-icons/css/themify-icons.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/vendors/typicons/typicons.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/vendors/simple-line-icons/css/simple-line-icons.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="{{asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/js/select.dataTables.min.css')}}">
-  <!-- End plugin css for this page -->
-  <link rel="stylesheet" href="{{asset('assets/vendors/select2/select2.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css')}}">
-  <!-- inject:css -->
-  <link rel="stylesheet" href="{{asset('assets/css/vertical-layout-light/style.css')}}">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hindustan Grains </title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/feather/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/ti-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/typicons/typicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/simple-line-icons/css/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/select.dataTables.min.css') }}">
+    <!-- End plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="images/favicon.png" />
 </head>
+
 <body>
-  <div class="container-scroller">
-    <!-- <div class="row p-0 m-0 proBanner" id="proBanner">
+    <div class="container-scroller">
+        <!-- <div class="row p-0 m-0 proBanner" id="proBanner">
       <div class="col-md-12 p-0 m-0">
         <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
           <div class="ps-lg-1">
@@ -45,37 +46,39 @@
         </div>
       </div>
     </div> -->
-    <!-- partial:partials/_navbar.html -->
-    @include('admin.layouts.navbar')
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_settings-panel.html -->
-      @include('admin.layouts.heading')
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
-     @include('admin.layouts.sidebar')
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          @yield('content')
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
-          </div>
-        </footer>
+        <!-- partial:partials/_navbar.html -->
+        @include('admin.layouts.navbar')
         <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            @include('admin.layouts.heading')
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            @include('admin.layouts.sidebar')
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @yield('content')
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a
+                                href="{{ url('/') }}" target="_blank">Hindustan Grains Admin</a> from
+                            Hybrid Utopia</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2024. All
+                            rights reserved.</span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-@include('admin.layouts.script')
+    <!-- container-scroller -->
+    @include('admin.layouts.script')
 </body>
 
 </html>
-
