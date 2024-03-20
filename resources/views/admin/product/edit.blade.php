@@ -22,31 +22,31 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Quentity</label>
-	                    <input type="number" class="form-control" name="quantity" value="{{$products->packs_quantity}}"  placeholder="Enter full name...">
+	                    <input type="number" class="form-control" name="quantity" value="{{$products->packs_quantity}}"  placeholder="Enter Quentity...">
 	                </div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Ingredient Quentity</label>
-	                    <input type="number" class="form-control" name="ingredient_quantity" value="{{$products->pack_ingredient_quantity}}"  placeholder="Enter full name...">
+	                    <input type="number" class="form-control" name="ingredient_quantity" value="{{$products->pack_ingredient_quantity}}"  placeholder="Enter Ingredient Quentity...">
 	                </div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Original Price</label>
-	                    <input type="number" class="form-control" name="original_price" value="{{$products->original_price}}"  placeholder="Enter full name...">
+	                    <input type="number" class="form-control" name="original_price" value="{{$products->original_price}}"  placeholder="Enter full name..." min="0" max="500">
 	                </div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Retailer Price</label>
-	                    <input type="number" class="form-control" name="retailer_price" value="{{$products->retailer_price}}" placeholder="Enter full name...">
+	                    <input type="number" class="form-control" name="retailer_price" value="{{$products->retailer_price}}" placeholder="Enter full name..." >
 	                </div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
 						<label>Distributer Price</label>
-	                    <input type="number" class="form-control" name="distributor_price" value="{{$products->distributer_price}}" placeholder="Enter full name...">
+	                    <input type="number" class="form-control" name="distributor_price" value="{{$products->distributer_price}}" >
 	                </div>
 				</div>
 				<div class="col-md-4">
