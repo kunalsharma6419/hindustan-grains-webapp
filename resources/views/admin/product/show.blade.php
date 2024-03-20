@@ -18,19 +18,27 @@
 	        <tbody>
 	            <tr>
 	                <td><h3><strong>Product Name</strong></h3></td>
-	                <td><h3>{{$products->invoice_id}}</h3></td>
+	                <td><h3>{{$products->name}}</h3></td>
 	            </tr>
 	            <tr>
-	                <td><strong>Quantity :</strong></td>
-	                <td>{{$products->quantity}}</td>
+	                <td><strong>Quantity <span style="font-size:10px;color:red;">(Packs No.)</span:</strong></td>
+	                <td>{{$products->packs_quantity}}</td>
+	            </tr>
+	            <tr>
+	                <td><strong>Ingredient Quantity<span style="font-size:10px;color:red;">(In grams.) :</strong></td>
+	                <td>{{$products->pack_ingredient_quantity}}</td>
 	            </tr>
 	            <tr>
 	                <td><strong>Origin Price :</strong></td>
 	                <td>{{$products->original_price}}</td>
 	            </tr>
 	            <tr>
-	                <td><strong>Selling Price :</strong></td>
-	                <td>{{$products->selling_price}}</td>
+	                <td><strong>Retailer Price :</strong></td>
+	                <td>{{$products->retailer_price}}</td>
+	            </tr>
+	            <tr>
+	                <td><strong>Distributor Price :</strong></td>
+	                <td>{{$products->distributer_price}}</td>
 	            </tr>
 	            <tr>
 	                <td><strong>Short Description :</strong></td>

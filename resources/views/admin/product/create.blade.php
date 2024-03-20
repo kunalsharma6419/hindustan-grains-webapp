@@ -35,14 +35,26 @@
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
+						<label>Ingrendient Quentity</label>
+	                    <input type="number" class="form-control" name="ingredient_quantity">
+	                </div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
 						<label>Original Price</label>
 	                    <input type="number" class="form-control" name="original_price">
 	                </div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
-						<label>Selling Price</label>
-	                    <input type="number" class="form-control" name="selling_price">
+						<label>Retailer Price</label>
+	                    <input type="number" class="form-control" name="retailer_price">
+	                </div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Distributor Price</label>
+	                    <input type="number" class="form-control" name="distributor_price">
 	                </div>
 				</div>
 				<div class="col-md-4">

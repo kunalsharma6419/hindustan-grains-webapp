@@ -19,7 +19,7 @@ class ProductController extends Controller
         return view('pramoter.my_invoice',compact('product'));
     }
 
-    public function product_Search($id)
+    public function product_Search($id,Request $request)
     {
         $product = Product::find($id);
         return response()->json([
@@ -52,7 +52,7 @@ class ProductController extends Controller
             ]);
             $createdIds[] = $productInvoice->id;
             $product = Product::findOrFail($request->id[$key]);
-            $product->quantity -= $request->quantity[$key];
+            $product->packs_quantity -= $request->quantity[$key];
             $product->save();
         }
         $customer=CustomerInvoice::create([
@@ -62,6 +62,7 @@ class ProductController extends Controller
             'invoice_id'=>$ordernumber,
             'promoter_id'=>$promoter_id,
             'full_address'=>$request->full_address,
+            'customer_type'=>$request->customer_type,
         ]);
         $orderTotal = ProductInvoice::where('promoter_id',$promoter_id)->where('invoice_id', $ordernumber)->sum('total_price');
         $productData = ProductInvoice::join('products', 'product_invoices.product_id', '=', 'products.id')

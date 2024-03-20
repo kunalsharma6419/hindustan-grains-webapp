@@ -47,6 +47,14 @@
                         </div>
                     </div>
                     <div class="col-md-12">
+                        <select class="form-select" onchange="customerType(this)" name="customer_type">
+                            <option>select customer type</option>
+                            <option value="distributer">Distributer</option>
+                            <option value="retailer">Retailer</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-12 mt-2">
                         <select class="js-example-basic-single w-100" onchange="productSearch(this)" name="state">
                             <option>Select Product</option>
                             @foreach($product as $prod)
@@ -59,7 +67,7 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Selling Price</th>
+                                    <th>Original Price</th>
                                     <th>Quantity</th>
                                     <th>Total Price</th>
                                     <th>Action</th>
@@ -86,13 +94,25 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
 <script type="text/javascript">
     function productSearch(id) {
+        var customerType = $('select[name="customer_type"]').val();
         $.ajax({
             url: "product_Search/" + id.value,
             type: 'get',
-            success: function(result) {
-                $('.productcheck tbody').append('<tr><td><input type="hidden" name="id[]" value="'+result.data.id+'"><input type="hidden" name="selling_price[]" value="'+result.data.selling_price+'">' + result.data.name + '</td><td>' + result.data.selling_price + '</td><td><input type="number" name="quantity[]" class="form-control" onkeyup="calculateTotal(this)"></td><td class="totalPrice"></td><td><button onclick="removeRow(this)" class="btn btn-danger btn-sm">Remove</button></td></tr>');  
+            data: { 'customerType': customerType },
+            success: function (result) {
+                var price = customerType == 'distributer' ? result.data.distributer_price : result.data.retailer_price;
+                $('.productcheck tbody').append('<tr><td><input type="hidden" name="id[]" value="' + result.data.id + '"><input type="hidden" name="selling_price[]" value="' + price + '">' + result.data.name + '</td><td>' + price + '</td><td><input type="number" name="quantity[]" class="form-control" onkeyup="calculateTotal(this)"></td><td class="totalPrice"></td><td><button onclick="removeRow(this)" class="btn btn-danger btn-sm">Remove</button></td></tr>');
             }
         });
+    }
+
+
+   function customerType(customerType)
+    {
+        var product_id = $('select[name="state"]').val();
+        if(product_id != 'Select Product') {
+            productSearch({value: product_id});
+        }
     }
 
     function removeRow(button) {
