@@ -110,7 +110,6 @@ class ProductsController extends Controller
             'distributor_price' => 'required',
             'short_description' => 'required',
             'long_description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $product = Product::find($id);

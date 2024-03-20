@@ -20,6 +20,7 @@
 						<th>Sr.No.</th>
 						<th>Invoice id</th>
 						<th>Customer Name</th>
+						<th>Customer Type</th>
 						<th width="10%">Grant Total</th>
 						<th>Amount Paid</th>
 						<th>Amound Due</th>
@@ -39,6 +40,7 @@
 								<td>{{$loop->index+1}}</td>
 								<td>{{$payment->invoice_id}}</td>
 								<td>{{$customer->name}}</td>
+								<td>{{$customer->customer_type}}</td>
 								<td>Rs.{{$payment->grant_total}}</td>
 								<td>Rs.{{$payment->amount_paid}}</td>
 								<td>Rs.{{$payment->amount_due}}</td>

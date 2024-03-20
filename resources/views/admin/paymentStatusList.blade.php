@@ -20,6 +20,7 @@
 						<th>Sr.No.</th>
 						<th>Invoice id</th>
 						<th>Customer Name</th>
+						<th>Customer Type</th>
 						<th>Promoter Name</th>
 						<th width="10%">Grant Total</th>
 						<th>Amount Paid</th>
@@ -41,6 +42,7 @@
 								<td>{{$loop->index+1}}</td>
 								<td>{{$payment->invoice_id}}</td>
 								<td>{{$customer->name}}</td>
+								<td>{{$customer->customer_type}}</td>
 								<td>{{$promoter->name}}</td>
 								<td>{{$payment->grant_total}}</td>
 								<td>{{$payment->amount_paid}}</td>
