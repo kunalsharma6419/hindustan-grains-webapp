@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://kit.fontawesome.com/5c118959dd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="">
+        <Header class=" bg-gradient-to-b from-[#42342E] to-[#44352F]">
+            <div
+                class=" shadow-lg hidden md:flex justify-between items-center gap-2  lg:px-28 p-3 bg-gradient-to-b from-[#42342E] to-[#44352F]">
+                <img class=" w-[60px] h-[60px]" src="Rectangle 1.png" alt="">
+                <div class=" text-[12px] lg:text-[20px] font-[400] text-[#E5E5E5] flex gap-2 lg:gap-5 ">
+                    <p>Home</p>
+                    <p class=" text-white underline decoration-[#9F7A47] font-[600] text">Shop</p>
+                    <p>About us</p>
+                    <p>Contact us</p>
+
+                </div>
+                <div class=" lg:text-[24px] items-center   text-[16px] flex gap-8">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                    <div class=" w-[40px] rounded-full h-[40px] bg-[#FFC857]  flex items-center justify-center">
+                        <i class="fa-solid fa-basket-shopping text-[]" style="color: #000000;"></i>
+                    </div>
+
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+
+                </div>
+            </div>
+            <div class=" flex justify-between mx-14  md:hidden mobile-container">
+
+
+                <img class=" w-[60px] h-[60px] " src="Rectangle 1.png" alt="">
+                <!-- <a href="#home" class="active">Logo</a> -->
+    
+                <div class=" flex mt-5     flex-col  ">
+    
+                        
+                    <i id="menu" onclick="myFunctionh()" class="myLinkshc  fa-solid fa-bars  text-[26px]" style="color: #fcfcfc;"></i>
+                    
+                    <div class="hidden  myLinksh  flex-col  top-0">
+                        <i onclick="mymenu()" class="  fa-solid fa-xmark text-[26px]" style="color: #fcfcfc;"></i>
+                        <div class=" lg:text-[24px] text-white  text-[16px] flex flex-col gap-3">
+                            <div class=" flex flex-col  gap-2">
+    
+                                <a href="Index.html">Home</a>
+                                <a class="  underline decoration-[#9F7A47] font-[600] text"
+                                    href="shopIndex.html">Shop</a>
+                                <a href="#about">About Us</a>
+                                <a href="#Contact">Contact Us</a>
+                            </div>
+                            <div class=" flex gap-2">
+                                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                                <i class="fa-solid fa-basket-shopping" style="color: #f7f7f8;"></i>
+                                <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Header>
+        <!-- <main class="w-full  px- md:px-20 bg-gradient-to-b  from-[#42342E] to-[#6A4E42]  mx-auto px-4 py-8"> -->
+        <!-- <div class="flex mt-32 flex-col lg:flex-row gap-8"></div> -->
+        <main class="w-full px-4  md:px-8 bg-gradient-to-b from-[#42342E] to-[#6A4E42] mx-auto py-8">
+            <div class="flex flex-col md:flex-row gap-8 mt-10  md:w-4/5 mx-auto">
+                <div class="lg:w-2/3">
+                    <div class="flex items-center mb-6 gap-2">
+                        <a href="cart.html"> <i class="fa-solid fa-arrow-left float-left"
+                                style="color: #FFC857;"></i></a>
+                        <h1 class="text-2xl text-white font-semibold">Checkout</h1>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-xl font-semibold mb-4">Shipping Address</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4"><input
+                                class="flex h-10 w-full rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="Full Name"><input
+                                class="flex h-10 w-full rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="Mobile Number"><input
+                                class="flex h-10 w-full rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="Email"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4"><input
+                                class="flex h-10 w-full rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="Pincode"><input
+                                class="flex h-10 w-full rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="City"><input
+                                class="flex h-10 w-full rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="State"></div><textarea
+                            class="flex min-h-[80px] w-full rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                            placeholder="Address"></textarea>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+                        <h2 class="text-xl font-semibold mb-4">Payment Method</h2>
+                        <div class=" flex flex-col gap-3">
+                            <button type="button" role="combobox" aria-controls="radix-:r1e:" aria-expanded="false"
+                                aria-autocomplete="none" dir="ltr" data-state="closed" data-placeholder=""
+                                class="flex h-10 w-full items-center justify-between rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm "
+                                id="payment-upi">
+                                <div class=" flex items-center gap-3">
+                                    <i class="fa-solid fa-mobile-screen" style="color: #2D2D2D;"></i>
+                                    <span style="pointer-events: none;">UPI</span>
+                                </div>
+                                <i id="p1" onclick="myfun()" class="fa-solid fa-angle-down" style="color: #000000;"></i>
+                                <!-- <svg onclick="myfun()" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 opacity-50"
+                                    aria-hidden="true">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg> -->
+
+                            </button>
+                            <div id="drop" class=" ml-5 mt-2 hidden flex flex-col gap-5">
+                                <div class="  flex gap-3">
+                                    <img class=" w-[17px] h-[17px]" src="image 74.png" alt="">
+                                    <p>Google Pay</p>
+                                </div>
+                                <div class=" flex gap-3">
+                                    <img class=" w-[17px] h-[17px]" src="image 75.png" alt="">
+                                    <p>Phone pe</p>
+                                </div>
+                                <div class=" flex gap-3">
+                                    <i class="fa-solid fa-mobile-screen" style="color: #2D2D2D;"></i>
+                                    <p>Other UPI</p>
+                                </div>
+                            </div>
+
+                            <button type="button" role="combobox" aria-controls="radix-:r1f:" aria-expanded="false"
+                                aria-autocomplete="none" dir="ltr" data-state="closed" data-placeholder=""
+                                class="flex h-10 w-full items-center justify-between rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm "
+                                id="payment-card">
+                                <div class=" flex items-center gap-3">
+                                    <i class="fa-regular fa-credit-card" style="color: #2D2D2D;"></i>
+                                    <span style="pointer-events: none;">Credit/Debit Card</span>
+                                </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-4 w-4 opacity-50" aria-hidden="true">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <button type="button" role="combobox" aria-controls="radix-:r1g:" aria-expanded="false"
+                                aria-autocomplete="none" dir="ltr" data-state="closed" data-placeholder=""
+                                class="flex h-10 w-full items-center justify-between rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm "
+                                id="payment-netbanking">
+                                <div class=" flex items-center gap-3">
+                                    <i class="fa-solid fa-building-columns" style="color: #2D2D2D;"></i>
+                                    <span style="pointer-events: none;">Net Banking</span>
+                                </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-4 w-4 opacity-50" aria-hidden="true">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <button type="button" role="combobox" aria-controls="radix-:r1h:" aria-expanded="false"
+                                aria-autocomplete="none" dir="ltr" data-state="closed" data-placeholder=""
+                                class="flex h-10 w-full items-center justify-between rounded-md border border-[#9F6B00] bg-background px-3 py-2 text-sm "
+                                id="payment-cod">
+                                <div class=" flex items-center gap-3">
+                                    <i class="fa-solid fa-money-bill" style="color: #2D2D2D;"></i>
+                                    <span style="pointer-events: none;">Cash on Delivery</span>
+                                </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-4 w-4 opacity-50" aria-hidden="true">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 mt-14">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-xl font-semibold mb-4">Order Details</h2>
+                        <div class="flex justify-between mb-2"><span>Subtotal</span><span>Rs 200/-</span></div>
+                        <div class="flex justify-between mb-4"><span>Shipping</span><span>Rs 50/-</span></div>
+                        <div class="flex justify-between mb-6"><span class="font-semibold">Total Payable
+                                Amount</span><span class="font-semibold">Rs 250/-</span></div>
+                        <a href="orderPlaced.html" class=" bg-[#FFC857] p-5  w-full  flex justify-between gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Place Order</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="bg-gradient-to-b  text-white p-10 from-[#42342E] to-[#44352F] ">
+            <div class=" flex flex-col lg:flex-row  gap-10    lg:px-20  text-[16px] font-[400]">
+                <div class=" flex gap-5 flex-col lg:flex-row   justify-between w-full ">
+                    <div class="flex flex-col px gap-5">
+                        <img class=" w-[70px] h-[70px] lg:w-[130px] lg:h-[130px]" src="/Rectangle 1.png" alt="">
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-phone" style="color: #fafafa;"></i>
+                            <p>+00 1234567890</p>
+
+                        </div>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-regular fa-envelope" style="color: #efeff1;"></i>
+                            <p>Hindustangrains@mail.com</p>
+
+                        </div>
+
+                    </div>
+                    <div class=" flex flex-col gap-1">
+                        <p class=" text-[20px]">Quick Links</p>
+                        <p>Home</p>
+                        <p>Shop</p>
+                        <p>About US</p>
+                        <p>Contact US</p>
+                    </div>
+                    <div class=" flex flex-col gap-1">
+                        <p class=" text-[20px]">Help</p>
+                        <p>Terms of Services</p>
+                        <p>Help & Support</p>
+                        <p>Privacy Policies</p>
+                        <p>My Account</p>
+                    </div>
+                    <div class=" flex flex-col gap-5">
+                        <p class="text-[20px]">Subscribe to our newsletter</p>
+                        <div class=" flex flex-col lg:flex-row  rounded-[8px] w-fit h-fit    ">
+                            <input class=" p-2" type="text" placeholder="Enter your Email Id">
+                            <button
+                                class=" bg-[#FFC857] p-2 lg:p-5   flex justify-between gap-3 lg:gap-10  items-center">
+                                <h1 class=" text-black">Shop Now</h1>
+                                <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        function myfun() {
+            // var p1 = document.getElementById("p1").innerHTML = '<i class="fa-solid fa-angle-up" ></i>';
+
+            var drop = document.getElementById("drop");
+            drop.style.display = (drop.style.display === "none" || drop.style.display === "") ? "block" : " none";
+        }
+       
+        function myFunctionh() {
+            var myLinksh = document.querySelector(".myLinksh");
+            myLinksh.style.display = (myLinksh.style.display === "none" || myLinksh.style.display === "") ? "flex" : "none";
+            var myLinkshc = document.querySelector(".myLinkshc");
+            myLinkshc.style.display = (myLinkshc.style.display === "block" || myLinkshc.style.display === "") ? "none" : "block";
+            
+        }
+        function mymenu(){
+            var menu = document.getElementById("menu");
+            menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+            var myLinksh = document.querySelector(".myLinksh");
+            myLinksh.style.display = (myLinksh.style.display === "none" || myLinksh.style.display === "") ? "flex" : "none";
+        }
+    </script>
+</body>
+
+</html>
