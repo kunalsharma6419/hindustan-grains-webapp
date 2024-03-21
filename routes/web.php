@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\PromoterTargetController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Route::post('/login', [AuthController::class, 'login'])
     ->middleware('guest')
@@ -68,5 +68,5 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::get('promoter/edit/{id}',[PromoterTargetController::class,'edit'])->name('promoter.edit');
     Route::post('promoter/store',[PromoterTargetController::class,'store'])->name('promoter.store');
 
-}); 
+});
 

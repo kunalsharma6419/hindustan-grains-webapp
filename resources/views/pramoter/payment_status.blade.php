@@ -26,6 +26,7 @@
                         </div>
                     @endif
 		<div class="row">
+            <h4 class="card-title">Add Payment Status</h4>
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Invoice No.</label>
@@ -105,7 +106,7 @@
 		</div>
 		</form>
 	</div>
-</div> 
+</div>
 <script type="text/javascript">
 	function amount(amount) {
 	    var granttotal = parseFloat($('#grantTotal').val());
@@ -116,5 +117,5 @@
 	    $('#Percentage').attr('value', percentage.toFixed(2));
 	}
 
-</script> 
+</script>
 @endsection

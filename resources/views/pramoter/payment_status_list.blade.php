@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="row card">
+
         <div class="col-md-12 card-body">
             @if (session('error'))
                 <div class="alert alert-danger">
@@ -13,6 +14,7 @@
                     {{ session('success') }}
                 </div>
             @endif
+            <h4 class="card-title">Invoice Payment Status List</h4>
             <div class="table-responsive">
                 <table class="table table-bordered table-sm">
                     <thead>
@@ -64,7 +66,7 @@
                                             class="btn btn-outline-primary btn-sm">View</a>
                                         @if ($payment->payment_status != 'fully paid')
                                             <a href="{{ route('payment_status_list_edit', $payment->id) }}"
-                                                class="btn btn-outline-success btn-sm">Add Pyament Status</a>
+                                                class="btn btn-outline-success btn-sm">Add Payment Status</a>
                                     </td>
                             @endif
                             </tr>

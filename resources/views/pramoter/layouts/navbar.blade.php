@@ -173,8 +173,8 @@
                         @endif
                         <p class="fw-light text-muted mb-0">{{ Auth::user()->email }}</p>
                     </div>
-                    <a class="dropdown-item" href="{{ route('profile.show') }}"><i
-                            class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
+                    {{-- <a class="dropdown-item" href="{{ route('profile.show') }}"><i
+                            class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a> --}}
                     {{-- <a class="dropdown-item"><i
                             class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
                     <a class="dropdown-item"><i
