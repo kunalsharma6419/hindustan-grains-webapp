@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\PromoterTargetController;
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,6 +68,6 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::get('promoter',[PromoterTargetController::class,'index'])->name('promoter.index');
     Route::get('promoter/edit/{id}',[PromoterTargetController::class,'edit'])->name('promoter.edit');
     Route::post('promoter/store',[PromoterTargetController::class,'store'])->name('promoter.store');
-
+    Route::resource('user',UserController::class);
 });
 
