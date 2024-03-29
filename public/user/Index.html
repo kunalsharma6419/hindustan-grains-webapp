@@ -1,0 +1,1772 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/5c118959dd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="homestyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="homeSwipper.css">
+
+
+</head>
+
+<body class="text-white ">
+    <div class=" flex flex-col">
+        <Header>
+            <div
+                class=" hidden md:flex justify-between items-center gap-2  lg:px-28 p-3 bg-gradient-to-b from-[#42342E] to-[#44352F]">
+                <img class=" w-[60px] h-[60px]" src="Rectangle 1.png" alt="">
+                <div class=" text-[12px] lg:text-[20px] font-[400] text-[#E5E5E5] flex gap-2 lg:gap-5 ">
+                    <a class=" text-white underline decoration-[#9F7A47] font-[600] text" href="homeIndex.html">Home</a>
+                    <a href="shopIndex.html">Shop</a>
+                    <a href="#about">About Us</a>
+                    <a href="#Contact">Contact Us</a>
+
+                </div>
+                <div class=" lg:text-[24px]   text-[16px] flex gap-8">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-basket-shopping" style="color: #f7f7f8;"></i>
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+
+                </div>
+            </div>
+            <div class=" flex justify-between mx-14 md:hidden mobile-container">
+
+
+                <img class=" w-[60px] h-[60px] " src="Rectangle 1.png" alt="">
+                <!-- <a href="#home" class="active">Logo</a> -->
+    
+                <div class=" flex mt-5 flex-col  ">
+    
+                        
+                    <i id="menu" onclick="myFunctionh()" class="myLinkshc  fa-solid fa-bars  text-[26px]" style="color: #fcfcfc;"></i>
+                    
+                    <div class="hidden  myLinksh  flex-col  top-0">
+                        <i onclick="mymenu()" class="  fa-solid fa-xmark text-[26px]" style="color: #fcfcfc;"></i>
+                        <div class=" lg:text-[24px] text-white  text-[16px] flex flex-col gap-3">
+                            <div class=" flex flex-col  gap-2">
+    
+                                <a  class="underline decoration-[#9F7A47] font-[600] " href="Index.html">Home</a>
+                                <a class="  "
+                                    href="shopIndex.html">Shop</a>
+                                <a href="#about">About Us</a>
+                                <a href="#Contact">Contact Us</a>
+                            </div>
+                            <div class=" flex gap-2">
+                                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                                <i class="fa-solid fa-basket-shopping" style="color: #f7f7f8;"></i>
+                                <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Header>
+        <div class=" flex bg-black  lg:-[1170px] flex-col gap-14">
+            <p class="text-center mt-44 lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Discover the Finest
+                Grains, Spices, Dry Fruits & much
+                more!
+            </p>
+            <p class="text-center text-[14px] font-[400]">Delicious, Nutrient-Packed, and Sourced with Care.</p>
+            <div class="container lg:mt-[250px] mt-[450px]">
+                <aside class="carousel  overflow-hidden  ">
+                    <div class="carousel__wrapper ">
+                        <div class="w-[650px] h-[650px] item" id="slide-0"><img src="Ellipse 10.png" alt="" />
+                        </div>
+                        <div class="item  w-[650px] h-[650px] " id="slide-1"><img src="Ellipse 18.png" alt="" />
+                        </div>
+                        <div class="item w-[650px] h-[650px]" id="slide-2"><img src="Ellipse 31.png" alt="" />
+                        </div>
+                        <div class="item w-[650px] h-[650px]" id="slide-3"><img src="Ellipse 10.png" alt="" />
+                        </div>
+                        <div class="item w-[650px] h-[650px]" id="slide-4"><img src="Ellipse 18.png" alt="" />
+                        </div>
+                        <div class="item w-[650px] h-[650px]" id="slide-5"><img src="Ellipse 31.png" alt="" />
+                        </div>
+                        <div class="item w-[650px] h-[650px]" id="slide-6"><img src="Ellipse 10.png" alt="" />
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+
+
+            <img class=" lg:block hidden h-[400px] w-full mx-auto mt-32 " src="Ellipse 35.png" alt="">
+        </div>
+
+
+        <div class=" flex flex-col  gap-2 bg-gradient-to-b from-[#42342E] to-[#6A4E42] ">
+
+
+
+
+            <div class=" mt-20 text-center ">
+
+                <p class=" text-[50px] font-[700]">What we Offer</p>
+                <p class="lg:text-[16px] text-[12px] font-[400]">We connect buyers and sellers of natural, organic,
+                    environmentally
+                    sound products. We find the best suppliers and makers of natural and organic products..</p>
+            </div>
+            <div class="boy ">
+                <div class="swiper-container   text-black">
+                    <div class="swiper mySwiper flex items-center w-[85%] md:w-[90%] ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class="  p-5 w-[280px]  rounded-[8px]  h-[340px] relative  flex flex-col gap-5 items-center justify-center  bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Spices</h1>
+                                    <p class="  text-center">Nature's Nutrient-Rich Staples for a Healthy Lifestyle.
+                                    </p>
+                                    <button class=" bg-[#FFC857] p-5  mb-28 flex gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" swiper-slide rounded-[8px] w-[280px] h-[340px] relative  flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 11.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Rice</h1>
+                                    <p class=" text-center">Discover the World of Exceptional Rice.
+                                    </p>
+                                    <button class=" bg-[#FFC857] p-5  mb-28 flex gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" swiper-slide rounded-[8px] w-[280px] h-[340px] relative  flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 13.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Pulses</h1>
+                                    <p class=" text-center px-4">Protein-Packed Goodness Straight from the Farm.
+                                    </p>
+                                    <button class=" bg-[#FFC857] p-5  mb-28 flex gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" swiper-slide rounded-[8px] w-[280px] h-[340px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 13 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Pasta</h1>
+                                    <p class=" px-4 text-center">Crafting Moments: Artisanal Pasta for the Perfect Meal.
+                                    </p>
+                                    <button class=" bg-[#FFC857] p-5  mb-28 flex gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class="  p-5 w-[280px]  rounded-[8px]  h-[340px] relative  flex flex-col gap-5 items-center justify-center  bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Spices</h1>
+                                    <p class="  text-center">Nature's Nutrient-Rich Staples for a Healthy Lifestyle.
+                                    </p>
+                                    <button class=" bg-[#FFC857] p-5  mb-28 flex gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" swiper-slide rounded-[8px] w-[280px] h-[340px] relative  flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 11.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Rice</h1>
+                                    <p class=" text-center">Discover the World of Exceptional Rice.
+                                    </p>
+                                    <button class=" bg-[#FFC857] p-5  mb-28 flex gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" swiper-slide rounded-[8px] w-[280px] h-[340px] relative  flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 13.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Pulses</h1>
+                                    <p class=" text-center px-4">Protein-Packed Goodness Straight from the Farm.
+                                    </p>
+                                    <button class=" bg-[#FFC857] p-5  mb-28 flex gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" swiper-slide rounded-[8px] w-[280px] h-[340px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 13 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Pasta</h1>
+                                    <p class=" px-4 text-center">Crafting Moments: Artisanal Pasta for the Perfect Meal.
+                                    </p>
+                                    <button class=" bg-[#FFC857] p-5  mb-28 flex gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="  swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+
+            </div>
+
+
+            <p class=" text-center mt-20 text-[20px] font-[700]">Featured Products</p>
+
+            <div class=" mt-32 flex flex-col lg:flex-row mx-auto p-2 lg:px-10 gap-24">
+
+                <div
+                    class="flex justify-between gap-2 item-center rounded-[8px]  h-[300px] lg:h-[350px] p-2 lg:pt-10 lg:px-10 pb-5 bg-[#38302E] border border-[F1BD73]">
+                    <div class="w-[60%] flex flex-col gap-5">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] text-[#FFC56F]">Masoor Dal</p>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+                        <p class="text-[#E0E0E0] lg:text-[16px] text-[12px] font-[400]">Made with contains natural oils
+                            Rich flavor and
+                            provide health benefits</p>
+                        <div class=" flex gap-2">
+                            <img src="Ellipse 43.png" alt="">
+                            <img src="Ellipse 44.png" alt="">
+                            <img src="Ellipse 45.png" alt="">
+                        </div>
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px]font-[700] text-[#FFC56F]">Rs 100/-</p>
+                    </div>
+                    <div class="w-[40%] flex  flex-col justify-center items-center">
+                        <img class="    w-[280px] h-[320px]" src="cdRectangle 11.png" alt="">
+                        <button class=" bg-[#FFC857] p-2 lg:p-2 lg:p-5 mb-44   flex gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Shop Now</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div
+                    class="flex justify-between gap-2 item-center rounded-[8px]  h-[300px] lg:h-[350px] p-2 lg:pt-10 lg:px-10 pb-5 bg-[#38302E] border border-[F1BD73]">
+                    <div class="w-[60%] flex flex-col gap-5">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] text-[#FFC56F]">Masoor Dal</p>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+                        <p class="text-[#E0E0E0] lg:text-[16px] text-[12px] font-[400]">Made with contains natural oils
+                            Rich flavor and
+                            provide health benefits</p>
+                        <div class=" flex gap-2">
+                            <img src="Ellipse 43.png" alt="">
+                            <img src="Ellipse 44.png" alt="">
+                            <img src="Ellipse 45.png" alt="">
+                        </div>
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px]font-[700] text-[#FFC56F]">Rs 100/-</p>
+                    </div>
+                    <div class="w-[40%] flex  flex-col justify-center items-center">
+                        <img class="    w-[280px] h-[320px]" src="cdRectangle 11.png" alt="">
+                        <button class=" bg-[#FFC857] p-2 lg:p-2 lg:p-5 mb-44   flex gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Shop Now</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </button>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class=" mt-32 flex flex-col lg:flex-row mx-auto p-2 lg:px-10 gap-24">
+                <div
+                    class="flex justify-between rounded-[8px] gap-2 item-center h-[300px] lg:h-[350px]  p-2 lg:pt-10 lg:px-10 pb-5 bg-[#38302E] border border-[F1BD73]">
+                    <div class="w-[60%] flex flex-col gap-5">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] text-[#FFC56F]">Ghee</p>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+                        <p class="text-[#E0E0E0] lg:text-[16px] text-[12px] font-[400]">Made with contains natural oils
+                            Rich flavor and
+                            provide health benefits</p>
+                        <div class=" flex gap-2">
+                            <img src="Ellipse 43.png" alt="">
+                            <img src="Ellipse 44.png" alt="">
+                            <img src="Ellipse 45.png" alt="">
+                        </div>
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px]font-[700] text-[#FFC56F]">Rs 100/-</p>
+                    </div>
+                    <div class="w-[40%] flex  flex-col justify-center items-center">
+                        <img class="    w-[280px] h-[320px]" src="Rectangle 11 (1).png" alt="">
+                        <button class=" bg-[#FFC857] p-2 lg:p-5 mb-44   flex gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Shop Now</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </button>
+
+                    </div>
+                </div>
+                <div
+                    class="flex justify-between rounded-[8px] gap-2 item-center h-[300px] lg:h-[350px]  p-2 lg:pt-10 lg:px-10 pb-5 bg-[#38302E] border border-[F1BD73]">
+                    <div class="w-[60%] flex flex-col gap-5">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] text-[#FFC56F]">Fortified Atta
+                        </p>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+                        <p class="text-[#E0E0E0] lg:text-[16px] text-[12px] font-[400]">Made with contains natural oils
+                            Rich flavor and
+                            provide health benefits</p>
+                        <div class=" flex gap-2">
+                            <img src="Ellipse 43.png" alt="">
+                            <img src="Ellipse 44.png" alt="">
+                            <img src="Ellipse 45.png" alt="">
+                        </div>
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px]font-[700] text-[#FFC56F]">Rs 100/-</p>
+                    </div>
+                    <div class="w-[40%] flex  flex-col justify-center items-center">
+                        <img class="    w-[280px] h-[320px]" src="Rectangle 10 (1).png" alt="">
+                        <button class=" bg-[#FFC857] p-2 lg:p-5 mb-44   flex gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Shop Now</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <p class=" text-center mt-20 text-[20px] font-[700]">Shop our Spices</p>
+            <div class="boy ">
+                <div class="swiper-container   text-black">
+                    <div class="swiper mySwiper flex items-center w-[85%] md:w-[90%] ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px]  h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectanglse 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Jeera Cumin</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (2).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Turmeric Powder
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (3).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Red Chilli Powder
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (4).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Garam Masala</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px]  h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectanglse 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Jeera Cumin</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (2).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Turmeric Powder
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (3).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Red Chilli Powder
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (4).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Garam Masala</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="  swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+
+            </div>
+
+            <p class=" text-center mt-20 text-[20px] font-[700]">Shop our Pulses</p>
+            <div class="boy ">
+                <div class="swiper-container   text-black">
+                    <div class="swiper mySwiper flex items-center w-[85%] md:w-[90%] ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10ca.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Toor Dal</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangcale 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Masoor Dal</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="ca.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Kala Chana</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="scs.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Hare Mung</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px]  h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectanglse 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Jeera Cumin</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (2).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Turmeric Powder
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (3).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Red Chilli Powder
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (4).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Garam Masala</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="  swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+
+            </div>
+
+            <p class=" text-center mt-20 text-[20px] font-[700]">Shop our Tea</p>
+            <div class="boy ">
+                <div class="swiper-container   text-black">
+                    <div class="swiper mySwiper flex items-center w-[85%] md:w-[90%] ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (3)ds.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Caramel Spice</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (1)cd.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Spring Lemon</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (2)dc.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Pearl Gold</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10cdcsd.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Drew Tulsi Detox
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px]  h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectanglse 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Jeera Cumin</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (2).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Turmeric Powder
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (3).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Red Chilli Powder
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10 (4).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Garam Masala</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] lg:p-5 p-2  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="  swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+
+            </div>
+
+            <p class=" text-center  mt-20 text-[20px] font-[700]">Shop our Rice</p>
+
+
+            <div class=" hidden  mt-32 lg:flex flex-col lg:flex-row px-10 gap-10">
+
+                <div
+                    class="flex   w-full rounded-[8px] justify-between gap-10 h-fit lg:h-[300px] item-center p-2 lg:p-5 bg-white text-black border border-[F1BD73]">
+                    <div class="w-[40%] flex float-left   flex-col  justify-between">
+                        <img class=" h-[150px] w-[300px]   lg:w-[280px] lg:h-[320px]" src="Rectacsngle 10.png" alt="">
+                        <p class="lg:text-[24px]   lg:text-[16px] text-[12px] font-[700] text-[#B48629]">Rs 100/-</p>
+
+                    </div>
+                    <div class="w-[60%] flex flex-col gap-5">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] ">Everyday Basmati Rice</p>
+                        <p class="text-[14px]  font-[400] ">Made with contains natural oils Rich flavor and provide
+                            health benefits</p>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+
+                        <button
+                            class=" bg-[#FFC857] px-4 py-2 lg:p-5  w-fit h-fit  flex justify-between gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Shop Now</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+                <div
+                    class="flex    w-full rounded-[8px] justify-between gap-10 h-fit lg:h-[300px] item-center p-2 lg:p-5 bg-white text-black border border-[F1BD73]">
+                    <div class="w-[40%] flex float-left   flex-col  justify-between">
+                        <img class=" h-[150px] w-[300px]  lg:w-[280px] lg:h-[320px]" src="csccs.png" alt="">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] text-[#B48629]">Rs 100/-</p>
+
+                    </div>
+                    <div class="w-[60%] flex flex-col gap-5">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] ">Basmati Super Classic</p>
+                        <p class="text-[14px]  font-[400] ">Made with contains natural oils Rich flavor and provide
+                            health benefits</p>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+
+                        <button
+                            class=" bg-[#FFC857] px-4 py-2 lg:p-5  w-fit h-fit  flex justify-between gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Shop Now</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div
+                class=" mt-40 text-black lg:ml-[100px] lg:mr-[100px]  flex lg:hidden flex-col mx-auto lg:flex-row gap-32 lg:gap-5 mx-auto lg:flex-row justify-between   ">
+                <div
+                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                    <img class="  w-[240px] h-[200px]" src="Rectacsngle 10.png" alt="">
+                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Everyday Basmati Rice</h1>
+                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                        health benefits
+                    </p>
+                    <div class=" flex w-full justify-between items-center">
+                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+                    </div>
+                    <button
+                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                        <h1 class=" text-black">Shop Now</h1>
+                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                    </button>
+                </div>
+                <div
+                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                    <img class="  w-[240px] h-[200px]" src="csccs.png" alt="">
+                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Basmati Super Classic</h1>
+                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                        health benefits
+                    </p>
+                    <div class=" flex w-full justify-between items-center">
+                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+                    </div>
+                    <button
+                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                        <h1 class=" text-black">Shop Now</h1>
+                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <p class=" text-center mt-20 text-[20px] font-[700]">Shop our Pasta</p>
+            <div class=" hidden mt-32 lg:flex flex-col lg:flex-row px-10 gap-10">
+
+                <div
+                    class="flex   w-full rounded-[8px] justify-between gap-10 h-fit lg:h-[300px] item-center p-2 lg:p-5 bg-white text-black border border-[F1BD73]">
+                    <div class="w-[40%] flex float-left   flex-col  justify-between">
+                        <img class=" h-[150px] w-[300px]  lg:w-[280px] lg:h-[320px]" src="csdcdsdcd.png" alt="">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] text-[#B48629]">Rs 100/-</p>
+
+                    </div>
+                    <div class="w-[60%] flex flex-col gap-5">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] ">Macaroni Pasta</p>
+                        <p class="text-[14px]  font-[400] ">Made with contains natural oils Rich flavor and provide
+                            health benefits</p>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+
+                        <button
+                            class=" bg-[#FFC857] px-4 py-2 lg:p-5  w-fit h-fit  flex justify-between gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Shop Now</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+                <div
+                    class="flex   w-full rounded-[8px] justify-between gap-10 h-fit lg:h-[300px] item-center p-2 lg:p-5 bg-white text-black border border-[F1BD73]">
+                    <div class="w-[40%] flex float-left   flex-col  justify-between">
+                        <img class=" h-[150px] w-[300px]  lg:w-[280px] lg:h-[320px]" src="Rectandscdsdcgle 10 (1).png"
+                            alt="">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] text-[#B48629]">Rs 100/-</p>
+
+                    </div>
+                    <div class="w-[60%] flex flex-col gap-5">
+                        <p class="lg:text-[24px]  lg:text-[16px] text-[12px] font-[700] ">Rotini Pasta</p>
+                        <p class="text-[14px]  font-[400] ">Made with contains natural oils Rich flavor and provide
+                            health benefits</p>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+
+                        <button
+                            class=" bg-[#FFC857] px-4 py-2 lg:p-5  w-fit h-fit  flex justify-between gap-10 rounded-[8px] items-center">
+                            <h1 class=" text-black">Shop Now</h1>
+                            <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+            <div
+                class=" mt-40 text-black lg:ml-[100px] lg:mr-[100px]  flex lg:hidden flex-col mx-auto lg:flex-row gap-32 lg:gap-5 mx-auto lg:flex-row justify-between   ">
+                <div
+                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                    <img class="  w-[240px] h-[200px]" src="csdcdsdcd.png" alt="">
+                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Macaroni Pasta</h1>
+                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                        health benefits
+                    </p>
+                    <div class=" flex w-full justify-between items-center">
+                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+                    </div>
+                    <button
+                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                        <h1 class=" text-black">Shop Now</h1>
+                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                    </button>
+                </div>
+                <div
+                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                    <img class="  w-[240px] h-[200px]" src="Rectandscdsdcgle 10 (1).png" alt="">
+                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Rotini Pasta</h1>
+                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                        health benefits
+                    </p>
+                    <div class=" flex w-full justify-between items-center">
+                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                            <p class="text-[10px]">4.5</p>
+                        </div>
+                    </div>
+                    <button
+                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                        <h1 class=" text-black">Shop Now</h1>
+                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                    </button>
+                </div>
+
+            </div>
+            <p class=" text-center mt-20 text-[20px] font-[700]">Our Best Selling</p>
+
+            <div class="boy ">
+                <div class="swiper-container   text-black">
+                    <div class="swiper mySwiper flex items-center w-[85%] md:w-[90%] ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectanglse 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Jeera Cumin</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectacsngle 10.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Basmati Rice</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangcale 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Masoor Dal</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10cdcsd.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Caramel Spice Tea
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectanglse 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Jeera Cumin</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectacsngle 10.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Basmati Rice</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangcale 10 (1).png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Masoor Dal</h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" px-5 py-2 rounded-[8px] w-[200px] h-[360px] relative w-[349px] flex flex-col gap-5 items-center justify-center h-[270px] bg-[#F1F3E8]">
+                                    <img class="  w-[240px] h-[200px]" src="Rectangle 10cdcsd.png" alt="">
+                                    <h1 class=" lg:text-[24px]  lg:text-[16px] text-[12px]font-[700]">Caramel Spice Tea
+                                    </h1>
+                                    <p class=" text-center">Made with contains natural oils Rich flavor and provide
+                                        health benefits
+
+                                    </p>
+                                    <div class=" flex w-full justify-between items-center">
+                                        <p class=" text-[20px] font-[700] text-[#B48629]">Rs 100/-</p>
+                                        <div class="flex gap-2 items-center">
+                                            <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
+                                            <p class="text-[10px]">4.5</p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class=" bg-[#FFC857] p-5  w-full mb-28 flex justify-between gap-10 rounded-[8px] items-center">
+                                        <h1 class=" text-black">Shop Now</h1>
+                                        <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="  swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+
+            </div>
+
+            <p class=" text-center mt-20 text-[20px] font-[700]">Our Happy Customers</p>
+            <div class="boy ">
+                <div class="swiper-container   text-black">
+                    <div class="swiper mySwiper flex items-center w-[85%] md:w-[90%] ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" rounded-[8px] relative lg:w-[349px]  w-fit flex flex-col p-5 gap-5 items-center justify-center h-[300px] bg-[#F1F3E8]">
+                                    <div class=" flex mt-2 gap-5 item-center">
+                                        <img src="Ellipse 29.png" alt="">
+                                        <div class=" flex flex-col item-center gap-2">
+                                            <p class=" lg:text-[24px]  lg:text-[16px] text-[12px] mt-20 font-[600]">Amy
+                                                Miller</p>
+                                            <div class="flex gap-2">
+                                                <i class="fa-solid fa-star w-[18px] h-[18px]"
+                                                    style="color: #FFC857"></i>
+                                                <p class="text-[14px]">4.8</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p class="text-[#4E4E4E] mb-20 lg:text-[16px] text-[12px] font-[400]">I'm absolutely
+                                        blown away by
+                                        the quality of
+                                        the
+                                        products from Hindustan Grain. The grains and spices add an incredible depth of
+                                        flavor to my
+                                        dishes. Truly a culinary delight!</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" rounded-[8px] relative lg:w-[349px]  w-fit flex flex-col p-5 gap-5 items-center justify-center h-[300px] bg-[#F1F3E8]">
+                                    <div class=" flex mt-2 gap-5 item-center">
+                                        <img class=" " src="Ellipse 29sdc.png" alt="">
+                                        <div class=" flex flex-col item-center gap-2">
+                                            <p class=" lg:text-[24px]  lg:text-[16px] text-[12px] mt-20 font-[600]">John
+                                                Parker</p>
+                                            <div class="flex gap-2">
+                                                <i class="fa-solid fa-star w-[18px] h-[18px]"
+                                                    style="color: #FFC857"></i>
+                                                <p class="text-[14px]">4.8</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p class="text-[#4E4E4E] mb-20 lg:text-[16px] text-[12px] font-[400]">I'm absolutely
+                                        blown away by
+                                        the quality of
+                                        the
+                                        products from Hindustan Grain. The grains and spices add an incredible depth of
+                                        flavor to my
+                                        dishes. Truly a culinary delight!</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" rounded-[8px] relative lg:w-[349px]  w-fit flex flex-col p-5 gap-5 items-center justify-center h-[300px] bg-[#F1F3E8]">
+                                    <div class=" flex mt-2 gap-5 item-center">
+                                        <img src="Ellipse 29 (1).png" alt="">
+                                        <div class=" flex flex-col item-center gap-2">
+                                            <p class=" lg:text-[24px]  lg:text-[16px] text-[12px] mt-20 font-[600]">
+                                                Linda Smith</p>
+                                            <div class="flex gap-2">
+                                                <i class="fa-solid fa-star w-[18px] h-[18px]"
+                                                    style="color: #FFC857"></i>
+                                                <p class="text-[14px]">4.8</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p class="text-[#4E4E4E] mb-20 lg:text-[16px] text-[12px] font-[400]">I'm absolutely
+                                        blown away by
+                                        the quality of
+                                        the
+                                        products from Hindustan Grain. The grains and spices add an incredible depth of
+                                        flavor to my
+                                        dishes. Truly a culinary delight!</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" rounded-[8px] relative lg:w-[349px]  w-fit flex flex-col p-5 gap-5 items-center justify-center h-[300px] bg-[#F1F3E8]">
+                                    <div class=" flex mt-2 gap-5 item-center">
+                                        <img src="Ellipse 29.png" alt="">
+                                        <div class=" flex flex-col item-center gap-2">
+                                            <p class=" lg:text-[24px]  lg:text-[16px] text-[12px] mt-20 font-[600]">Amy
+                                                Miller</p>
+                                            <div class="flex gap-2">
+                                                <i class="fa-solid fa-star w-[18px] h-[18px]"
+                                                    style="color: #FFC857"></i>
+                                                <p class="text-[14px]">4.8</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p class="text-[#4E4E4E] mb-20 lg:text-[16px] text-[12px] font-[400]">I'm absolutely
+                                        blown away by
+                                        the quality of
+                                        the
+                                        products from Hindustan Grain. The grains and spices add an incredible depth of
+                                        flavor to my
+                                        dishes. Truly a culinary delight!</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" rounded-[8px] relative lg:w-[349px]  w-fit flex flex-col p-5 gap-5 items-center justify-center h-[300px] bg-[#F1F3E8]">
+                                    <div class=" flex mt-2 gap-5 item-center">
+                                        <img class=" " src="Ellipse 29sdc.png" alt="">
+                                        <div class=" flex flex-col item-center gap-2">
+                                            <p class=" lg:text-[24px]  lg:text-[16px] text-[12px] mt-20 font-[600]">John
+                                                Parker</p>
+                                            <div class="flex gap-2">
+                                                <i class="fa-solid fa-star w-[18px] h-[18px]"
+                                                    style="color: #FFC857"></i>
+                                                <p class="text-[14px]">4.8</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p class="text-[#4E4E4E] mb-20 lg:text-[16px] text-[12px] font-[400]">I'm absolutely
+                                        blown away by
+                                        the quality of
+                                        the
+                                        products from Hindustan Grain. The grains and spices add an incredible depth of
+                                        flavor to my
+                                        dishes. Truly a culinary delight!</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" rounded-[8px] relative lg:w-[349px]  w-fit flex flex-col p-5 gap-5 items-center justify-center h-[300px] bg-[#F1F3E8]">
+                                    <div class=" flex mt-2 gap-5 item-center">
+                                        <img src="Ellipse 29 (1).png" alt="">
+                                        <div class=" flex flex-col item-center gap-2">
+                                            <p class=" lg:text-[24px]  lg:text-[16px] text-[12px] mt-20 font-[600]">
+                                                Linda Smith</p>
+                                            <div class="flex gap-2">
+                                                <i class="fa-solid fa-star w-[18px] h-[18px]"
+                                                    style="color: #FFC857"></i>
+                                                <p class="text-[14px]">4.8</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p class="text-[#4E4E4E] mb-20 lg:text-[16px] text-[12px] font-[400]">I'm absolutely
+                                        blown away by
+                                        the quality of
+                                        the
+                                        products from Hindustan Grain. The grains and spices add an incredible depth of
+                                        flavor to my
+                                        dishes. Truly a culinary delight!</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px] ">
+                                <div
+                                    class=" rounded-[8px] relative lg:w-[349px]  w-fit flex flex-col p-5 gap-5 items-center justify-center h-[300px] bg-[#F1F3E8]">
+                                    <div class=" flex mt-2 gap-5 item-center">
+                                        <img src="Ellipse 29.png" alt="">
+                                        <div class=" flex flex-col item-center gap-2">
+                                            <p class=" lg:text-[24px]  lg:text-[16px] text-[12px] mt-20 font-[600]">Amy
+                                                Miller</p>
+                                            <div class="flex gap-2">
+                                                <i class="fa-solid fa-star w-[18px] h-[18px]"
+                                                    style="color: #FFC857"></i>
+                                                <p class="text-[14px]">4.8</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p class="text-[#4E4E4E] mb-20 lg:text-[16px] text-[12px] font-[400]">I'm absolutely
+                                        blown away by
+                                        the quality of
+                                        the
+                                        products from Hindustan Grain. The grains and spices add an incredible depth of
+                                        flavor to my
+                                        dishes. Truly a culinary delight!</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide h-[550px]">
+                                <div
+                                    class=" rounded-[8px] relative lg:w-[349px]  w-fit flex flex-col p-5 gap-5 items-center justify-center h-[300px] bg-[#F1F3E8]">
+                                    <div class=" flex mt-2 gap-5 item-center">
+                                        <img class=" " src="Ellipse 29sdc.png" alt="">
+                                        <div class=" flex flex-col item-center gap-2">
+                                            <p class=" lg:text-[24px]  lg:text-[16px] text-[12px] mt-20 font-[600]">John
+                                                Parker</p>
+                                            <div class="flex gap-2">
+                                                <i class="fa-solid fa-star w-[18px] h-[18px]"
+                                                    style="color: #FFC857"></i>
+                                                <p class="text-[14px]">4.8</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p class="text-[#4E4E4E] mb-20 lg:text-[16px] text-[12px] font-[400]">I'm absolutely
+                                        blown away by
+                                        the quality of
+                                        the
+                                        products from Hindustan Grain. The grains and spices add an incredible depth of
+                                        flavor to my
+                                        dishes. Truly a culinary delight!</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="  swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+
+            </div>
+
+            <div class=" flex flex-col items-center justify-center bgi "
+                style="background-image: url(Rectangle\ 27.png); background-repeat: no-repeat; background-position-x: center; ">
+                <p class="text-center mt-20 text-[34px] font-[400]">Who we are</p>
+                <p class="text-center text-[20px] px-20 font-[400]">The company procures raw material directly from the
+                    centers of produce to maintain uniform taste and quality. The raw material is rst cleaned, dried
+                    and
+                    tested with the help of special machines and labs . It is then carefully grounded into the finished
+                    product passing through various stages.</p>
+                <img class="lg:w-[790px] p-2 lg:h-[452px] mx-auto" src="Rectangle 28.png" alt="">
+
+            </div>
+
+            <p class=" text-center mt-20 text-[20px] font-[700]">Connect with us</p>
+            <div class=" mt-32 mb-10 flex flex-col  lg:flex-row mx-auto gap-5">
+
+                <div class="flex bg-[url('Rectangle 7.png')]  relative justify-between  md:w-[560px] h-[356px] item-center p-5  text-black"
+                    style="background-image: url('Rectangle 7.png')">
+                    <div class="  w-[40%] flex float-left  flex-col ">
+                        <p class=" text-[32px] font-[600]">We’re open</p>
+                        <p class="text-[#ED3237] text-[20px] font-[600]">Mon-Fri : 9am-10pm</p>
+                    </div>
+                    <div class="  w-[40%] flex flex-col h-fit gap-5">
+                        <p class="text-black text-[20px] font-[600]">follow us on:</p>
+                        <div class=" flex gap-5">
+                            <img class="w-[30px] h-[30px]" src="Group 913.png" alt="">
+                            <img class="w-[30px] h-[30px]" src="ig.png" alt="">
+                            <img class="w-[30px] h-[30px]" src="twiter.png" alt="">
+                        </div>
+
+
+                    </div>
+                    <!-- <img class="z-0 top-0 w-[600px] h-[300px] left-0 absolute" src="Rectangle 7.png" alt=""> -->
+
+                </div>
+                <div class="flex  relative justify-between    md:w-[560px] h-[356px] item-center p-5  text-black"
+                    style="background-image: url('Rectangle 6.png');">
+                    <div class=" z-40 w-[40%] flex float-left  flex-col ">
+                        <p class=" text-[32px] font-[600]">Contact us at</p>
+                        <div class=" flex flex-col text-[#ED3237] text-[20px] font-[600] ">
+                            <p class="">+00 1234567890 or</p>
+                            <p>hindustangrain@mail.com</p>
+                        </div>
+
+                    </div>
+
+                    <!-- <img class="z-0 top-0 w-[600px] h-[300px] left-0 absolute" src="Rectangle 7.png" alt=""> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="bg-gradient-to-b  p-10 from-[#42342E] to-[#44352F] ">
+            <div class=" flex flex-col md:flex-row  gap-10    lg:px-20  lg:text-[16px] text-[12px] font-[400]">
+                <div class=" flex gap-5 flex-col lg:flex-row   justify-between w-full ">
+                    <div class="flex flex-col px gap-5">
+                        <img class=" w-[70px] h-[70px] lg:w-[130px] lg:h-[130px]" src="Rectangle 1.png" alt="">
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-solid fa-phone" style="color: #fafafa;"></i>
+                            <p>+00 1234567890</p>
+
+                        </div>
+                        <div class=" flex items-center gap-2">
+                            <i class="fa-regular fa-envelope" style="color: #efeff1;"></i>
+                            <p>Hindustangrains@mail.com</p>
+
+                        </div>
+
+                    </div>
+                    <div class=" flex flex-col gap-1">
+                        <p class=" text-[20px]">Quick Links</p>
+                        <p>Home</p>
+                        <p>Shop</p>
+                        <p>About US</p>
+                        <p>Contact US</p>
+                    </div>
+                </div>
+                <div class=" flex flex-col lg:flex-row  justify-between w-full">
+                    <div class=" flex flex-col gap-1">
+                        <p class=" text-[20px]">Help</p>
+                        <p>Terms of Services</p>
+                        <p>Help & Support</p>
+                        <p>Privacy Policies</p>
+                        <p>My Account</p>
+                    </div>
+                    <div class=" flex flex-col gap-5">
+                        <p class="text-[20px]">Subscribe to our newsletter</p>
+                        <div class=" flex flex-col lg:flex-row  rounded-[8px] w-fit h-fit    ">
+                            <input class=" p-2" type="text" placeholder="Enter your Email Id">
+                            <button
+                                class=" bg-[#FFC857] p-2 lg:p-5   flex justify-between gap-3 lg:gap-10  items-center">
+                                <h1 class=" text-black">Shop Now</h1>
+                                <i class="fa-solid fa-arrow-right" style="color: #9F6B00"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        function myFunction() {
+            var myLinks = document.getElementById("myLinks");
+            myLinks.style.display = (myLinks.style.display === "none" || myLinks.style.display === "") ? "flex" : "none";
+        }
+        function myFunctionh() {
+            var myLinksh = document.querySelector(".myLinksh");
+            myLinksh.style.display = (myLinksh.style.display === "none" || myLinksh.style.display === "") ? "flex" : "none";
+            var myLinkshc = document.querySelector(".myLinkshc");
+            myLinkshc.style.display = (myLinkshc.style.display === "block" || myLinkshc.style.display === "") ? "none" : "block";
+
+        }
+        function mymenu() {
+            var menu = document.getElementById("menu");
+            menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+            var myLinksh = document.querySelector(".myLinksh");
+            myLinksh.style.display = (myLinksh.style.display === "none" || myLinksh.style.display === "") ? "flex" : "none";
+        }
+        var swiper = new Swiper('.mySwiper', {
+            slidesPerView: 3,
+            spaceBetween: 10,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

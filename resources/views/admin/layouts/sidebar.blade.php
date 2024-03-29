@@ -30,5 +30,11 @@
 	      <span class="menu-title">Promoter List</span>
 	    </a>
 	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="{{route('user.index')}}">
+	      <i class="mdi mdi-grid-large menu-icon"></i>
+	      <span class="menu-title">User</span>
+	    </a>
+	  </li>
 	</ul>
 </nav>

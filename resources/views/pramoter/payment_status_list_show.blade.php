@@ -23,6 +23,10 @@
 	                <td><strong>Customer Name :</strong></td>
 	                <td>{{$customer->name}}</td>
 	            </tr>
+                 <tr>
+	                <td><strong>Customer Type :</strong></td>
+	                <td>{{$customer->customer_type}}</td>
+	            </tr>
 	            <tr>
 	                <td><strong>Customer Type :</strong></td>
 	                <td>{{$customer->customer_type}}</td>

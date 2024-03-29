@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\PromoterTargetController;
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use App\Http\Controllers\Admin\PromoterTargetController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Route::post('/login', [AuthController::class, 'login'])
     ->middleware('guest')
@@ -67,6 +68,14 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::get('promoter',[PromoterTargetController::class,'index'])->name('promoter.index');
     Route::get('promoter/edit/{id}',[PromoterTargetController::class,'edit'])->name('promoter.edit');
     Route::post('promoter/store',[PromoterTargetController::class,'store'])->name('promoter.store');
-
-}); 
+    Route::resource('user',UserController::class);
+    Route::get('add_invoive',[AdminController::class,'addInvoice'])->name('admin.addinvoice');
+    Route::get('add_invoive',[AdminController::class,'addInvoice'])->name('admin.addinvoice');
+    Route::post('product_store',[AdminController::class,'addproductStore'])->name('admin.productStore');
+    Route::get('product_Search/{id}',[AdminController::class,'product_Search'])->name('admin.product_Search');
+    Route::get('payment_status/{invoice_id}',[AdminController::class,'addpaymentStatus'])->name('admin.payment_status');
+    Route::post('payment_status/{invoice_id}',[AdminController::class,'addproductInvoiveStatus'])->name('admin.payment_invoice_status');
+    Route::get('payment_status_list_edit/{id}',[AdminController::class,'productInvoiveStatusListEdit'])->name('admin.payment_status_list_edit');
+    Route::post('payment_status_list_update/{id}',[AdminController::class,'productInvoiveStatusListUpdate'])->name('admin.payment_status_list_update');
+});
 

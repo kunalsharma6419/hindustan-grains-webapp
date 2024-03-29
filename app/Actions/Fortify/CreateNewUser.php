@@ -37,6 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             'address' => $input['address'],
             'usertype' => 2,
             'password' => Hash::make($input['password']),
+            
         ]);
         $promoterId = $user->id;
         $targetAmountReceived = 0;
