@@ -80,21 +80,11 @@
                 </div>
 
             </div>
-<<<<<<< HEAD
-        @endif
-        @if (session('success'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('success') }}
-            </div>
-        @endif
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-=======
+
             <img class=" mt-   " src="./user/Rectangle 591.png" alt="">
         </div>
 
     </div>
->>>>>>> d2852ac828ac8eeb015f735df31fc61f740115a8
 
 </body>
 

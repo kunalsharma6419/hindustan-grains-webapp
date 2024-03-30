@@ -30,13 +30,9 @@ class AuthController extends Controller
                 return redirect()->intended('/admin/dashboard');
             } elseif ($user->usertype == 2) {
                 return redirect()->intended('/promoter/home');
-<<<<<<< HEAD
-            }else{
-                return redirect()->intended('home');      
-=======
+
             } else {
                 return redirect()->route('dashboard');
->>>>>>> d2852ac828ac8eeb015f735df31fc61f740115a8
             }
         }
         else{

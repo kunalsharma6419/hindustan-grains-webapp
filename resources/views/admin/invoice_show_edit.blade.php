@@ -3,11 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <h4 class="card-title">Invoice Create</h4>
             <div class="card">
-                <form id="productForm" method="post" action="{{ route('admin.productStore') }}">
+                <form id="productForm" method="post" action="{{ route('invoice_update',$invoice_id) }}">
                     @csrf
+                    
                     <div class="row card-body">
+                        <h4 class="card-title">Invoice Edit</h4>
                         @if (session('error'))
                             <div class="alert alert-danger">
                                 {{ session('error') }}
@@ -29,33 +30,33 @@
                         @endif
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Enter full name...">
+                                <input type="text" class="form-control" value="{{ $customer_get->name }}" name="name" placeholder="Enter full name...">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" name='phone_number'
+                                <input type="text" class="form-control" value="{{ $customer_get->phone_number }}"  name='phone_number'
                                     placeholder="Enter Phone number...">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="gst_number" placeholder="Enter GST...">
+                                <input type="text" class="form-control" value="{{ $customer_get->gst_number }}" name="gst_number" placeholder="Enter GST...">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea class="form-control" rows="3" name="full_address" placeholder="Full Address..." style="height: 7%;"></textarea>
+                                <textarea class="form-control" rows="3" value="{{ $customer_get->full_address }}" name="full_address" placeholder="Full Address..." style="height: 7%;">{{ $customer_get->full_address }}</textarea>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                       <div class="col-md-12">
                             <select class="form-select" onchange="customerType(this)" name="customer_type">
-                                <option>select customer type</option>
-                                <option value="distributer">Distributer</option>
-                                <option value="retailer">Retailer</option>
-
+                                <option>Select customer type</option>
+                                <option value="distributer" {{ $customer_get->customer_type == "distributer" ? "selected" : "" }}>Distributer</option>
+                                <option value="retailer" {{ $customer_get->customer_type == "retailer" ? "selected" : "" }}>Retailer</option>
                             </select>
                         </div>
+
                         <div class="col-md-12 mt-2">
                             <select class="js-example-basic-single w-100" onchange="productSearch(this)" name="state">
                                 <option>Select Product</option>
@@ -63,6 +64,7 @@
                                     <option value="{{ $prod->id }}">{{ $prod->name }}</option>
                                 @endforeach
                             </select>
+
                         </div>
                         <div class="col-md-12 mt-3 ">
                             <table class="table table-bordered productcheck">
@@ -76,7 +78,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Product details will be appended here -->
+                                     @foreach ($productData as $product)
+                                     
+                                        <tr>
+                                            <td class="border-right">
+                                                <input type="hidden" name="id[]" value="{{ $product->id }}">
+                                                <input type="hidden" name="selling_price[]" value="{{ $customer_get->customer_type == 'distributer' ? $product->distributer_price : $product->retailer_price }}">
+                                                {{ $product->name }}</td>
+                                            <td class="border-right">{{ $product->se_price }}</td>
+                                            <td><input type="number" value="{{ $product->quantity }}" name="quantity[]" class="form-control" onkeyup="calculateTotal(this)"></td>
+                                            <td class="border-right totalPrice">
+                                                <input type="hidden" name="totalprice[]" value="{{ $product->total_price }}">{{ $product->total_price }}</td>
+                                            <td><button onclick="removeRow(this)" class="btn btn-danger btn-sm">Remove</button></td></tr>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <div class="m-2">
@@ -91,25 +106,25 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
     <script type="text/javascript">
-        function productSearch(id) {
-            var customerType = $('select[name="customer_type"]').val();
-            $.ajax({
-                url: "product_Search/" + id.value,
-                type: 'get',
-                data: {
-                    'customerType': customerType
-                },
-                success: function(result) {
-                    var price = customerType == 'distributer' ? result.data.distributer_price : result.data
-                        .retailer_price;
-                    $('.productcheck tbody').append('<tr><td><input type="hidden" name="id[]" value="' + result
-                        .data.id + '"><input type="hidden" name="selling_price[]" value="' + price + '">' +
-                        result.data.name + '</td><td>' + price +
-                        '</td><td><input type="number" name="quantity[]" class="form-control" onkeyup="calculateTotal(this)"></td><td class="totalPrice"></td><td><button onclick="removeRow(this)" class="btn btn-danger btn-sm">Remove</button></td></tr>'
-                    );
-                }
-            });
-        }
+       function productSearch(id) {
+        var customerType = $('select[name="customer_type"]').val();
+        var url = "{{ route('admin.product_Search', ':id') }}"; 
+        url = url.replace(':id', id.value); 
+        
+
+        $.ajax({
+            url: url, // Use the updated URL
+            type: 'get',
+            data: {
+                'customerType': customerType
+            },
+            success: function(result) {
+                var price = customerType == 'distributer' ? result.data.distributer_price : result.data.retailer_price;
+                $('.productcheck tbody').append('<tr><td><input type="hidden" name="id[]" value="' + result.data.id + '"><input type="hidden" name="selling_price[]" value="' + price + '">' + result.data.name + '</td><td>' + price + '</td><td><input type="number" name="quantity[]" class="form-control" onkeyup="calculateTotal(this)"></td><td class="totalPrice"></td><td><button onclick="removeRow(this)" class="btn btn-danger btn-sm">Remove</button></td></tr>');
+            }
+        });
+    }
+
 
 
         function customerType(customerType) {
@@ -136,9 +151,9 @@
 
         function submitForm() {
             $('#productForm').submit();
-            $('.productcheck tbody').empty(); // Remove table rows
+            // $('.productcheck tbody').empty(); // Remove table rows
         }
-     
+       
 
     </script>
 

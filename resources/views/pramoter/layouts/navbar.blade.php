@@ -181,18 +181,7 @@
                             class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
                         Activity</a>
                     <a class="dropdown-item"><i
-<<<<<<< HEAD
-                            class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
-                    <form method="POST" action="{{ route('logout') }}" x-data>
-                                @csrf       
-                    <a class="dropdown-item">
 
-                                <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
-                                    <i class="dropdown-item-icon mdi mdi-power text-primary me-2" style="font-size:25px;"></i>{{ __('Log Out') }}
-                                </x-jet-dropdown-link>
-                            </a></form>
-=======
                             class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a> --}}
                     {{-- <a class="dropdown-item">
                         <form method="POST" action="{{ route('logout') }}">
@@ -207,7 +196,6 @@
                             <i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>{{ __('Log Out') }}
                         </x-jet-dropdown-link>
                     </form>
->>>>>>> d2852ac828ac8eeb015f735df31fc61f740115a8
                 </div>
             </li>
         </ul>

@@ -47,6 +47,10 @@ Route::group(['prefix'=>'promoter','middleware'=>['auth','web']],function(){
     Route::get('payment_status_list_show/{id}',[ProductController::class,'productInvoiveStatusListShow'])->name('payment_status_list_show');
     Route::get('payment_status_list_edit/{id}',[ProductController::class,'productInvoiveStatusListEdit'])->name('payment_status_list_edit');
     Route::post('payment_status_list_update/{id}',[ProductController::class,'productInvoiveStatusListUpdate'])->name('payment_status_list_update');
+    Route::get('pro_invoice_show_edit/{invoice_id}',[ProductController::class,'invoiceShowEdit'])->name('pro_invoice_show_edit');
+    Route::post('invoice_show_update/{invoice_id}',[AdminController::class,'invoiceUpdate'])->name('pro_invoice_update');
+
+
     Route::get('logout',[AuthController::class,'logout'])->name('logout');
 });
 
@@ -56,8 +60,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::get('logout',[AuthController::class,'logout'])->name('logout');
     Route::get('invoice_list',[AdminController::class,'invoiceList'])->name('invoice_list');
     Route::get('invoice_show/{invoice_id}',[AdminController::class,'invoiceShow'])->name('invoice_show');
+    Route::get('invoice_show_edit/{invoice_id}',[AdminController::class,'invoiceShowEdit'])->name('invoice_show_edit');
+    Route::post('invoice_show_update/{invoice_id}',[AdminController::class,'invoiceUpdate'])->name('invoice_update');
     Route::get('payment_list_status',[AdminController::class,'paymentStatusList'])->name('payment_list_status');
-
     Route::get('product',[ProductsController::class,'index'])->name('product.index');
     Route::get('product/{id}/edit',[ProductsController::class,'edit'])->name('product.edit');
     Route::get('product/create',[ProductsController::class,'create'])->name('product.create');
@@ -77,5 +82,6 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::post('payment_status/{invoice_id}',[AdminController::class,'addproductInvoiveStatus'])->name('admin.payment_invoice_status');
     Route::get('payment_status_list_edit/{id}',[AdminController::class,'productInvoiveStatusListEdit'])->name('admin.payment_status_list_edit');
     Route::post('payment_status_list_update/{id}',[AdminController::class,'productInvoiveStatusListUpdate'])->name('admin.payment_status_list_update');
+
 });
 
