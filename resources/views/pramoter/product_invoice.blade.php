@@ -1,6 +1,7 @@
 @extends('pramoter.layouts.app')
 
 @section('content')
+
     <div class="row card">
         <div class="card-body">
             <h4 class="card-title">Invoice List</h4>

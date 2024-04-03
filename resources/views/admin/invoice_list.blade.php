@@ -4,6 +4,17 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Invoice List</h4>
+            <a href="{{route('admin.addinvoice')}}" class="btn btn-primary mb-2">Add Invoice</a>
+            @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+            @endif
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered table-sm">
                     <thead>
@@ -30,7 +41,7 @@
                                     <td>{{ $customer->customer_type }}</td>
                                     <td><a href="{{ route('invoice_show', $customer->invoice_id) }}" target="_blank"
                                             class="btn btn-outline-primary btn-sm">Invoice</a>
-                                        <!-- <a href="{{ route('payment_status', $customer->invoice_id) }}" class="btn btn-outline-success btn-sm">Pyament Status</a> -->
+                                        <a href="{{ route('admin.payment_status', $customer->invoice_id) }}" class="btn btn-outline-success btn-sm">Pyament Status</a>
                                     </td>
                                 </tr>
                             @endforeach

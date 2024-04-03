@@ -25,11 +25,11 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 if(Auth::user()->usertype==1)
                 {
-                    return redirect(RouteServiceProvider::HOME);
+                    return redirect('admin/dashboard');
                 }
                 elseif(Auth::user()->usertype==2)
                 {
-                    return redirect(RouteServiceProvider::PROMOTER);
+                    return redirect('promoter/home');
                 }else{
                     return redirect('/');
                 }
