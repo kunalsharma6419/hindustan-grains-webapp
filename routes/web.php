@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\PromoterTargetController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CalculationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,6 +84,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::post('payment_status/{invoice_id}',[AdminController::class,'addproductInvoiveStatus'])->name('admin.payment_invoice_status');
     Route::get('payment_status_list_edit/{id}',[AdminController::class,'productInvoiveStatusListEdit'])->name('admin.payment_status_list_edit');
     Route::post('payment_status_list_update/{id}',[AdminController::class,'productInvoiveStatusListUpdate'])->name('admin.payment_status_list_update');
-
+    Route::get('/calculations', [CalculationController::class,'index'])->name('calculations.index');
+    Route::post('/calculate', [CalculationController::class,'calculate'])->name('calculation.calculate');
 });
 
