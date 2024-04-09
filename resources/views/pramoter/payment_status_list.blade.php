@@ -1,7 +1,6 @@
 @extends('pramoter.layouts.app')
 
 @section('content')
-<<<<<<< HEAD
 <div class="row card">
 	<div class="col-md-12 card-body">
 		@if(session('error'))
@@ -36,7 +35,7 @@
 						@foreach($payment_status as $payment)
 							@php
 								$customer=\App\Models\CustomerInvoice::where('id',$payment->customer_id)->first();
-							@endphp	
+							@endphp
 							<tr>
 								<td>{{$loop->index+1}}</td>
 								<td>{{$payment->invoice_id}}</td>
@@ -53,7 +52,7 @@
 									@elseif($payment->payment_status=='initiated')
 										<button class="btn btn-success btn-sm">Initited</button>
 									@elseif($payment->payment_status=='half paid')
-										<button class="btn btn-info btn-sm">Half Paid</button>	
+										<button class="btn btn-info btn-sm">Half Paid</button>
 									@else
 										<button class="btn btn-danger btn-sm">Fully Paid</button>
 									@endif
@@ -67,10 +66,9 @@
 					@endif
 				</tbody>
 			</table>
-		</div>		
+		</div>
 	</div>
 </div>
-=======
     <div class="row card">
 
         <div class="col-md-12 card-body">
@@ -147,5 +145,4 @@
             </div>
         </div>
     </div>
->>>>>>> d2852ac828ac8eeb015f735df31fc61f740115a8
 @endsection
