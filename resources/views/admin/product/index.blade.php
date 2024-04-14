@@ -5,7 +5,9 @@
         <div class="col-md-12 card-body">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h4 class="card-title">Products List</h4>
-                <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm">Add Product</a>
+                @if(Auth::user()->usertype == 1)
+                    <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm">Add Product</a>
+                @endif
             </div>
             <div class="table-responsive">
                 @if (session('error'))
@@ -47,12 +49,14 @@
                                     <td>{{ $product->retailer_price }}</td>
                                     <td>{{ $product->distributer_price }}</td>
                                     <td>
+                                    @if(Auth::user()->usertype == 1)
                                         <a href="{{ route('product.edit', $product->id) }}"
                                             class="btn btn-outline-success btn-sm">Edit</a>
-                                        <a href="{{ route('product.show', $product->id) }}"
-                                            class="btn btn-outline-primary btn-sm">View</a>
                                         <a href="{{ route('product.delete', $product->id) }}"
                                             class="btn btn-outline-danger btn-sm">Delete</a>
+                                    @endif
+                                        <a href="{{ route('product.show', $product->id) }}"
+                                            class="btn btn-outline-primary btn-sm">View</a>   
                                     </td>
                                 </tr>
                             @endforeach

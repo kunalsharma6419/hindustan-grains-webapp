@@ -21,7 +21,9 @@
     <div class="text-center mt-2">
         <button class="btn btn-primary no-print" onclick="window.print()">Print</button>
         <button class="btn btn-success no-print" onclick="goBack()">Back</button>
-        <a href="{{route('invoice_show_edit',$ordernumber)}}" class="btn btn-danger no-print">Edit</a>
+        @if(Auth::user()->usertype == 1)
+            <a href="{{route('invoice_show_edit',$ordernumber)}}" class="btn btn-danger no-print">Edit</a>
+        @endif
     </div>
     <div class="container mt-5" style="border:1px solid black;">
         <div class="text-left">
