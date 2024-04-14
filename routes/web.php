@@ -36,7 +36,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::group(['prefix'=>'promoter','middleware'=>['auth','web']],function(){
+Route::group(['prefix'=>'promoter','middleware'=>['auth','web','check.promoter']],function(){
     Route::get('home',[AuthController::class, 'home'])->name('home');
     Route::get('add_invoice',[ProductController::class, 'myInvoice'])->name('my_invoice');
     Route::get('product_Search/{id}',[ProductController::class,'product_Search'])->name('product_Search');
@@ -57,7 +57,7 @@ Route::group(['prefix'=>'promoter','middleware'=>['auth','web']],function(){
 });
 
 
-Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
+Route::group(['prefix'=>'admin','middleware'=>['auth','web','check.admin']],function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('dashboard');
     Route::get('logout',[AuthController::class,'logout'])->name('logout');
     Route::get('invoice_list',[AdminController::class,'invoiceList'])->name('invoice_list');
@@ -87,4 +87,25 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::get('/calculations', [CalculationController::class,'index'])->name('calculations.index');
     Route::post('/calculate', [CalculationController::class,'calculate'])->name('calculation.calculate');
 });
+
+Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web','check.manager']], function () {
+    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('invoice_list', [AdminController::class, 'invoiceList'])->name('invoice_list');
+    Route::get('invoice_show/{invoice_id}', [AdminController::class, 'invoiceShow'])->name('invoice_show');
+
+    Route::get('payment_list_status', [AdminController::class, 'paymentStatusList'])->name('payment_list_status');
+
+    Route::get('product', [ProductsController::class, 'index'])->name('product.index');
+    Route::get('product/show/{id}', [ProductsController::class, 'show'])->name('product.show');
+
+    Route::get('promoter', [PromoterTargetController::class, 'index'])->name('promoter.index');
+    
+    Route::get('/calculations', [CalculationController::class,'index'])->name('calculations.index');
+    Route::post('/calculate', [CalculationController::class,'calculate'])->name('calculation.calculate');
+
+    Route::get('user', [UserController::class, 'index'])->name('user.index');
+});
+
 
