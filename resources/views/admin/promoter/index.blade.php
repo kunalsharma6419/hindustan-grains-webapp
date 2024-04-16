@@ -22,8 +22,10 @@
                             <td>{{ $promoter->phone }}</td>
                             <td>{{ $promoter->address }}</td>
                             <td>
-                                <a href="{{ route('promoter.edit', $promoter->id) }}"
-                                    class="btn btn-outline-primary btn-sm">Edit</a>
+                                @if(Auth::user()->usertype == 1)
+                                    <a href="{{ route('promoter.edit', $promoter->id) }}"
+                                        class="btn btn-outline-primary btn-sm">Edit</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

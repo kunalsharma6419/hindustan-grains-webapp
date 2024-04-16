@@ -44,6 +44,7 @@
                               @endif
                             </td>
                             <td>
+                              @if(Auth::user()->usertype == 1)
                                 <a href="{{ route('user.edit', $user->id) }}"
                                     class="btn btn-outline-primary btn-sm">Edit</a>
                                 <form action="{{ route('user.destroy', $user->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this user?');">
@@ -51,7 +52,7 @@
                                   @method('DELETE')
                                   <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
                               </form>
-
+                              @endif
                             </td>
                         </tr>
                         @endif
