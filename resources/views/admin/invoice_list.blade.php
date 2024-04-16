@@ -3,10 +3,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            @if(Auth::user()->usertype == 1)  
             <h4 class="card-title">Invoice List</h4>
             <a href="{{route('admin.addinvoice')}}" class="btn btn-primary mb-2">Add Invoice</a>
-            @endif
             @if(session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
