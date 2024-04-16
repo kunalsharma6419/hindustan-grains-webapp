@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
+    {{ pwa_meta() }}
 </head>
 
 <body>

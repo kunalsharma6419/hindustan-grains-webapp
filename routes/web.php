@@ -88,3 +88,5 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::post('/calculate', [CalculationController::class,'calculate'])->name('calculation.calculate');
 });
 
+\PWA::routes();
+
