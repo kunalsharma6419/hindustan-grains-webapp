@@ -71,15 +71,58 @@ class ManagerController extends Controller
         return view('manager.promoter.index', compact('promoters'));
     }
 
-    public function calculationsIndex()
-    {
-        // Logic for viewing calculations
-    }
-
     public function userIndex()
     {
         $users=User::latest('created_at')->get();
         return view('manager.user.index',compact('users'));
     }
     
+    public function calculationIndex()
+    {
+        $products = Product::all();
+        
+        return view('manager.calculations.index', compact('products'));
+    }
+
+    public function calculate(Request $request)
+    {
+        $request->flash();
+
+        $products = Product::all();
+        
+        $request->validate([
+            'raw_spice_quantity' => 'required|numeric|min:0',
+            'packet_size' => 'required|numeric|min:0',
+        ]);
+
+        $product_quantity =  floatval($request->input('raw_spice_quantity'));
+        $packet_size = floatval($request->input('packet_size'));
+        $packet_unit = $request->input('packet_unit');
+        $product_name = Product::find($request->input('product'))->name;
+        
+        if($packet_unit == 'kg'){
+            $calculated_packets = floor($product_quantity/ $packet_size);
+            $remaining_amount = ($product_quantity*1000) - ($calculated_packets * ($packet_size*1000));
+        }
+        else if($packet_unit == 'g'){
+            $calculated_packets = floor(($product_quantity *1000)/ $packet_size);
+            $remaining_amount = $product_quantity*1000 - ($calculated_packets * $packet_size);
+        }
+
+        return view('manager.calculations.index', compact('calculated_packets','products','product_quantity','packet_size','product_name','packet_unit','remaining_amount'));
+    }
+
+    public function addToStock(Request $request) {
+
+        $productId = $request->input('product_id');
+        $calculatedPackets = $request->input('calculated_packets');
+
+        $product = Product::findOrFail($productId);
+        
+        $product->packs_quantity += (float)$calculatedPackets;
+        $product->save();
+        
+        return response()->json(['message' => 'Quantity updated successfully'], 200);
+    }
+
 }

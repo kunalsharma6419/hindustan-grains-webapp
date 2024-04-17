@@ -95,7 +95,10 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function 
     Route::get('product', [ManagerController::class, 'productIndex'])->name('manager.product.index');
     Route::get('product/show/{id}', [ManagerController::class, 'productShow'])->name('manager.product.show');
     Route::get('promoter', [ManagerController::class, 'promoterIndex'])->name('manager.promoter.index');
-    Route::get('users',[ManagerController::class, 'userIndex'])->name('manager.user.index');    
+    Route::get('users',[ManagerController::class, 'userIndex'])->name('manager.user.index');
+    Route::get('/calculations', [ManagerController::class,'calculationIndex'])->name('manager.calculations.index');
+    Route::post('/calculate', [ManagerController::class,'calculate'])->name('manager.calculation.calculate');
+    Route::post('/stock/add', [ManagerController::class,'addToStock'])->name('manager.stock.add');    
 });
 
 Route::get('logout',[AuthController::class,'logout']);
