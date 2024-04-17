@@ -84,6 +84,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::post('payment_status_list_update/{id}',[AdminController::class,'productInvoiveStatusListUpdate'])->name('admin.payment_status_list_update');
     Route::get('/calculations', [CalculationController::class,'index'])->name('calculations.index');
     Route::post('/calculate', [CalculationController::class,'calculate'])->name('calculation.calculate');
+    Route::post('/stock/add', [CalculationController::class,'addToStock'])->name('stock.add');
 });
 
 Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function () {

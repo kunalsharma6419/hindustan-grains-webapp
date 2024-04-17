@@ -17,6 +17,8 @@ class CalculationController extends Controller
 
     public function calculate(Request $request)
     {
+        $request->flash();
+
         $products = Product::all();
         
         $request->validate([
@@ -39,6 +41,19 @@ class CalculationController extends Controller
         }
 
         return view('admin.calculations.index', compact('calculated_packets','products','product_quantity','packet_size','product_name','packet_unit','remaining_amount'));
+    }
+
+    public function addToStock(Request $request) {
+
+        $productId = $request->input('product_id');
+        $calculatedPackets = $request->input('calculated_packets');
+
+        $product = Product::findOrFail($productId);
+        
+        $product->packs_quantity += (float)$calculatedPackets;
+        $product->save();
+        
+        return response()->json(['message' => 'Quantity updated successfully'], 200);
     }
 
 }
