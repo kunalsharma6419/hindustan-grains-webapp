@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\PromoterTargetController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CalculationController;
+use App\Http\Controllers\Manager\ManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::post('/login', [AuthController::class, 'login'])
-    ->middleware('guest')
-    ->name('login');
+    ->middleware('guest');
+    // ->name('login');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -51,15 +52,12 @@ Route::group(['prefix'=>'promoter','middleware'=>['auth','web']],function(){
     Route::post('payment_status_list_update/{id}',[ProductController::class,'productInvoiveStatusListUpdate'])->name('payment_status_list_update');
     Route::get('pro_invoice_show_edit/{invoice_id}',[ProductController::class,'invoiceShowEdit'])->name('pro_invoice_show_edit');
     Route::post('invoice_show_update/{invoice_id}',[AdminController::class,'invoiceUpdate'])->name('pro_invoice_update');
-
-
-    Route::get('logout',[AuthController::class,'logout'])->name('logout');
 });
 
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
-    Route::get('dashboard',[AdminController::class,'index'])->name('dashboard');
-    Route::get('logout',[AuthController::class,'logout'])->name('logout');
+    Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+    Route::get('logout',[AuthController::class,'logout'])->name('admin.logout');
     Route::get('invoice_list',[AdminController::class,'invoiceList'])->name('invoice_list');
     Route::get('invoice_show/{invoice_id}',[AdminController::class,'invoiceShow'])->name('invoice_show');
     Route::get('invoice_show_edit/{invoice_id}',[AdminController::class,'invoiceShowEdit'])->name('invoice_show_edit');
@@ -86,7 +84,24 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','web']],function(){
     Route::post('payment_status_list_update/{id}',[AdminController::class,'productInvoiveStatusListUpdate'])->name('admin.payment_status_list_update');
     Route::get('/calculations', [CalculationController::class,'index'])->name('calculations.index');
     Route::post('/calculate', [CalculationController::class,'calculate'])->name('calculation.calculate');
+    Route::post('/stock/add', [CalculationController::class,'addToStock'])->name('stock.add');
 });
+
+Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function () {
+    Route::get('dashboard', [ManagerController::class, 'index'])->name('manager.dashboard');
+    Route::get('invoice_list', [ManagerController::class, 'invoiceList'])->name('manager.invoice_list');
+    Route::get('invoice_show/{invoice_id}', [ManagerController::class, 'invoiceShow'])->name('manager.invoice_show');
+    Route::get('payment_list_status', [ManagerController::class, 'paymentStatusList'])->name('manager.payment_list_status');
+    Route::get('product', [ManagerController::class, 'productIndex'])->name('manager.product.index');
+    Route::get('product/show/{id}', [ManagerController::class, 'productShow'])->name('manager.product.show');
+    Route::get('promoter', [ManagerController::class, 'promoterIndex'])->name('manager.promoter.index');
+    Route::get('users',[ManagerController::class, 'userIndex'])->name('manager.user.index');
+    Route::get('/calculations', [ManagerController::class,'calculationIndex'])->name('manager.calculations.index');
+    Route::post('/calculate', [ManagerController::class,'calculate'])->name('manager.calculation.calculate');
+    Route::post('/stock/add', [ManagerController::class,'addToStock'])->name('manager.stock.add');    
+});
+
+Route::get('logout',[AuthController::class,'logout']);
 
 \PWA::routes();
 

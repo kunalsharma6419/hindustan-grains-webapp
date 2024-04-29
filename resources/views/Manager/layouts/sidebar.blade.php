@@ -1,43 +1,43 @@
- <nav class="sidebar sidebar-offcanvas" id="sidebar">
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
 	<ul class="nav">
 	  <li class="nav-item">
-	    <a class="nav-link" href="{{route('admin.dashboard')}}">
+	    <a class="nav-link" href="{{route('manager.dashboard')}}">
 	      <i class="mdi mdi-grid-large menu-icon"></i>
 	      <span class="menu-title">Dashboard</span>
 	    </a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="{{route('invoice_list')}}">
+	    <a class="nav-link" href="{{route('manager.invoice_list')}}">
 	      <i class="mdi mdi-grid-large menu-icon"></i>
 	      <span class="menu-title">Invoice List</span>
 	    </a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="{{route('payment_list_status')}}">
+	    <a class="nav-link" href="{{route('manager.payment_list_status')}}">
 	      <i class="mdi mdi-grid-large menu-icon"></i>
 	      <span class="menu-title">Payment Status List</span>
 	    </a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="{{route('product.index')}}">
+	    <a class="nav-link" href="{{route('manager.product.index')}}">
 	      <i class="mdi mdi-grid-large menu-icon"></i>
 	      <span class="menu-title">Product List</span>
 	    </a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="{{route('promoter.index')}}">
+	    <a class="nav-link" href="{{route('manager.promoter.index')}}">
 	      <i class="mdi mdi-grid-large menu-icon"></i>
 	      <span class="menu-title">Promoter List</span>
 	    </a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="{{route('user.index')}}">
+	    <a class="nav-link" href="{{route('manager.user.index')}}">
 	      <i class="mdi mdi-grid-large menu-icon"></i>
 	      <span class="menu-title">User</span>
 	    </a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="{{route('calculations.index')}}">
+	    <a class="nav-link" href="{{route('manager.calculations.index')}}">
 	      <i class="mdi mdi-grid-large menu-icon"></i>
 	      <span class="menu-title">Packaging Calculator</span>
 	    </a>

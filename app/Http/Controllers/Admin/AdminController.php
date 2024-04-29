@@ -117,16 +117,8 @@ class AdminController extends Controller
 
     public function addpaymentStatus($invoice_id)
     {
-        $promoter_id=Auth::user()->id;
-        $orderTotal = ProductInvoice::where('promoter_id',$promoter_id)->where('invoice_id', $invoice_id)->sum('total_price');
-        $productData = ProductInvoice::join('products', 'product_invoices.product_id', '=', 'products.id')
-                        ->select('products.*', 'product_invoices.quantity', 'product_invoices.total_price')
-                        ->where('product_invoices.invoice_id', $invoice_id)
-                        ->where('product_invoices.promoter_id', $promoter_id)
-                        ->orderBy('id','desc')
-                        ->get();
-        $customer_get=CustomerInvoice::where('promoter_id',$promoter_id)->where('invoice_id',$invoice_id)->first();
-        return view('admin.payment_status', compact('orderTotal','productData','invoice_id','customer_get'));
+        $payment_status=PaymentStatus::orderBy('id','desc')->get();
+        return view('manager.payments.paymentStatusList',compact('payment_status'));
     }
 
     public function addproductInvoiveStatus(Request $request,$invoice_id)

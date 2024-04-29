@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('manager.layouts.app')
 
 @section('content')
     <div class="row card">
@@ -14,7 +14,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <form action="{{ route('calculation.calculate') }}" method="post">
+            <form action="{{ route('manager.calculation.calculate') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="product">Select Product:</label>
@@ -85,7 +85,7 @@
                 var productId = document.getElementById('product').value;
                 var calculatedPackets = document.getElementById('cal_value').textContent;
 
-                axios.post("{{ route('stock.add') }}", {
+                axios.post("{{ route('manager.stock.add') }}", {
                     product_id: productId,
                     calculated_packets: calculatedPackets,
                 })
