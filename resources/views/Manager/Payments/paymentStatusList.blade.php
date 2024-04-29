@@ -1,4 +1,4 @@
-@extends('manager.layouts.app')
+@extends('Manager.layouts.app')
 
 @section('content')
     <div class="row card">
