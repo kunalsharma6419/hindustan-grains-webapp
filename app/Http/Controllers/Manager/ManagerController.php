@@ -22,13 +22,13 @@ class ManagerController extends Controller
         $customer=CustomerInvoice::count();
         $paymentstatus=PaymentStatus::sum('amount_paid');
         // dd($user,$product,$ProductInvoice,$producttotalgrant,$customer,$paymentstatus);
-        return view('manager.index',compact('user','product','ProductInvoice','customer','producttotalgrant','paymentstatus'));
+        return view('Manager.index',compact('user','product','ProductInvoice','customer','producttotalgrant','paymentstatus'));
     }
 
     public function invoiceList()
     {
        $customer_data=CustomerInvoice::orderBy('id','desc')->get();
-        return view('manager.invoices.invoice_list',compact('customer_data'));
+        return view('Manager.invoices.invoice_list',compact('customer_data'));
     }
 
     public function invoiceShow($invoice_id)
@@ -43,19 +43,19 @@ class ManagerController extends Controller
         $promoter_name=User::where('id',$customer_get->promoter_id)->first();
         $englishnumber=$this->numberToWords($orderTotal);
         $ordernumber=$invoice_id;
-        return view('manager.invoices.invoice_show', compact('orderTotal','productData','englishnumber','ordernumber','customer_get','promoter_name'));
+        return view('Manager.invoices.invoice_show', compact('orderTotal','productData','englishnumber','ordernumber','customer_get','promoter_name'));
     }
 
     public function paymentStatusList()
     {
         $payment_status=PaymentStatus::orderBy('id','desc')->get();
-        return view('manager.payments.paymentStatusList',compact('payment_status'));
+        return view('Manager.payments.paymentStatusList',compact('payment_status'));
     }
 
     public function productIndex()
     {
         $products=Product::orderBy('id','desc')->get();
-        return view('manager.products.index',compact('products'));
+        return view('Manager.products.index',compact('products'));
     }
 
     public function productShow($id)
@@ -68,7 +68,7 @@ class ManagerController extends Controller
     {
         $promoters = User::where('id', '!=', Auth::id())->latest()->get();
 
-        return view('manager.promoter.index', compact('promoters'));
+        return view('Manager.promoter.index', compact('promoters'));
     }
 
     public function userIndex()
@@ -77,14 +77,14 @@ class ManagerController extends Controller
                 ->whereNotIn('usertype', [1, 3]) // Exclude usertype 1 and 3
                 ->latest('created_at')
                 ->get();
-        return view('manager.user.index',compact('users'));
+        return view('Manager.user.index',compact('users'));
     }
 
     public function calculationIndex()
     {
         $products = Product::all();
 
-        return view('manager.calculations.index', compact('products'));
+        return view('Manager.calculations.index', compact('products'));
     }
 
     public function calculate(Request $request)
@@ -112,7 +112,7 @@ class ManagerController extends Controller
             $remaining_amount = $product_quantity*1000 - ($calculated_packets * $packet_size);
         }
 
-        return view('manager.calculations.index', compact('calculated_packets','products','product_quantity','packet_size','product_name','packet_unit','remaining_amount'));
+        return view('Manager.calculations.index', compact('calculated_packets','products','product_quantity','packet_size','product_name','packet_unit','remaining_amount'));
     }
 
     public function addToStock(Request $request) {
