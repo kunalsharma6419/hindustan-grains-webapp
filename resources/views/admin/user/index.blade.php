@@ -39,6 +39,8 @@
                                 <strong>Promoter</strong>  
                               @elseif($user->usertype == 1)
                                 <strong>Admin</strong>  
+                              @elseif($user->usertype == 3)
+                                <strong>Manager</strong>
                               @else
                                 <strong>User</strong>  
                               @endif
