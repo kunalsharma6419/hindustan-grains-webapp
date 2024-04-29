@@ -14,7 +14,7 @@ use Auth;
 class ManagerController extends Controller
 {
     public function index()
-    {   
+    {
         $user=User::count();
         $product=Product::count();
         $ProductInvoice=ProductInvoice::count();
@@ -27,7 +27,7 @@ class ManagerController extends Controller
 
     public function invoiceList()
     {
-       $customer_data=CustomerInvoice::orderBy('id','desc')->get(); 
+       $customer_data=CustomerInvoice::orderBy('id','desc')->get();
         return view('manager.invoices.invoice_list',compact('customer_data'));
     }
 
@@ -73,14 +73,17 @@ class ManagerController extends Controller
 
     public function userIndex()
     {
-        $users=User::latest('created_at')->get();
+        $users = User::where('id', '!=', auth()->id()) // Exclude authenticated user's data
+                ->whereNotIn('usertype', [1, 3]) // Exclude usertype 1 and 3
+                ->latest('created_at')
+                ->get();
         return view('manager.user.index',compact('users'));
     }
-    
+
     public function calculationIndex()
     {
         $products = Product::all();
-        
+
         return view('manager.calculations.index', compact('products'));
     }
 
@@ -89,7 +92,7 @@ class ManagerController extends Controller
         $request->flash();
 
         $products = Product::all();
-        
+
         $request->validate([
             'raw_spice_quantity' => 'required|numeric|min:0',
             'packet_size' => 'required|numeric|min:0',
@@ -99,7 +102,7 @@ class ManagerController extends Controller
         $packet_size = floatval($request->input('packet_size'));
         $packet_unit = $request->input('packet_unit');
         $product_name = Product::find($request->input('product'))->name;
-        
+
         if($packet_unit == 'kg'){
             $calculated_packets = floor($product_quantity/ $packet_size);
             $remaining_amount = ($product_quantity*1000) - ($calculated_packets * ($packet_size*1000));
@@ -118,10 +121,10 @@ class ManagerController extends Controller
         $calculatedPackets = $request->input('calculated_packets');
 
         $product = Product::findOrFail($productId);
-        
+
         $product->packs_quantity += (float)$calculatedPackets;
         $product->save();
-        
+
         return response()->json(['message' => 'Quantity updated successfully'], 200);
     }
 
