@@ -25,14 +25,14 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
-        @include('manager.layouts.navbar')
+        @include('Manager.layouts.navbar')
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_settings-panel.html -->
-            @include('manager.layouts.heading')
+            @include('Manager.layouts.heading')
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
-            @include('manager.layouts.sidebar')
+            @include('Manager.layouts.sidebar')
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -56,7 +56,7 @@
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    @include('manager.layouts.script')
+    @include('Manager.layouts.script')
 </body>
 
 </html>
