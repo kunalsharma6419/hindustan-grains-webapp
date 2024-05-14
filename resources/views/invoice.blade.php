@@ -22,9 +22,9 @@
         <button class="btn btn-primary no-print" onclick="window.print()">Print</button>
         <button class="btn btn-success no-print" onclick="goBack()">Back</button>
         @if(Auth::user()->usertype == 1)
-            <a href="{{route('invoice_show_edit',$ordernumber)}}" class="btn btn-danger no-print">Edit</a>      
+            <a href="{{route('invoice_show_edit',$ordernumber)}}" class="btn btn-danger no-print">Edit</a>
         @else
-            <a href="{{route('pro_invoice_show_edit',$ordernumber)}}" class="btn btn-danger no-print">Edit</a>      
+            <a href="{{route('pro_invoice_show_edit',$ordernumber)}}" class="btn btn-danger no-print">Edit</a>
         @endif
     </div>
     <div class="container mt-5" style="border:1px solid black;">
@@ -82,7 +82,7 @@
                 </tr>
             </tbody>
         </table>
-       
+
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -90,7 +90,7 @@
                     <th scope="col">Qty</th>
                     <th scope="col">Product</th>
                     <th scope="col">HSN</th>
-                    <th scope="col">MRP</th>
+                    {{-- <th scope="col">MRP</th> --}}
                     <th scope="col">Rate</th>
                     <th scope="col">Dis.</th>
                     <th scope="col">SGST</th>
@@ -109,8 +109,8 @@
                         <td class="border-right">{{ $product->quantity }}</td>
                         <td class="border-right"><strong>{{ $product->name }}</strong></td>
                         <td class="border-right">333</td>
-                        <td class="border-right">{{ $product->original_price }}</td>
-                        <td class="border-right">{{ $product->selling_price }}</td>
+                        {{-- <td class="border-right">{{ $product->original_price }}</td> --}}
+                        <td class="border-right">{{ $customer_get->customer_type == 'distributer' ? $product->distributor_price : $product->retailer_price }}</td>
                         <td class="border-right">0</td>
                         <td class="border-right">{{ $sgst }}</td>
                         <td class="border-right">{{ $cgst }}</td>
