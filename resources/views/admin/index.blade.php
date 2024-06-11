@@ -8,7 +8,7 @@
       <h5 class="text-center">{{$user??0}}</h5>
     </div>
   </div>
-<div class="col-md-3  mt-3 card text-center">
+  <div class="col-md-3  mt-3 card text-center">
     <div class="card-body">
       <h2>Product</h2>
       <h5 class="text-center">{{$product??0}}</h5>
@@ -38,5 +38,12 @@
       <h5 class="text-center">Rs{{$paymentstatus??0}}</h5>
     </div>
   </div>
-</div>  
-@endsection
+  <div class="col-md-6 mt-3 card text-center">
+    <div class="card-body">
+      <h2>Total {{ $remainingStockValue >= 0 ? 'Loss' : 'Profit' }}</h2>
+      <h5 class="text-center">
+        Rs {{ abs($remainingStockValue ?? 0) }}
+      </h5>
+    </div>
+  </div>
+  @endsection
