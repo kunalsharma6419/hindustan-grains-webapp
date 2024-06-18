@@ -24,6 +24,8 @@ class CreatePromoterSalaryTargetsTable extends Migration
             $table->unsignedDecimal('pending_percent', 10, 2);
             $table->unsignedDecimal('targetdiff', 10, 2);
             $table->string('month', 7);
+            $table->unsignedDecimal('pending_target', 10, 2);
+            $table->unsignedDecimal('previous_monthly_salary_amount_to_paid', 10, 2);
             $table->softDeletes();
             $table->timestamps();
         });
