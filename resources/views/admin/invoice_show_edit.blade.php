@@ -49,7 +49,12 @@
                                 <textarea class="form-control" rows="3" value="{{ $customer_get->full_address }}" name="full_address" placeholder="Full Address..." style="height: 7%;">{{ $customer_get->full_address }}</textarea>
                             </div>
                         </div>
-                       <div class="col-md-12">
+                       <div class="col-md-6">
+                            <div class="form-group">
+                            <input type="date" class="form-control" id="supply_date" name="supply_date" value="{{ $customer_get->supply_date }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <select class="form-select" onchange="customerType(this)" name="customer_type">
                                 <option>Select customer type</option>
                                 <option value="distributer" {{ $customer_get->customer_type == "distributer" ? "selected" : "" }}>Distributer</option>

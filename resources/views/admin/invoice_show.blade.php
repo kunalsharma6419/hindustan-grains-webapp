@@ -65,13 +65,13 @@
                         <div class="row">
                             <div class="col-6">
                                 <span><strong>Invoice No.</strong>{{ $ordernumber }}</span><br>
-                                <span><strong>Sales Man.</strong>{{ $promoter_name->name }}</span>
-
+                                <span><strong>Sales Man.</strong>{{ $promoter_name->name }}</span><br>
+                                <span><strong>Supply Date:</strong> {{ $customer_get->supply_date }}</span><br> 
                             </div>
                             <div class="col-6">
                                 <span><strong>Date:</strong>{{ \Carbon\Carbon::now()->format('d/m/Y') }}</span><br>
-                                <span><strong>Due Date:</strong>{{ \Carbon\Carbon::now()->format('d/m/Y') }}</span>
-
+                                <span><strong>Due Date:</strong>{{ \Carbon\Carbon::now()->format('d/m/Y') }}</span><br>
+                                <span><strong>Status:</strong> {{ $customer_get->status }}</span><br> 
                             </div>
                         </div>
                     </td>

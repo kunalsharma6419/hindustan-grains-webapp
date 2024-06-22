@@ -48,7 +48,12 @@
                                 <textarea class="form-control" rows="3" name="full_address" placeholder="Full Address..." style="height: 7%;"></textarea>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="date" class="form-control" name="supply_date" placeholder="Supply Date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <select class="form-select" onchange="customerType(this)" name="customer_type">
                                 <option>select customer type</option>
                                 <option value="distributer">Distributer</option>

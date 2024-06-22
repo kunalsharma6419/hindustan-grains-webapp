@@ -23,6 +23,8 @@ class CreateCustomerInvoicesTable extends Migration
             $table->string('phone_number');
             $table->string('gst_number');
             $table->string('full_address');
+            $table->string('status')->default('inprogress');
+            $table->date('supply_date'); 
             $table->softDeletes();                          
             $table->timestamps();
         });

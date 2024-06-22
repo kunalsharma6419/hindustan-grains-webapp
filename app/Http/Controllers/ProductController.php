@@ -38,6 +38,7 @@ class ProductController extends Controller
             'name' =>'required',
             'phone_number'=>'required',
             'full_address'=>'required',
+            'supply_date' => 'required|date'
         ]);
         $ordernumber ='A000'.rand(1111, 9999);
         $promoter_id=Auth::user()->id;
@@ -64,6 +65,7 @@ class ProductController extends Controller
             'promoter_id'=>$promoter_id,
             'full_address'=>$request->full_address,
             'customer_type'=>$request->customer_type,
+            'supply_date' => $request->supply_date,
         ]);
         $orderTotal = ProductInvoice::where('promoter_id',$promoter_id)->where('invoice_id', $ordernumber)->sum('total_price');
         $productData = ProductInvoice::join('products', 'product_invoices.product_id', '=', 'products.id')

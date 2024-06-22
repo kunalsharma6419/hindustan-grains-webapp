@@ -66,15 +66,16 @@
                         <h4>GST INVOICE</h4>
                     </td>
                     <td>
-                        <div class="row">
+                    <div class="row">
                             <div class="col-6">
                                 <span><strong>Invoice No.</strong>{{ $ordernumber }}</span><br>
-                                <span><strong>Sales Man.</strong>{{ Auth::user()->name }}</span>
-
+                                <span><strong>Sales Man.</strong>{{ Auth::user()->name }}</span><br>
+                                <span><strong>Supply Date:</strong> {{ $customer_get->supply_date }}</span><br>  
                             </div>
                             <div class="col-6">
                                 <span><strong>Date:</strong>{{ \Carbon\Carbon::now()->format('d/m/Y') }}</span><br>
-                                <span><strong>Due Date:</strong>{{ \Carbon\Carbon::now()->format('d/m/Y') }}</span>
+                                <span><strong>Due Date:</strong>{{ \Carbon\Carbon::now()->format('d/m/Y') }}</span><br>
+                                <span><strong>Status:</strong> {{ $customer_get->status }}</span><br> 
 
                             </div>
                         </div>

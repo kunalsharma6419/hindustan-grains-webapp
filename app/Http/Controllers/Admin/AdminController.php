@@ -71,6 +71,7 @@ class AdminController extends Controller
             'name' => 'required',
             'phone_number' => 'required',
             'full_address' => 'required',
+            'supply_date' => 'required|date'
         ]);
         $ordernumber = 'A000' . rand(1111, 9999);
         $promoter_id = Auth::user()->id;
@@ -89,6 +90,7 @@ class AdminController extends Controller
             $product->packs_quantity -= $request->quantity[$key];
             $product->save();
         }
+        
         $customer = CustomerInvoice::create([
             'name' => $request->name,
             'phone_number' => $request->phone_number,
@@ -97,6 +99,7 @@ class AdminController extends Controller
             'promoter_id' => $promoter_id,
             'full_address' => $request->full_address,
             'customer_type' => $request->customer_type,
+            'supply_date' => $request->supply_date,
         ]);
         $orderTotal = ProductInvoice::where('promoter_id', $promoter_id)->where('invoice_id', $ordernumber)->sum('total_price');
         $productData = ProductInvoice::join('products', 'product_invoices.product_id', '=', 'products.id')
@@ -233,7 +236,6 @@ class AdminController extends Controller
 
     public function invoiceUpdate(Request $request, $invoice_id)
     {
-        // dd($request->all());
         $request->validate([
             'id.*' => 'required|exists:products,id',
             'quantity.*' => 'required|integer|min:1',
@@ -241,6 +243,8 @@ class AdminController extends Controller
             'name' => 'required',
             'phone_number' => 'required',
             'full_address' => 'required',
+            'supply_date' => 'required',
+            'customer_type' => 'required',
         ]);
 
         $productinvo = ProductInvoice::where('invoice_id', $invoice_id)->get();
@@ -265,8 +269,17 @@ class AdminController extends Controller
             $product->packs_quantity -= $request->quantity[$key];
             $product->save();
         }
-        $customer_get = CustomerInvoice::where('invoice_id', $invoice_id)->first();
 
+
+        $customer_get = CustomerInvoice::where('invoice_id', $invoice_id)->first();
+        $customer_get->update([
+            'name' => $request->name,
+            'phone_number' => $request->phone_number,
+            'full_address' => $request->full_address,
+            'supply_date' => $request->supply_date,
+            'gst_number' => $request->gst_number ?? '',
+            'customer_type' => $request->customer_type
+        ]);
         $orderTotal = ProductInvoice::where('promoter_id', $promoter_id)->where('invoice_id', $invoice_id)->sum('total_price');
         $productData = ProductInvoice::join('products', 'product_invoices.product_id', '=', 'products.id')
             ->select('products.*', 'product_invoices.quantity', 'product_invoices.total_price')
@@ -277,4 +290,36 @@ class AdminController extends Controller
         $englishnumber = $this->numberToWords($orderTotal);
         return view('invoice', compact('orderTotal', 'productData', 'englishnumber', 'ordernumber', 'customer_get'));
     }
+
+    public function invoiceStatusUpdate(Request $request)
+    {
+        $request->validate([
+            'invoice_id' => 'required|string',
+            'status' => 'required|string|in:supplied,inprogress,overdue,rejected'
+        ]);
+        
+        $customer_get = CustomerInvoice::where('invoice_id', $request->invoice_id)->first();
+
+        if ($customer_get) {
+            // Check if the supply date has passed and the status is still "in progress"
+            if ($customer_get->supply_date < now()->toDateString() && $request->status == 'inprogress') {
+                $request->status = 'overdue';
+            }
+
+            $customer_get->update([
+                'status' => $request->status
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Status updated successfully'
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invoice not found'
+            ], 404);
+        }
+}
+
 }

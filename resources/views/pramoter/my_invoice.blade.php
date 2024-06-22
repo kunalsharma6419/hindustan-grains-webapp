@@ -48,12 +48,16 @@
                                 <textarea class="form-control" rows="3" name="full_address" placeholder="Full Address..." style="height: 7%;"></textarea>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="date" class="form-control" name="supply_date" placeholder="Supply Date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <select class="form-select" onchange="customerType(this)" name="customer_type">
                                 <option>select customer type</option>
                                 <option value="distributer">Distributer</option>
                                 <option value="retailer">Retailer</option>
-
                             </select>
                         </div>
                         <div class="col-md-12 mt-2">
@@ -64,7 +68,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-12 mt-3 ">
+                        <div class="col-md-12 mt-3">
                             <table class="table table-bordered productcheck">
                                 <thead>
                                     <tr>
@@ -90,9 +94,6 @@
         </div>
     </div>
 
-
-
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
     <script type="text/javascript">
         function productSearch(id) {
@@ -115,7 +116,6 @@
             });
         }
 
-
         function customerType(customerType) {
             var product_id = $('select[name="state"]').val();
             if (product_id != 'Select Product') {
@@ -126,7 +126,7 @@
         }
 
         function removeRow(button) {
-            $(button).closest('tr').remove();
+            $(button).closest('tr').remove();   
         }
 
         function calculateTotal(input) {

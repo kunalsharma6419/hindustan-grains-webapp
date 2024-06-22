@@ -1,5 +1,12 @@
 @extends('Manager.layouts.app')
 
+<style>
+    .invoice-status {
+        min-width: 120px; /* Adjust the width as needed */
+        min-height: 50px;
+    }
+</style>
+
 @section('content')
     <div class="card">
         <div class="card-body">
@@ -23,6 +30,8 @@
                             <th>Promoter Name</th>
                             <th>Customer Name</th>
                             <th>Customer Type</th>
+                            <th>Supply Date</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -38,6 +47,8 @@
                                     <td>{{ $prom_name->name }}</td>
                                     <td>{{ $customer->name }}</td>
                                     <td>{{ $customer->customer_type }}</td>
+                                    <td>{{ $customer->supply_date ?? '' }}</td>
+                                    <td>{{ $customer->status ?? In Progess }}</td>
                                     <td><a href="{{ route('manager.invoice_show', $customer->invoice_id) }}" target="_blank"
                                             class="btn btn-outline-primary btn-sm">Invoice</a>
                                         <a href="{{ route('manager.payment_list_status', $customer->invoice_id) }}" class="btn btn-outline-success btn-sm">Pyament Status</a>
