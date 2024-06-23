@@ -15,27 +15,6 @@
             </div>
             @endif
 
-            @php
-            if ($target === null) {
-            $target = \App\Models\PromoterSalaryTarget::create([
-            'promoter_id' => $promoters->id,
-            'month' => \Carbon\Carbon::now()->format('Y-m'),
-            'target_amount_received' => 0,
-            'target_amount' => 0,
-            'monthly_salary' => 0,
-            'monthly_salary_amount_to_paid' => 0,
-            'pending_percent' => 0,
-            'targetdiff' => 0,
-            ]);
-            }
-
-            $targets = $target->target_amount;
-            $salary = (int) $target->monthly_salary;
-            $amountreceive = $promoters_invoice;
-            $save = ($targets != 0) ? (($targets - $amountreceive) * 100) / $targets : 0;
-            $monthsalary = ($targets != 0) ? ($salary * (100 - $save)) / 100 : $salary;
-            @endphp
-
             <input type="hidden" name="promoter_id" value="{{ $promoters->id ?? null }}">
             <input type="hidden" name="targetdiff" value="{{ $target->targetdiff ?? null }}" id="targetdiff">
             <div class="row">
@@ -49,7 +28,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Monthly Target Amount Received</label>
-                        <input type="text" class="form-control" id="amountTotal" value="{{ $promoters_invoice ?? null }}" name="target_amount_received" readonly>
+                        <input type="text" class="form-control" id="amountTotal" value="{{ $target->target_amount_received ?? null }}" name="target_amount_received" readonly>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -67,13 +46,25 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Montly Salary Amount to be Paid</label>
-                        <input type="text" class="form-control" id="salaryAmount" value="{{ $monthsalary ?? null }}" name="monthly_salary_amount_to_paid" readonly>
+                        <input type="text" class="form-control" id="salaryAmount" value="{{ $target->monthly_salary_amount_to_paid ?? null }}" name="monthly_salary_amount_to_paid" readonly>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label>Previous Montly Salary Amount to be Paid</label>
+                        <input type="text" class="form-control" id="previoussalaryAmount" value="{{ $target->previous_monthly_salary_amount_to_paid ?? null }}" name="previous_monthly_salary_amount_to_paid" readonly>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4">
+                    <div class="form-group">
                         <label>Received percent</label>
                         <input type="text" class="form-control" id="savepercent" value="{{ $target->pending_percent ?? null }}" name="pending_percent" readonly>
+                    </div>
+                </div> -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Pending Target</label>
+                        <input type="text" class="form-control" id="pendingtarget" value="{{ $target->pending_target ?? null }}" name="pending_target" readonly>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -84,7 +75,7 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#targetAmount, #salary').on('keyup', function() {
@@ -104,6 +95,7 @@
                 $('#salaryAmount').val(salaryAmount.toFixed(2));
             }
         });
-    });
-</script>
+    }); -->
+<!-- 
+    </script> -->
 @endsection

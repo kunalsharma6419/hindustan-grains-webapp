@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Models\User;
 use App\Models\PromoterSalaryTarget;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -30,31 +31,34 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        $user= User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'phone' => $input['phone'],
             'address' => $input['address'],
             'usertype' => 2,
             'password' => Hash::make($input['password']),
-            
+
         ]);
         $promoterId = $user->id;
         $targetAmountReceived = 0;
-        $targetAmount = 50000;
-        $monthlySalary = 20000;
+        $targetAmount = 0;
+        $monthlySalary = 0;
         $monthlySalaryAmountToPaid = 0;
-        $pendingPercent =0;
+        $pendingPercent = 0;
         $targetDiff = 0;
+        $current_month = Carbon::now()->format('Y-m');
+
         $promoterSalaryTarget = PromoterSalaryTarget::create(
             [
-                'promoter_id' => $promoterId,   
+                'promoter_id' => $promoterId,
                 'target_amount_received' => $targetAmountReceived,
                 'target_amount' => $targetAmount,
                 'monthly_salary' => $monthlySalary,
                 'monthly_salary_amount_to_paid' => $monthlySalaryAmountToPaid,
                 'pending_percent' => $pendingPercent,
-                'targetdiff' => $targetDiff
+                'targetdiff' => $targetDiff,
+                'month' => $current_month
             ]
         );
 
