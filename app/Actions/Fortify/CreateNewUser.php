@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\PaymentStatus;
 use App\Models\User;
 use App\Models\PromoterSalaryTarget;
 use Carbon\Carbon;
@@ -40,27 +41,21 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
 
         ]);
-        $promoterId = $user->id;
-        $targetAmountReceived = 0;
-        $targetAmount = 0;
-        $monthlySalary = 0;
-        $monthlySalaryAmountToPaid = 0;
-        $pendingPercent = 0;
-        $targetDiff = 0;
-        $current_month = Carbon::now()->format('Y-m');
 
-        $promoterSalaryTarget = PromoterSalaryTarget::create(
-            [
-                'promoter_id' => $promoterId,
-                'target_amount_received' => $targetAmountReceived,
-                'target_amount' => $targetAmount,
-                'monthly_salary' => $monthlySalary,
-                'monthly_salary_amount_to_paid' => $monthlySalaryAmountToPaid,
-                'pending_percent' => $pendingPercent,
-                'targetdiff' => $targetDiff,
-                'month' => $current_month
-            ]
-        );
+        $promoterId = $user->id;
+
+        $target = PromoterSalaryTarget::create([
+            'promoter_id' => $promoterId,
+            'month' => \Carbon\Carbon::now()->format('Y-m'),
+            'target_amount_received' => 0,
+            'target_amount' => 50000,
+            'monthly_salary' => 20000,
+            'monthly_salary_amount_to_paid' => 0,
+            'pending_percent' => 100,
+            'targetdiff' => 50000,
+            'pending_target' => 0,
+            'previous_monthly_salary_amount_to_paid' => 0
+        ]);
 
         return $user;
     }

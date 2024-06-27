@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\PaymentStatusCreated;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PaymentStatus;
@@ -157,8 +158,9 @@ class AdminController extends Controller
             }
             $data['payment_proof'] = json_encode($fileDetails);
         }
-        $res = PaymentStatus::create($data);
-        if ($res) {
+        $paymentStatus = PaymentStatus::create($data);
+        if ($paymentStatus) {
+            event(new PaymentStatusCreated($paymentStatus));
             return redirect()->route('invoice_list')->with('success', 'Pyament Update Successfully');
         } else {
             return redirect()->route('invoice_list')->with('error', 'errors somethinsg');
@@ -209,8 +211,9 @@ class AdminController extends Controller
             $data['payment_proof'] = $filePath;
         }
 
-        $res = PaymentStatus::create($data);
-        if ($res) {
+        $paymentStatus = PaymentStatus::create($data);
+        if ($paymentStatus) {
+            event(new PaymentStatusCreated($paymentStatus));
             return redirect()->back()->with('success', 'Payment Inserted Successfully');
         } else {
             return redirect()->back()->with('error', 'Error inserting payment');

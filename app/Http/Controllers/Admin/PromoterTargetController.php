@@ -27,10 +27,6 @@ class PromoterTargetController extends Controller
         $previous_month = Carbon::now()->subMonth()->format('Y-m');
 
         $promoters = User::findOrFail($id);
-
-        $promoters_invoice = PaymentStatus::where('promoter_id', $promoters->id)
-            ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
-            ->sum('amount_paid');
         
         $target = PromoterSalaryTarget::where('promoter_id', $promoters->id)
             ->where('month', $currentMonth)
@@ -39,63 +35,28 @@ class PromoterTargetController extends Controller
         $previous_target = PromoterSalaryTarget::where('promoter_id', $promoters->id)
             ->where('month', $previous_month)
             ->first();
-
+        
         if (!$target) {
+            if(isset($previous_target) && $previous_target->targetdiff > 0){
+                $pending_target = $previous_target->targetdiff;
+                $previous_monthly_salary_amount_to_paid = $previous_target->monthly_salary_amount_to_paid;
+            }
+            
             $target = PromoterSalaryTarget::create([
                 'promoter_id' => $promoters->id,
                 'month' => \Carbon\Carbon::now()->format('Y-m'),
                 'target_amount_received' => 0,
-                'target_amount' => 0,
-                'monthly_salary' => 0,
+                'target_amount' => 50000,
+                'monthly_salary' => 20000,
                 'monthly_salary_amount_to_paid' => 0,
-                'pending_percent' => 0,
-                'targetdiff' => 0,
-                'pending_target' => 0,
-                'previous_monthly_salary_amount_to_paid' => 0
+                'pending_percent' => 100,
+                'targetdiff' => 50000,
+                'pending_target' => $pending_target ?? 0,
+                'previous_monthly_salary_amount_to_paid' => $previous_monthly_salary_amount_to_paid ?? 0
             ]);
-        }
-
-        if ($previous_target) {
-            $pending_target = $previous_target->targetdiff;
-            $target->pending_target = $pending_target;
-
-            if ($pending_target > 0) {
-                $remaining_target = $pending_target - $promoters_invoice;
-
-                if ($remaining_target <= 0) {
-                    $target->previous_monthly_salary_amount_to_paid = ($pending_target * $previous_target->monthly_salary / $previous_target->target_amount) + $previous_target->monthly_salary_amount_to_paid;
-                    $target->target_amount_received = abs($remaining_target);
-                    $target->pending_target = 0;
-                    $target->targetdiff = $target->target_amount - $target->target_amount_received;
-                    if ($target->target_amount != 0) {
-                        $target->monthly_salary_amount_to_paid = abs($remaining_target) * $target->monthly_salary / $target->target_amount;
-                    }else{
-                        $target->monthly_salary_amount_to_paid = 0;
-                    }
-                    $previous_target->target_amount_received += $pending_target;
-                    $previous_target->targetdiff = $previous_target->target_amount - $previous_target->target_amount_received;
-                } else {
-                    $target->previous_monthly_salary_amount_to_paid = $promoters_invoice * $previous_target->monthly_salary / $previous_target->target_amount + $previous_target->monthly_salary_amount_to_paid;
-                    $target->pending_target = $remaining_target;
-                    $previous_target->target_amount_received += $promoters_invoice;
-                    $previous_target->targetdiff = $previous_target->target_amount - $previous_target->target_amount_received;
-                }
             }
-        } else {
-            $target->target_amount_received = $promoters_invoice;
-
-            if ($target->target_amount != 0) {
-                $target->monthly_salary_amount_to_paid = $target->target_amount_received * $target->monthly_salary / $target->target_amount;
-            } else {
-                $target->monthly_salary_amount_to_paid = 0;
-            }
-            $target->targetdiff = $target->target_amount - $target->target_amount_received;
-        }
-
-        $previous_target->save();
-        $target->save();    
-
-        return view('admin.promoter.edit', compact('promoters', 'promoters_invoice', 'target'));
+            
+            return view('admin.promoter.edit', compact('promoters','target'));
     }
 
 

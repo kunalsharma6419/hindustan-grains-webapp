@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PaymentStatusCreated;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductInvoice;
@@ -145,8 +146,10 @@ class ProductController extends Controller
             }
             $data['payment_proof']= json_encode($fileDetails);
         }
-        $res=PaymentStatus::create($data);
-        if($res){
+        $paymentStatus=PaymentStatus::create($data);
+
+        if($paymentStatus){
+            event(new PaymentStatusCreated($paymentStatus));
             return redirect()->route('product_invoice')->with('success','Pyament Update Successfully');
         }else{
             return redirect()->route('product_invoice')->with('error','errors somethinsg');
@@ -213,8 +216,10 @@ class ProductController extends Controller
         $data['payment_proof'] = $filePath;
     }
 
-    $res = PaymentStatus::create($data);
-    if ($res) {
+    $paymentStatus = PaymentStatus::create($data);
+
+    if ($paymentStatus) {
+        event(new PaymentStatusCreated($paymentStatus));
         return redirect()->back()->with('success', 'Payment Inserted Successfully');
     } else {
         return redirect()->back()->with('error', 'Error inserting payment');
