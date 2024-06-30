@@ -48,7 +48,9 @@
                                     <td>{{ $customer->name }}</td>
                                     <td>{{ $customer->customer_type }}</td>
                                     <td>{{ $customer->supply_date ?? '' }}</td>
-                                    <td>{{ $customer->status ?? In Progess }}</td>
+                                    <td class="invoice-status" data-status="{{ $customer->status }}">
+                                        {{ ucfirst($customer->status) }}
+                                    </td>
                                     <td><a href="{{ route('manager.invoice_show', $customer->invoice_id) }}" target="_blank"
                                             class="btn btn-outline-primary btn-sm">Invoice</a>
                                         <a href="{{ route('manager.payment_list_status', $customer->invoice_id) }}" class="btn btn-outline-success btn-sm">Pyament Status</a>
@@ -62,4 +64,37 @@
 
         </div>
     </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Function to update the cell color based on status
+        function updateStatusColor(element) {
+            var status = element.data('status');
+            switch (status) {
+                case 'inprogress':
+                    element.css('background-color', 'yellow').css('color', 'black');
+                    break;
+                case 'supplied':
+                    element.css('background-color', 'green').css('color', 'black');
+                    break;
+                case 'rejected':
+                    element.css('background-color', 'red').css('color', 'black');
+                    break;
+                case 'overdue':
+                    element.css('background-color', 'orange').css('color', 'black');
+                    break;
+                default:
+                    element.css('background-color', '').css('color', 'black');
+                    break;
+            }
+        }
+
+        // Initialize status colors on page load
+        $('.invoice-status').each(function() {
+            updateStatusColor($(this));
+        });
+    });
+</script>
 @endsection
+

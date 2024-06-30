@@ -304,11 +304,6 @@ class AdminController extends Controller
         $customer_get = CustomerInvoice::where('invoice_id', $request->invoice_id)->first();
 
         if ($customer_get) {
-            // Check if the supply date has passed and the status is still "in progress"
-            if ($customer_get->supply_date < now()->toDateString() && $request->status == 'inprogress') {
-                $request->status = 'overdue';
-            }
-
             $customer_get->update([
                 'status' => $request->status
             ]);

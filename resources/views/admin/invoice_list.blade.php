@@ -101,15 +101,15 @@
             }
 
             // Check for overdue statuses on page load
-            $('tr[data-invoice-id]').each(function() {
-                var supplyDate = $(this).data('supply-date');
-                var status = $(this).data('status');
-                var invoiceId = $(this).data('invoice-id');
+            // $('tr[data-invoice-id]').each(function() {
+            //     var supplyDate = $(this).data('supply-date');
+            //     var status = $(this).data('status');
+            //     var invoiceId = $(this).data('invoice-id');
 
-                if (supplyDate && new Date(supplyDate) < new Date() && status === 'inprogress') {
-                    updateStatus(invoiceId, 'overdue', false);
-                }
-            });
+            //     if (supplyDate && new Date(supplyDate) < new Date() && status === 'inprogress') {
+            //         updateStatus(invoiceId, 'overdue', false);
+            //     }
+            // });
 
             // Change event handler for the status dropdown
             $('.invoice-status').change(function() {
