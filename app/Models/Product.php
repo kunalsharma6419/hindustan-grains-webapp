@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table='products';
+    protected $table = 'products';
     protected $guarded = [];
+
+    public static function calculateTotalStockValue()
+    {
+        return self::sum(\DB::raw('original_price * packs_quantity'));
+    }
 }
