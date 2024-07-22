@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductInvoice;
+use App\Models\PaymentStatus;
+use DB;
 
 class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -22,7 +25,7 @@ class ProductsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -33,13 +36,15 @@ class ProductsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required',
             'quantity' => 'required',
+            'raw_price' => 'required',
+            'packaging_price' => 'required',
             'original_price' => 'required',
             'ingredient_quantity' => 'required',
             'retailer_price' => 'required',
@@ -52,6 +57,8 @@ class ProductsController extends Controller
         $product->name = $validatedData['name'];
         $product->packs_quantity = $validatedData['quantity'];
         $product->pack_ingredient_quantity = $validatedData['ingredient_quantity'];
+        $product->raw_price = $validatedData['raw_price'];
+        $product->packaging_price = $validatedData['packaging_price'];
         $product->original_price = $validatedData['original_price'];
         $product->retailer_price = $validatedData['retailer_price'];
         $product->distributer_price = $validatedData['distributor_price'];
@@ -67,11 +74,12 @@ class ProductsController extends Controller
         $product->save();
         return redirect()->route('product.index')->with('success', 'Product created successfully.');
     }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function show($id)
     {
@@ -83,7 +91,7 @@ class ProductsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function edit($id)
     {
@@ -96,7 +104,7 @@ class ProductsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -104,6 +112,8 @@ class ProductsController extends Controller
         $validatedData = $request->validate([
            'name' => 'required',
             'quantity' => 'required',
+            'raw_price' => 'required',
+            'packaging_price' => 'required',
             'original_price' => 'required',
             'ingredient_quantity' => 'required',
             'retailer_price' => 'required',
@@ -118,6 +128,8 @@ class ProductsController extends Controller
         $product->name = $validatedData['name'];
         $product->packs_quantity = $validatedData['quantity'];
         $product->pack_ingredient_quantity = $validatedData['ingredient_quantity'];
+        $product->raw_price = $validatedData['raw_price'];
+        $product->packaging_price = $validatedData['packaging_price'];
         $product->original_price = $validatedData['original_price'];
         $product->retailer_price = $validatedData['retailer_price'];
         $product->distributer_price = $validatedData['distributor_price'];
@@ -141,12 +153,24 @@ class ProductsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function delete($id)
     {
         $product = Product::findOrFail($id);
         $product->delete();
         return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function profitLossPage()
+    {
+        $products=Product::getProductWisePrices();
+        // dd($products);
+        return view('admin.product.products-profit-loss',compact('products'));
     }
 }

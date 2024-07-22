@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
     {{ pwa_meta() }}
@@ -81,5 +82,5 @@
     <!-- container-scroller -->
     @include('admin.layouts.script')
 </body>
-
+@yield('custom-script')
 </html>

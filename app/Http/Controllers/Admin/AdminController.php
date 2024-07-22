@@ -9,6 +9,7 @@ use App\Models\CustomerInvoice;
 use App\Models\ProductInvoice;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\PromoterSalaryTarget;
 use Auth;
 
 class AdminController extends Controller
@@ -17,15 +18,20 @@ class AdminController extends Controller
     {
         $user = User::count();
         $product = Product::count();
-        $ProductInvoice = ProductInvoice::count();
+        $ProductInvoice = CustomerInvoice::count();
         $producttotalgrant = ProductInvoice::sum('total_price');
         $customer = CustomerInvoice::count();
-        $paymentstatus = PaymentStatus::sum('amount_paid');
+        $paymentstatus = PaymentStatus::where('payment_status', '!=', 'pending')->sum('amount_paid');
         $totalStockValue = Product::calculateTotalStockValue();
+        $topProducts = Product::getTopSellingProducts();
+        $totalInvoiceAmount = Product::getTotalInvoiceAmount();
+        $totalInvoicePrice = $totalInvoiceAmount->totalInvoicePrice??0;
+        $productWisePrices = Product::getProductWisePrices();
+        $promoterSalaries = PromoterSalaryTarget::sum('monthly_salary');
 
         $remainingStockValue = $totalStockValue - $paymentstatus;
 
-        return view('admin.index', compact('user', 'product', 'ProductInvoice', 'customer', 'producttotalgrant', 'paymentstatus', 'remainingStockValue'));
+        return view('admin.index', compact('user', 'product', 'ProductInvoice', 'customer', 'producttotalgrant', 'totalInvoicePrice', 'paymentstatus', 'remainingStockValue', 'topProducts', 'productWisePrices', 'promoterSalaries'));
     }
 
     public function invoiceList()
@@ -75,6 +81,7 @@ class AdminController extends Controller
         $ordernumber = 'A000' . rand(1111, 9999);
         $promoter_id = Auth::user()->id;
         $createdIds = [];
+        $customerInvoiceAmount = 0;
         foreach ($request->id as $key => $value) {
             $productInvoice = ProductInvoice::create([
                 'promoter_id' => $promoter_id,
@@ -88,7 +95,10 @@ class AdminController extends Controller
             $product = Product::findOrFail($request->id[$key]);
             $product->packs_quantity -= $request->quantity[$key];
             $product->save();
+
+            $customerInvoiceAmount += $request->totalprice[$key];
         }
+        $customerInvoiceAmount += $request->delivery_charge;
         $customer = CustomerInvoice::create([
             'name' => $request->name,
             'phone_number' => $request->phone_number,
@@ -97,6 +107,8 @@ class AdminController extends Controller
             'promoter_id' => $promoter_id,
             'full_address' => $request->full_address,
             'customer_type' => $request->customer_type,
+            'delivery_charge' => $request->delivery_charge,
+            'total_invoice_amount' => $customerInvoiceAmount
         ]);
         $orderTotal = ProductInvoice::where('promoter_id', $promoter_id)->where('invoice_id', $ordernumber)->sum('total_price');
         $productData = ProductInvoice::join('products', 'product_invoices.product_id', '=', 'products.id')

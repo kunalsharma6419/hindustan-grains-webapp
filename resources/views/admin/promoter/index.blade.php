@@ -4,7 +4,7 @@
     <div class="row card">
         <div class="col-md-12 card-body">
             <h4 class="card-title">Promoter List</h4>
-            <table class="table">
+            <table id="userTable" class="table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -31,4 +31,14 @@
             </table>
         </div>
     </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $('#userTable').dataTable({
+        columnDefs: [
+            { orderable: false, targets: -1 }
+        ]
+    });
+</script>
 @endsection

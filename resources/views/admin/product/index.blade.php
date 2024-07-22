@@ -18,7 +18,7 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <table class="table table-bordered table-striped">
+                <table id="productTable" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -63,4 +63,14 @@
 
         </div>
     </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $('#productTable').dataTable({
+        columnDefs: [
+            { orderable: false, targets: -1 }
+        ]
+    });
+</script>
 @endsection

@@ -14,7 +14,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <table class="table">
+            <table id="userTable" class="table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -63,4 +63,14 @@
             </table>
         </div>
     </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $('#userTable').dataTable({
+        columnDefs: [
+            { orderable: false, targets: -1 }
+        ]
+    });
+</script>
 @endsection

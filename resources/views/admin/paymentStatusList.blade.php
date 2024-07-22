@@ -15,7 +15,7 @@
             @endif
             <h4 class="card-title">Payment Status List</h4>
             <div class="table-responsive">
-                <table class="table table-bordered table-sm">
+                <table id="payStatusTable" class="table table-bordered table-sm">
                     <thead>
                         <tr>
                             <th>Sr.No.</th>
@@ -67,7 +67,7 @@
                                     <!-- <td><a href="{{ route('payment_status_list_show', $payment->id) }}" class="btn btn-outline-primary btn-sm">View</a>
                  @if ($payment->payment_status != 'fully paid')
     <a href="{{ route('payment_status_list_edit', $payment->id) }}" class="btn btn-outline-success btn-sm">Update Pyament Status</a></td> -->
-                            @endif
+                            <!-- @endif -->
                             </tr>
                         @endforeach
                         @endif
@@ -76,4 +76,14 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $('#payStatusTable').dataTable({
+        columnDefs: [
+            { orderable: false, targets: -1 }
+        ]
+    });
+</script>
 @endsection
