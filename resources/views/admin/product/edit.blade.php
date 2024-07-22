@@ -33,8 +33,20 @@
 				</div>
 				<div class="col-md-4">
 					<div class="form-group">
+						<label>Raw Price</label>
+						<input type="number" class="form-control" id="rawPrice" name="raw_price" min="0" max="450.50" onkeyup="calculateTotal();" value="{{$products->raw_price}}">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Packaging Price</label>
+						<input type="number" class="form-control" id="packagingPrice" name="packaging_price" min="0" max="50.00" onkeyup="calculateTotal();" value="{{$products->packaging_price}}">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
 						<label>Original Price</label>
-	                    <input type="number" class="form-control" name="original_price" value="{{$products->original_price}}"  placeholder="Enter full name..." min="0" max="500">
+	                    <input type="number" class="form-control" id="originalPrice" name="original_price" value="{{$products->original_price}}"  placeholder="Enter full name..." min="0" max="500">
 	                </div>
 				</div>
 				<div class="col-md-4">
@@ -75,4 +87,15 @@
 		</form>
 	</div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    function calculateTotal(input) {
+        var rawPrice = parseFloat($('#rawPrice').val());
+        var packagingPrice = parseFloat($('#packagingPrice').val());
+        var originalPrice = rawPrice + packagingPrice;
+        $('#originalPrice').val(originalPrice);
+    }
+</script>
 @endsection

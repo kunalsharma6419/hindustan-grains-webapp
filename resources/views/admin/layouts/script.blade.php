@@ -21,4 +21,5 @@
   <script src="{{asset('assets/js/Chart.roundedBarCharts.js')}}"></script>
 <script src="{{asset('assets/vendors/select2/select2.min.js')}}"></script>
 <script src="{{asset('assets/js/select2.js')}}"></script>
+<script src="{{asset('assets/js/dataTables.min.js')}}"></script>
   <!-- End custom js for this page-->

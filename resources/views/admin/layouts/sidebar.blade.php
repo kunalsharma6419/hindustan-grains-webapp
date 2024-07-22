@@ -42,5 +42,11 @@
 	      <span class="menu-title">Packaging Calculator</span>
 	    </a>
 	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="{{route('product.profitLossPage')}}">
+	      <i class="mdi mdi-grid-large menu-icon"></i>
+	      <span class="menu-title">Products Stats</span>
+	    </a>
+	  </li>
 	</ul>
 </nav>

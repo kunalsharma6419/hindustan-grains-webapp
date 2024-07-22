@@ -70,6 +70,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'web']], function ()
     Route::put('product/update/{id}', [ProductsController::class, 'update'])->name('product.update');
     Route::get('product/delete/{id}', [ProductsController::class, 'delete'])->name('product.delete');
     Route::get('product/show/{id}', [ProductsController::class, 'show'])->name('product.show');
+    Route::get('product/profitLoss', [ProductsController::class, 'profitLossPage'])->name('product.profitLossPage');
     Route::get('promoter', [PromoterTargetController::class, 'index'])->name('promoter.index');
     Route::get('promoter/edit/{id}', [PromoterTargetController::class, 'edit'])->name('promoter.edit');
     Route::post('promoter/store', [PromoterTargetController::class, 'store'])->name('promoter.store');

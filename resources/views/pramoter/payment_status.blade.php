@@ -48,7 +48,7 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>Grand Total Amount of invoice</label>
-                    <input type="text" class="form-control" value="{{$orderTotal}}" id="grantTotal" name="grant_total" placeholder="Enter full name..." readonly>
+                    <input type="text" class="form-control" value="{{$customer_get->total_invoice_amount}}" id="grantTotal" name="grant_total" placeholder="Enter full name..." readonly>
                 </div>
 			</div>
 			<div class="col-md-4">

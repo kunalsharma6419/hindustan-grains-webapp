@@ -16,7 +16,7 @@
                 </div>
             @endif
             <div class="table-responsive">
-                <table class="table table-bordered table-sm">
+                <table id="invoiceTable" class="table table-bordered table-sm">
                     <thead>
                         <tr>
                             <th>Sr.No.</th>
@@ -52,4 +52,14 @@
 
         </div>
     </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $('#invoiceTable').dataTable({
+        columnDefs: [
+            { orderable: false, targets: -1 }
+        ]
+    });
+</script>
 @endsection

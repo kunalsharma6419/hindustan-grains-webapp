@@ -78,6 +78,15 @@
                                 <tbody>
                                     <!-- Product details will be appended here -->
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <input type="number" class="form-control" id="deliveryCharge" name="delivery_charge" placeholder="Delivery Charge">
+                                        </td>
+                                        <td id="deliveryChargeText"></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
                             </table>
                             <div class="m-2">
                                 <input type="button" value="Invoice" onclick="submitForm()" class="btn btn-primary">
@@ -137,6 +146,11 @@
             row.find('.totalPrice').html('<input type="hidden" name="totalprice[]" value="' + totalPrice.toFixed(2) + '">' +
                 totalPrice.toFixed(2));
         }
+
+        $(document).on('keyup', '#deliveryCharge', function() {
+            var deliveryCharge = $(this).val();
+            $('#deliveryChargeText').html(deliveryCharge);
+        });
 
         function submitForm() {
             $('#productForm').submit();
