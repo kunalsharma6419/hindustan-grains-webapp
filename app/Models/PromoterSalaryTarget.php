@@ -9,5 +9,4 @@ class PromoterSalaryTarget extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
 }

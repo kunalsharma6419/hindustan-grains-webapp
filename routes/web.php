@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'web']], function ()
     Route::get('invoice_show_edit/{invoice_id}', [AdminController::class, 'invoiceShowEdit'])->name('invoice_show_edit');
     Route::post('invoice_show_update/{invoice_id}', [AdminController::class, 'invoiceUpdate'])->name('invoice_update');
     Route::get('payment_list_status', [AdminController::class, 'paymentStatusList'])->name('payment_list_status');
+    Route::any('profitLossPage', [AdminController::class, 'profitLossPage'])->name('profitLossPage');
     Route::get('product', [ProductsController::class, 'index'])->name('product.index');
     Route::get('product/{id}/edit', [ProductsController::class, 'edit'])->name('product.edit');
     Route::get('product/create', [ProductsController::class, 'create'])->name('product.create');
