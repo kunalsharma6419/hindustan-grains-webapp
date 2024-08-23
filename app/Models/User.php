@@ -61,4 +61,48 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    
+    public static function getPromoterWiseSalary()
+    {
+        $promotors = self::leftJoin('promoter_salary_targets', 'promoter_salary_targets.promoter_id', '=', 'users.id')
+            ->where('users.usertype', 2)
+            ->whereNotNull('promoter_salary_targets.promoter_id')
+            ->groupBy(
+                'promoter_salary_targets.promoter_id',
+                'users.name',
+                'users.email'
+            )
+            ->select(
+                'promoter_salary_targets.promoter_id',
+                'users.name as name',
+                'users.email as email',
+                \DB::raw('SUM(promoter_salary_targets.monthly_salary) as totalSalary')
+            )
+            ->get();
+        
+        foreach($promotors as $key => $promotor) {
+            $promotors[$key]->totalSales = CustomerInvoice::where('promoter_id', $promotor->promoter_id)
+                ->groupBy('promoter_id')
+                ->sum('total_invoice_amount');
+            $promotors[$key]->totalDelivery = CustomerInvoice::where('promoter_id', $promotor->promoter_id)
+                ->groupBy('promoter_id')
+                ->sum('delivery_charge');
+        }
+
+        return $promotors;
+    }
+
+    public static function getGrossDetails($startDate, $endDate)
+    {
+        $data = (object) array();
+        $data->productInvoiceAmountPaid = PaymentStatus::where('payment_status', '!=', 'pending')
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->sum('amount_paid');
+        $data->totalCustomerInvoice = ProductInvoice::whereBetween('created_at', [$startDate, $endDate])->sum('total_price');
+        $data->totalPromoterSalary = PromoterSalaryTarget::whereBetween('created_at', [$startDate, $endDate])->sum('monthly_salary');
+        $data->totalDeliveryCost = CustomerInvoice::whereBetween('created_at', [$startDate, $endDate])->sum('delivery_charge');
+        
+        $data->profitOrLoss = $data->productInvoiceAmountPaid - $data->totalCustomerInvoice - $data->totalPromoterSalary - $data->totalDeliveryCost;
+        return $data;
+    }
 }

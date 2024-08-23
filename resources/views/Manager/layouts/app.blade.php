@@ -58,5 +58,5 @@
     <!-- container-scroller -->
     @include('Manager.layouts.script')
 </body>
-
+@yield('custom-script')
 </html>

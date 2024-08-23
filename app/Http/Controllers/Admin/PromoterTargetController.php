@@ -87,6 +87,7 @@ class PromoterTargetController extends Controller
             }
             $target->targetdiff = $target->target_amount - $target->target_amount_received;
         }
+        $target->save();
         return view('admin.promoter.edit', compact('promoters', 'promoters_invoice', 'target'));
     }
 
@@ -107,7 +108,10 @@ class PromoterTargetController extends Controller
         $monthlySalary = $request->input('monthly_salary');
 
         $promoterSalaryTarget = PromoterSalaryTarget::updateOrCreate(
-            ['promoter_id' => $promoterId],
+            [
+                'promoter_id' => $promoterId,
+                'month' => Carbon::now()->format('Y-m')
+            ],
             [
                 'target_amount' => $targetAmount,
                 'monthly_salary' => $monthlySalary,

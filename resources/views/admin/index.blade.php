@@ -54,37 +54,72 @@
   </div>
   <div class="col-lg-6 mb-4">
     <div class="card">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-warning">Top Selling Products</h6>
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-warning">Top Selling Products</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="profitLossTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Total Invoice Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (count($topProducts) > 0)
+                    @foreach ($topProducts as $product)
+                        <tr>
+                            <th>{{ $loop->index + 1 }}.</th>
+                            <td>
+                                <img src="{{ asset($product->productImage) }}" width="10%" class="img-fluid">
+                            </td>
+                            <td>{{ $product->productName }}</td>
+                            <td>{{ $product->totalInvoicePrice??0 }}</td>
+                        </tr>
+                    @endforeach
+                @endif
+            </tbody>
+          </table>
         </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table id="profitLossTable" class="table table-bordered table-striped">
-              <thead>
-                  <tr>
-                      <th>#</th>
-                      <th>Image</th>
-                      <th>Product</th>
-                      <th>Total Invoice Price</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  @if (count($topProducts) > 0)
-                      @foreach ($topProducts as $product)
-                          <tr>
-                              <th>{{ $loop->index + 1 }}.</th>
-                              <td>
-                                  <img src="{{ asset($product->productImage) }}" width="10%" class="img-fluid">
-                              </td>
-                              <td>{{ $product->productName }}</td>
-                              <td>{{ $product->totalInvoicePrice??0 }}</td>
-                          </tr>
-                      @endforeach
-                  @endif
-              </tbody>
-            </table>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 mb-4">
+    <div class="card">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-warning">Promoters Details</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="promoterTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Total Sales</th>
+                    <th>Total Delivery</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (count($promoterWiseSalary) > 0)
+                    @foreach ($promoterWiseSalary as $promoter)
+                        <tr>
+                            <th>{{ $loop->index + 1 }}.</th>
+                            <td>{{ $promoter->name }}</td>
+                            <td>{{ $promoter->totalSalary??0 }}</td>
+                            <td>{{ $promoter->totalSales??0 }}</td>
+                            <td>{{ $promoter->totalDelivery??0 }}</td>
+                        </tr>
+                    @endforeach
+                @endif
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
   </div>
 </div>
@@ -92,6 +127,9 @@
 
 @section('custom-script')
 <script>
+
+$('#promoterTable').dataTable({});
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'doughnut',
@@ -127,12 +165,21 @@ var prodLabels = [];
 var prodPrices = [];
 var priceBorderColors = [];
 var priceBackgroundColors = [];
+var productData = [];
 @foreach($productWisePrices as $pkey => $productDetails)
   @php
     $netPrice = $productDetails->productInvoiceAmountPaid-$productDetails->deliveryCostPerProduct-$productDetails->productInvoicePrice-$productDetails->promoterSalary;
   @endphp
   prodLabels.push('{{$productDetails->productName}}');
   prodPrices.push({{$netPrice}});
+
+  productData.push(
+    {
+      name: '{{$productDetails->productName}}',
+      value: {{$netPrice}},
+      bulletSettings: { src: '{{asset($productDetails->productImage)}}' }
+    }
+  );
   @if($netPrice > 0)
     priceBorderColors.push('rgba(76, 175, 80)');
     priceBackgroundColors.push('rgba(76, 175, 80, 0.3)');

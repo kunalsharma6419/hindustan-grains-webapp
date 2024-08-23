@@ -23,6 +23,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/daterangepicker.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
     {{ pwa_meta() }}

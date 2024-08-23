@@ -9,20 +9,29 @@ use App\Models\CustomerInvoice;
 use App\Models\ProductInvoice;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\PromoterSalaryTarget;
 use Auth;
 
 class ManagerController extends Controller
 {
     public function index()
     {
-        $user=User::count();
-        $product=Product::count();
-        $ProductInvoice=ProductInvoice::count();
-        $producttotalgrant=ProductInvoice::sum('total_price');
-        $customer=CustomerInvoice::count();
-        $paymentstatus=PaymentStatus::sum('amount_paid');
-        // dd($user,$product,$ProductInvoice,$producttotalgrant,$customer,$paymentstatus);
-        return view('Manager.index',compact('user','product','ProductInvoice','customer','producttotalgrant','paymentstatus'));
+        $user = User::count();
+        $product = Product::count();
+        $ProductInvoice = CustomerInvoice::count();
+        $producttotalgrant = ProductInvoice::sum('total_price');
+        $customer = CustomerInvoice::count();
+        $paymentstatus = PaymentStatus::where('payment_status', '!=', 'pending')->sum('amount_paid');
+        $totalStockValue = Product::calculateTotalStockValue();
+        $topProducts = Product::getTopSellingProducts();
+        $totalInvoiceAmount = Product::getTotalInvoiceAmount();
+        $totalInvoicePrice = $totalInvoiceAmount->totalInvoicePrice??0;
+        $productWisePrices = Product::getProductWisePrices();
+        $promoterSalaries = PromoterSalaryTarget::sum('monthly_salary');
+
+        $remainingStockValue = $totalStockValue - $paymentstatus;
+
+        return view('Manager.index', compact('user', 'product', 'ProductInvoice', 'customer', 'producttotalgrant', 'totalInvoicePrice', 'paymentstatus', 'remainingStockValue', 'topProducts', 'productWisePrices', 'promoterSalaries'));
     }
 
     public function invoiceList()

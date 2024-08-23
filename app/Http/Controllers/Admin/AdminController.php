@@ -28,10 +28,11 @@ class AdminController extends Controller
         $totalInvoicePrice = $totalInvoiceAmount->totalInvoicePrice??0;
         $productWisePrices = Product::getProductWisePrices();
         $promoterSalaries = PromoterSalaryTarget::sum('monthly_salary');
+        $promoterWiseSalary = User::getPromoterWiseSalary();
 
         $remainingStockValue = $totalStockValue - $paymentstatus;
 
-        return view('admin.index', compact('user', 'product', 'ProductInvoice', 'customer', 'producttotalgrant', 'totalInvoicePrice', 'paymentstatus', 'remainingStockValue', 'topProducts', 'productWisePrices', 'promoterSalaries'));
+        return view('admin.index', compact('user', 'product', 'ProductInvoice', 'customer', 'producttotalgrant', 'totalInvoicePrice', 'paymentstatus', 'remainingStockValue', 'topProducts', 'productWisePrices', 'promoterSalaries', 'promoterWiseSalary'));
     }
 
     public function invoiceList()
@@ -288,5 +289,24 @@ class AdminController extends Controller
         $ordernumber = $invoice_id;
         $englishnumber = $this->numberToWords($orderTotal);
         return view('invoice', compact('orderTotal', 'productData', 'englishnumber', 'ordernumber', 'customer_get'));
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function profitLossPage()
+    {
+        $startDate = date('Y-m-d', strtotime('-1 month'));
+        $endDate = date('Y-m-d', time());
+        if (isset(request()->daterange)) {
+            $dates = explode(' - ', request()->daterange);
+            // dd($dates);
+            $startDate = date('Y-m-d', strtotime($dates[0]));
+            $endDate = date('Y-m-d', strtotime($dates[1]));
+        }
+        $getGrossDetails=User::getGrossDetails($startDate, $endDate);
+        return view('admin.profit-loss',compact('getGrossDetails', 'startDate', 'endDate'));
     }
 }
