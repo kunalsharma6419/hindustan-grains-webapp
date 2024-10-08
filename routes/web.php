@@ -25,8 +25,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::post('/login', [AuthController::class, 'login'])
-    ->middleware('guest');
-// ->name('login');
+    ->name('login');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -104,5 +103,6 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function 
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
+
 
 \PWA::routes();

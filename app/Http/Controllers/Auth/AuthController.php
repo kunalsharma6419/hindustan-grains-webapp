@@ -36,7 +36,7 @@ class AuthController extends Controller
             }
         }
         else{
-            return redirect()->route('login');
+            return redirect()->route('login')->with(['status'=>"Login credentials don't match!!"]);
         }
     }
 
@@ -45,4 +45,5 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
 }
