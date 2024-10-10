@@ -27,6 +27,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             if ($user->usertype == 1) {
+                
                 return redirect()->intended('/admin/dashboard');
             } elseif ($user->usertype == 2) {
                 return redirect()->intended('/promoter/home');

@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\PromoterTargetController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CalculationController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\ClientSideController;
 use App\Http\Controllers\Manager\ManagerController;
 
 /*
@@ -21,9 +23,9 @@ use App\Http\Controllers\Manager\ManagerController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 Route::post('/login', [AuthController::class, 'login'])
     ->name('login');
 Route::middleware([
@@ -35,6 +37,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
 
 Route::group(['prefix' => 'promoter', 'middleware' => ['auth', 'web']], function () {
     Route::get('home', [AuthController::class, 'home'])->name('home');
@@ -86,6 +89,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'web']], function ()
     Route::get('/calculations', [CalculationController::class, 'index'])->name('calculations.index');
     Route::post('/calculate', [CalculationController::class, 'calculate'])->name('calculation.calculate');
     Route::post('/stock/add', [CalculationController::class, 'addToStock'])->name('stock.add');
+
+    // added new routes
+    Route::get('categories',[CategoryController::class,'index'])->name('category.index');
+    Route::get('category-create',[CategoryController::class,'create'])->name('category.create');
+    Route::post('category-store',[CategoryController::class,'store'])->name('category.store');
+    Route::get('category/{id}/edit',[CategoryController::class,'edit'])->name('category.edit');
+    Route::post('category/update/{id}',[CategoryController::class,'update'])->name('category.update');
+    Route::get('category/{id}/show',[CategoryController::class,'show'])->name('category.show');
+    Route::get('category/{id}/delete',[CategoryController::class,'delete'])->name('category.delete');
+    Route::get('remove-image',[CategoryController::class,'removeImage'])->name('image');
 });
 
 Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function () {
@@ -101,6 +114,8 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function 
     Route::post('/calculate', [ManagerController::class, 'calculate'])->name('manager.calculation.calculate');
     Route::post('/stock/add', [ManagerController::class, 'addToStock'])->name('manager.stock.add');
 });
+
+Route::get('/',[ClientSideController::class,'index']);
 
 Route::get('logout', [AuthController::class, 'logout']);
 
