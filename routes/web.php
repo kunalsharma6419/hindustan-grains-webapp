@@ -9,8 +9,10 @@ use App\Http\Controllers\Admin\PromoterTargetController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CalculationController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CategoryProductController;
 use App\Http\Controllers\ClientSideController;
 use App\Http\Controllers\Manager\ManagerController;
+use App\Http\Controllers\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,7 +92,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'web']], function ()
     Route::post('/calculate', [CalculationController::class, 'calculate'])->name('calculation.calculate');
     Route::post('/stock/add', [CalculationController::class, 'addToStock'])->name('stock.add');
 
-    // added new routes
+    // categories routes
     Route::get('categories',[CategoryController::class,'index'])->name('category.index');
     Route::get('category-create',[CategoryController::class,'create'])->name('category.create');
     Route::post('category-store',[CategoryController::class,'store'])->name('category.store');
@@ -99,6 +101,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'web']], function ()
     Route::get('category/{id}/show',[CategoryController::class,'show'])->name('category.show');
     Route::get('category/{id}/delete',[CategoryController::class,'delete'])->name('category.delete');
     Route::get('remove-image',[CategoryController::class,'removeImage'])->name('image');
+
+   // CategoriesProducts routes
+    Route::get('categories-product',[CategoryProductController::class,'index'])->name('category-product.index');
+    Route::get('category-product-create',[CategoryProductController::class,'create'])->name('category-product.create');
+    Route::post('category-product-store',[CategoryProductController::class,'store'])->name('category-product.store');
+    Route::get('category-product/{id}/edit',[CategoryProductController::class,'edit'])->name('category-product.edit');
+    Route::post('category-product/update/{id}',[CategoryProductController::class,'update'])->name('category-product.update');
+    Route::get('category-product/{id}/show',[CategoryProductController::class,'show'])->name('category-product.show');
+    Route::get('category-product/{id}/delete',[CategoryProductController::class,'delete'])->name('category-product.delete');
+    Route::get('category-product/remove-image',[CategoryProductController::class,'removeImage'])->name('web.productimage');
 });
 
 Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function () {
@@ -115,9 +127,19 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function 
     Route::post('/stock/add', [ManagerController::class, 'addToStock'])->name('manager.stock.add');
 });
 
-Route::get('/',[ClientSideController::class,'index']);
-
+Route::get('/',[WebsiteController::class,'index']);
+Route::get('shop/{id}',[WebsiteController::class,'shop'])->name('shop.webProduct');
+Route::get('shop-index',[WebsiteController::class,'shopIndex'])->name('shop.index');
+Route::post('shop-index',[WebsiteController::class,'shopIndex']);
+Route::get('add-to-cart',[WebsiteController::class,'addToCart'])->name('product.cart');
+Route::get('category-detail/{id}',[WebsiteController::class,'categoryShow'])->name('category-detail');
+Route::get('/cart',[WebsiteController::class,'getCart'])->name('cart.items');
+Route::get('/cart-item/delete',[WebsiteController::class,'deleteCartItem'])->name('cartItem.delete');
+Route::get('/update-cart',[WebsiteController::class,'updateCartValues'])->name('update.cart');
+Route::get('checkout',[WebsiteController::class,'getCheckout'])->name('checkout');
+Route::post('place-order',[WebsiteController::class,'placeOrder'])->name('place.order');
 Route::get('logout', [AuthController::class, 'logout']);
+
 
 
 \PWA::routes();

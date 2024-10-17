@@ -48,8 +48,8 @@
                                     <td>
                                         <a href="{{ route('category.edit', $item->id) }}"
                                             class="btn btn-outline-success btn-sm">Edit</a>
-                                        <a href="{{ route('category.show', $item->id) }}"
-                                            class="btn btn-outline-primary btn-sm">View</a>
+                                        {{-- <a href="{{ route('category.show', $item->id) }}"
+                                            class="btn btn-outline-primary btn-sm">View</a> --}}
                                         <a href="{{ route('category.delete', $item->id) }}"
                                             class="btn btn-outline-danger btn-sm">Delete</a>
                                     </td>

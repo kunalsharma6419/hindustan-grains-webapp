@@ -64,7 +64,7 @@
 		<div class="collapse" id="ui-basic">
 		  <ul class="nav flex-column sub-menu">
 			<li class="nav-item"> <a class="nav-link" href="{{route('category.index')}}">Categories</a></li>
-			<li class="nav-item"><a class="dropdown-item" href="">Products</a></li>
+			<li class="nav-item"><a class="dropdown-item" href="{{route('category-product.index')}}">Products</a></li>
 			<li class="nav-item"><a class="dropdown-item" href="">Orders</a></li>
 			<li class="nav-item"><a class="dropdown-item" href="">Payments</a></li>
 		  </ul>

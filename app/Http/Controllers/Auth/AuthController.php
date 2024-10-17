@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PromoterSalaryTarget;
-use Auth;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\PaymentStatus;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -34,6 +34,8 @@ class AuthController extends Controller
 
             } elseif($user->usertype == 3) {
                 return redirect()->intended('/manager/dashboard');
+            }elseif($user->usertype == 0) {
+                return redirect()->intended('/shop-index');
             }
         }
         else{
