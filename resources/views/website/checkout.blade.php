@@ -250,7 +250,7 @@
         </table>
         <br>
     </div>
-  
+   
     </div>
     <div class="bg-white p-6 rounded-lg shadow-md mt-3">
         <h2 class="text-xl font-semibold mb-4">Order Details</h2>
@@ -268,6 +268,8 @@
         </button>
         @endif
         @endif
+      
+ 
     </div>
     </div>
     {{-- @include('sweetalert::alert') --}}
@@ -325,7 +327,7 @@
 
         </div>
     </div>
-    @if(session()->has('success'));
+    {{-- @if(session()->has('success'))  
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
        <script>
             Swal.fire({
@@ -336,11 +338,15 @@
             }).then((result)=>{
             if(result.isConfirmed)
             {
-                window.location.href = "{{route('shop.index')}}";
+                alert("33");
+                var orderId = $("#orderId").val();
+                alert(orderId);
+                // var encodedOrderId = btoa(orderId);
+                // window.location.href = "{{ route('orderPlaced', ['id' => 'id']) }}".replace('__orderId__', encodedOrderId);
             }
             });
         </script>
-     @endif
+     @endif --}}
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <script>
         function submitForm()

@@ -90,11 +90,11 @@
                                 {{-- <i onclick="myFun()" class="fa-solid fa-angle-down" style="color: #ffffff;"></i> --}}
                                 <form action="{{url('shop-index')}}" method="POST" >
                                     @csrf
-                                <select name="category_id" id="category_id" style="color: #ffffff; background-color: #43332d">
+                                <select name="category_id" id="category_id" style="color: #ffffff; background-color: #43332d;cursor:pointer;">
                                     <option value="">Select Category</option>
                                     @if(count($categories) > 0)
                                     @foreach($categories as $cate)
-                                    <option value="{{$cate->id}}">{{$cate->category_name}}</option>
+                                    <option  value="{{$cate->id}}">{{$cate->category_name}}</option>
                                     @endforeach
                                     @endif
                                 </select>
@@ -103,10 +103,10 @@
                         </div>
                         <div class=" relative flex">
                             <div class="flex  items-center ml-10 gap-14">
-                                <select name="sort" id="sort" style="color: #ffffff; background-color: #43332d" onchange="getFileterd(this)">
+                                <select name="sort" id="sort" style="color: #ffffff; background-color: #43332d;cursor:pointer" onchange="getFileterd(this)">
                                     <option value="">Sort By</option>
-                                    <option value="low">Price low to high</option>
-                                    <option value="high">Price high to low</option>
+                                    <option value="low" style="cursor:pointer;">Price low to high</option>
+                                    <option value="high" style="cursor: pointer;">Price high to low</option>
                                 </select>
                                 {{-- <p>Sort by</p>
                                 <i onclick="myFuns()" class="fa-solid fa-angle-down" style="color: #ffffff;"></i> --}}
@@ -137,7 +137,7 @@
                         <p class=" text-[20px] font-[700] text-[#B48629]">Rs {{$pro->selling_price}}/-</p>
                         <div class="flex gap-2 items-center">
                             <i class="fa-solid fa-star w-[18px] h-[18px]" style="color: #FFC857"></i>
-                            <p class="text-[10px]">{{isset($product->product_rating) ? $product->product_rating : 'NA'}}</p>
+                            <p class="text-[10px]">{{isset($product->product_rating) ? $product->product_rating : '4.5'}}</p>
                         </div>
                     </div>
                     @php

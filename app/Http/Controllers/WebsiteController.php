@@ -380,24 +380,28 @@ class WebsiteController extends Controller
                     $webOrdersCreated = WebOrders::create($data);
                     if($webOrdersCreated)
                     {
+                        $orderId = $webOrdersCreated->id;
                         foreach($productIds as $id)
                         {
                             $productData = WebCart::with('product')->where('product_id',$id)->first();
+                            $totalPrice  = $productData->product_quantity * $productData->product_price;
                             $datas = [
-                                'order_id' => $webOrdersCreated->id ,
-                                'product_id'=> $id,
+                                'order_id'         => $webOrdersCreated->id ,
+                                'product_id'       => $id,
                                 'product_quantity' => $productData->product_quantity,
                                 'product_price'    => $productData->product_price,
-                                'total_price ' => (string)$productData->product_quantity * $productData->product_price,
+                                'total_price'      => (string)$totalPrice,
                             ];
-                            WebOrderItem::create($datas);
+                            $orderItemCreated = WebOrderItem::create($datas);
                         }
                         $webCartDeleted = WebCart::where('user_id',$userId)->delete();
-                        if($webCartDeleted)
-                        {
+                        if($webCartDeleted){
+                            $id = $orderId;
                             Alert::info('Order Placed', 'Order Placed Successfully!!')->persistent('OK');
-                            return redirect()->back()->with('success',true);
-                        }
+                            return redirect()->route('order.placed',['id'=> base64_encode($id)])->with(['success'=>true,'id'=>$id]);
+                            // return redirect()->back()->with(['success'=>true,'orderId'=>$order->order_id]);
+                    }
+    
                     }else{
                         Alert::info('Order Failed','Something went wrong');
                         return redirect()->back();
@@ -411,4 +415,32 @@ class WebsiteController extends Controller
                 return back()->with(['error'=>$e->getMessage()]);
             }
        }
+       /**
+        *@method helps to fetch the orderPlaced Page 
+        *@param  orderId
+        *@return 
+        */
+       public function orderPlacedPage($orderId)
+       {
+        try{
+            if(Auth::check())
+            {
+                $placedOrderId = base64_decode($orderId);
+                $products = WebOrderItem::with('product','order')->where(['order_id'=>$placedOrderId])->get();
+                $orders   = WebOrders::where('id',$placedOrderId)->first();
+                if($products && $orders)
+                {
+                    return view('website.orderplaced')->with(['products'=>$products,'orders'=>$orders]);
+                }else{
+                    return redirect()->back();
+                }
+            }
+            return view('website.orderplaced');
+        }
+        catch(\Exception $e)
+            {
+                Log::error('WebsiteController: ' . $e->getMessage());
+                return back()->with(['error'=>$e->getMessage()]);
+            }
+    }
 } 

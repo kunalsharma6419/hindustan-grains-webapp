@@ -138,6 +138,7 @@ Route::get('/cart-item/delete',[WebsiteController::class,'deleteCartItem'])->nam
 Route::get('/update-cart',[WebsiteController::class,'updateCartValues'])->name('update.cart');
 Route::get('checkout',[WebsiteController::class,'getCheckout'])->name('checkout');
 Route::post('place-order',[WebsiteController::class,'placeOrder'])->name('place.order');
+Route::get('order-placed/{id}',[WebsiteController::class,'orderPlacedPage'])->name('order.placed');
 Route::get('logout', [AuthController::class, 'logout']);
 
 
