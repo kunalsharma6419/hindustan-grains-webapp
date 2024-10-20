@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PromoterSalaryTarget;
-use Auth;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\PaymentStatus;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -27,12 +27,15 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             if ($user->usertype == 1) {
+                
                 return redirect()->intended('/admin/dashboard');
             } elseif ($user->usertype == 2) {
                 return redirect()->intended('/promoter/home');
 
             } elseif($user->usertype == 3) {
                 return redirect()->intended('/manager/dashboard');
+            }elseif($user->usertype == 0) {
+                return redirect()->intended('/shop-index');
             }
         }
         else{

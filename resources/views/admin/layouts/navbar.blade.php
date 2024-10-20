@@ -17,7 +17,24 @@
     <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{ Auth::user()->name }}</span>
+                <?php
+                date_default_timezone_set("Asia/Kolkata");  
+                $h = date('G');
+        
+                if($h>=5 && $h<=11)
+                {
+                    $greeting = "Good Morning";
+                }
+                else if($h>=12 && $h<=15)
+                {
+                    $greeting =  "Good Afternoon";
+                }
+                else
+                {
+                    $greeting =  "Good Evening";
+                }
+            ?> 
+                <h1 class="welcome-text">{{isset($greeting) ? $greeting : "Good Morning"}}, <span class="text-black fw-bold">{{ Auth::user()->name }}</span>
                 </h1>
                 <h3 class="welcome-sub-text">Your performance summary this week </h3>
             </li>
