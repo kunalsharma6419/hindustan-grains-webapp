@@ -62,7 +62,7 @@
                         required />
                 </div>
                 <div class="mb-4 px-4 py-4 w-full bg-[#F5F5F5] rounded-[8px] ">
-                    <input class="input-field w-full  bg-[#F5F5F5]" type="tel" name="phone"
+                    <input class="input-field w-full  bg-[#F5F5F5]" type="text" name="phone"
                         :value="old('phone')" style="outline-color: #F5F5F5;" placeholder="Enter Phone"
                         required />
                 </div>
@@ -81,14 +81,16 @@
                     <span class="pass-icon" id="showw"><i class="fa fa-eye-slash" aria-hidden="true" onclick="showPassword()"></i></span>
                     <span class="pass-icon" style="display: none;" id="hide"><i class="fa fa-eye" aria-hidden="true" onclick="hidePassword()"></i></span>
                 </div>
-                <div
+               
+
+                {{-- <div
                     class="mb-4 px-4 py-4 items-center w-full flex justify-between bg-[#F5F5F5] rounded-[8px] ">
                     <input class="input-field w-full  bg-[#F5F5F5]" type="password"
                         name="password_confirmation" id="password_confirmation" style="outline-color: #F5F5F5;"
                         placeholder="Confirm Password" required autocomplete="new-password">
                     <span class="pass-icon" id="showww"><i class="fa fa-eye-slash" aria-hidden="true" onclick="showPasswordd()"></i></span>
                     <span class="pass-icon" style="display: none;" id="hidee"><i class="fa fa-eye" aria-hidden="true" onclick="hidePasswordd()"></i></span>
-                </div>
+                </div> --}}
                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                     <div class="mt-4">
                         <x-jet-label for="terms">

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CalculationController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CategoryProductController;
+use App\Http\Controllers\Admin\ShopKeeperController;
 use App\Http\Controllers\ClientSideController;
 use App\Http\Controllers\Manager\ManagerController;
 use App\Http\Controllers\WebsiteController;
@@ -126,6 +127,13 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function 
     Route::post('/calculate', [ManagerController::class, 'calculate'])->name('manager.calculation.calculate');
     Route::post('/stock/add', [ManagerController::class, 'addToStock'])->name('manager.stock.add');
 });
+
+// shopKeeper routes
+Route::get('shopkeeper/dashboard',[ShopKeeperController::class,'index'])->name('shopkeeper.index');
+Route::get('shopkeeper/products',[ShopKeeperController::class,'showProducts'])->name('shopkeeper.products');
+Route::get('shopkeeper/cart/product/{id}',[ShopKeeperController::class,'cartProduct'])->name('shopkeeper.cart.products');
+
+
 
 Route::get('/',[WebsiteController::class,'index']);
 Route::get('shop/{id}',[WebsiteController::class,'shop'])->name('shop.webProduct');
