@@ -6,7 +6,7 @@
     <div class="col-md-6 col-lg-6 grid-margin stretch-card">
         <div class="card card-rounded">
           <div class="card-body card-rounded">
-            <h4 class="card-title  card-title-dash">Product Detail</h4>
+            <h4 class="card-title  card-title-dash"><strong>{{$item->name}}</strong></h4>
             <div class="list align-items-center border-bottom py-2">
                 <div class="wrapper w-100">
                     @php
@@ -19,7 +19,8 @@
             <div class="list align-items-center border-bottom py-2">
               <div class="wrapper w-100">
                 <h4 class="mb-2 font-weight-medium" style="font-family: Arial, Helvetica, sans-serif;">
-                    <strong>{{$item->name}}</strong>
+                   
+                    <strong> Product Detail</strong>
                 </h4>
               </div>
             </div>
