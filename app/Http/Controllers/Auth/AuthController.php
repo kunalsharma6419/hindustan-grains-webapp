@@ -27,7 +27,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             if ($user->usertype == 1) {
-                
+
                 return redirect()->intended('/admin/dashboard');
             } elseif ($user->usertype == 2) {
                 return redirect()->intended('/promoter/home');
@@ -35,7 +35,7 @@ class AuthController extends Controller
             } elseif($user->usertype == 3) {
                 return redirect()->intended('/manager/dashboard');
             }elseif($user->usertype == 0) {
-                return redirect()->intended('/shop-index');
+                return redirect()->intended('/');
             }
             elseif($user->usertype == 4) {
                 return redirect()->intended('/shopkeeper/dashboard');

@@ -964,7 +964,7 @@
                       <div class="product-labels" align="center">
                         <p style="width: 225px; padding-left: 20px;">
                           Desi Ghee, a staple in traditional Indian households, is renowned for its rich flavor, golden hue, and numerous health benefits.
-                           Made from the finest milk, Desi Ghee is a natural source of healthy fats and essential nutrients that promote better digestion, stronger immunity, and overall well-being.
+                           Made from the finest milk, Desi Ghee is a natural source of healthy fats and essential nutrients that promote better digestion, stronger immunity, and overall well-being. 
                         </p>
                       </div>
 
@@ -991,7 +991,7 @@
                   </div>
                 </div>
               </div>
-
+              
 
               <div class="product-slider__item swiper-slide" data-target="img2">
                 <div class="product-slider__card">
@@ -1056,7 +1056,7 @@
                     </h1>
                     <div class="product-ctr">
                       <div class="product-labels" align="center">
-                        <p style="width: 225px;text-align: center;" class=" ml-0 lg:ml-[30px]  ">The elegant mosaic candle small vase is based on the distinctive design inspired by Indian Turkish designs. The decoration was chosen to exalt the elegance of the decorative
+                        <p style="width: 225px;text-align: center;" class=" ml-0 lg:ml-[30px]  ">The elegant mosaic candle small vase is based on the distinctive design inspired by Indian Turkish designs. The decoration was chosen to exalt the elegance of the decorative 
                       </div>
 
                       <span class="hr-vertical"></span>
@@ -1097,8 +1097,8 @@
                     <div class="product-ctr">
                       <div class="product-labels" align="center">
                         <p style="width: 225px; padding-left: 25px; text-align: center;">
-                           Cocoa Mass, Sugar, Cocoa Butter, Butter (Milk),Hazelnuts, Fat Reduced Cocoa Powder,
-Humectant(Sorbitol), Coconut Oil, Dried Whole Milk, Glucose Syrup, Glucose-Fyutose Syrup,
+                           Cocoa Mass, Sugar, Cocoa Butter, Butter (Milk),Hazelnuts, Fat Reduced Cocoa Powder, 
+Humectant(Sorbitol), Coconut Oil, Dried Whole Milk, Glucose Syrup, Glucose-Fyutose Syrup, 
 Dextrose, Emulsier(Soya Lexithin), Whole Milk.
                         </p>
                       </div>
@@ -1157,15 +1157,15 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
                     $categoryImages = json_decode($item->category_image_path, true);
                     $imagePaths = is_array($categoryImages) && !empty($categoryImages) ? reset($categoryImages) : 'assets/noImage (2).png';
                   @endphp
-
+                
                   <img class="w-[200px] h-[200px]" src="{{ asset($imagePaths) }}" alt=""/>
 
-
+              
                     <h1 class="lg:text-[24px] lg:text-[16px] text-[12px]font-[700]">
                       {{$item->category_name }}
                     </h1>
                     <p class="text-center">
-                      {{$item->short_description}}
+                      {{$item->short_description}} 
                     </p>
                     @php
                     $id = $item->id;
@@ -1206,9 +1206,9 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
         </div>
 
         <div class="mt-32 flex flex-col lg:flex-row mx-auto p-2 lg:px-10 gap-24" style="flex-wrap: wrap;width:100%">
-
+          
           {{-- start --}}
-
+      
           @if(count($featured) > 0)
           @foreach(collect($featured)->take(4) as $fet)
           <div class="flex justify-between gap-2 item-center rounded-[8px] h-[300px] lg:h-[350px] p-2 lg:pt-10 lg:px-10 pb-5 bg-[#38302E] border border-[F1BD73]" style="width: 46%;">
@@ -1233,12 +1233,12 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
               @endphp
               @if(count($qImagePathssss) > 0)
               @foreach($qImagePathssss as $qI)
-                <img
+                <img 
                      src="{{asset($qI)}}"
                  alt="" />
                  @endforeach
                  @endif
-
+                
               </div>
               <p
                 class="lg:text-[24px] lg:text-[16px] text-[12px]font-[700] text-[#FFC56F]"
@@ -1254,7 +1254,7 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
               <img
                 class="w-[280px] h-[320px]"
                                    src="{{asset($imagePathssss)}}"
-
+       
                 alt=""
               />
               @php
@@ -1309,7 +1309,7 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
    <img
      class="hidden lg:block mr-20 w-[230px] h-[300px] absolute left-0 rotate-45 grid justify-items-end"
                {{-- src="{{asset('assets/grainImages/200w.gif')}}" --}}
-              src="{{asset('assets/grainImages/Chille.webp')}}"
+              src="{{asset('assets/grainImages/Chille.webp')}}"  
      alt=""
    />
    @elseif($loop->iteration == 1)
@@ -1355,7 +1355,7 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
              <img
                class="w-[240px] h-[200px]"
                          src="{{asset($imagePaths)}}"
-
+ 
                alt=""
              />
              <h1
@@ -1395,7 +1395,7 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
            </div>
          </div>
          @endforeach
-
+         
        </div>
      </div>
      <!-- If we need pagination -->
@@ -1425,7 +1425,7 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
           <div class="swiper-container text-black">
             <div class="swiper mySwiper flex items-center w-[85%] md:w-[90%]">
               <div class="swiper-wrapper">
-
+             
                 @if(count($featured) > 0)
                 @foreach($featured as $fet)
                 <div class="swiper-slide h-[550px]">
@@ -1655,7 +1655,7 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
                     </p>
                   </div>
                 </div>
-
+               
               </div>
             </div>
             <!-- If we need pagination -->
@@ -2090,13 +2090,13 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
       am5.ready(function () {
         // Create root element
         var root = am5.Root.new("chartdiv");
-
+    
         // Set themes
         root.setThemes([am5themes_Animated.new(root)]);
-
+    
         // Remove amCharts watermark
         root._logo.dispose();
-
+    
         // Create the map chart with the globe (Orthographic) as default
         var chart = root.container.children.push(
           am5map.MapChart.new(root, {
@@ -2107,7 +2107,7 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
             wheelable: false, // Disable zoom functionality
           })
         );
-
+    
         // Create series for background fill
         var backgroundSeries = chart.series.push(
           am5map.MapPolygonSeries.new(root, {})
@@ -2117,12 +2117,12 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
           fillOpacity: 1,
           strokeOpacity: 0,
         });
-
+    
         // Add background polygon
         backgroundSeries.data.push({
           geometry: am5map.getGeoRectangle(90, 180, -90, -180),
         });
-
+    
         // Create main polygon series for countries
         var polygonSeries = chart.series.push(
           am5map.MapPolygonSeries.new(root, {
@@ -2134,19 +2134,19 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
           stroke: am5.color(0x267c29),
           strokeWidth: 0.5
         });
-
+    
         // Create line series for trajectory lines
         var lineSeries = chart.series.push(am5map.MapLineSeries.new(root, {}));
         lineSeries.mapLines.template.setAll({
           stroke: root.interfaceColors.get("alternativeBackground"),
           strokeOpacity: 0.3,
         });
-
+    
         // Create point series for markers
         var pointSeries = chart.series.push(
           am5map.MapPointSeries.new(root, {})
         );
-
+    
         pointSeries.bullets.push(function () {
           var circle = am5.Circle.new(root, {
             radius: 7,
@@ -2158,23 +2158,23 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
             strokeWidth: 2,
             draggable: true,
           });
-
+    
           circle.events.on("dragged", function (event) {
             var dataItem = event.target.dataItem;
             var projection = chart.get("projection");
             var geoPoint = chart.invert({ x: circle.x(), y: circle.y() });
-
+    
             dataItem.setAll({
               longitude: geoPoint.longitude,
               latitude: geoPoint.latitude,
             });
           });
-
+    
           return am5.Bullet.new(root, {
             sprite: circle,
           });
         });
-
+    
         var paris = addCity({ latitude: 48.8567, longitude: 2.351 }, "Paris");
         var toronto = addCity(
           { latitude: 43.8163, longitude: -79.4287 },
@@ -2182,15 +2182,15 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
         );
         var la = addCity({ latitude: 34.3, longitude: -118.15 }, "Los Angeles");
         var havana = addCity({ latitude: 23, longitude: -82 }, "Havana");
-
+    
         var lineDataItem = lineSeries.pushDataItem({
           pointsToConnect: [paris, toronto, la, havana],
         });
-
+    
         var planeSeries = chart.series.push(
           am5map.MapPointSeries.new(root, {})
         );
-
+    
         var plane = am5.Graphics.new(root, {
           svgPath:
             "m2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47",
@@ -2199,20 +2199,20 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
           centerX: am5.p50,
           fill: am5.color(0x000000),
         });
-
+    
         planeSeries.bullets.push(function () {
           var container = am5.Container.new(root, {});
           container.children.push(plane);
           return am5.Bullet.new(root, { sprite: container });
         });
-
+    
         var planeDataItem = planeSeries.pushDataItem({
           lineDataItem: lineDataItem,
           positionOnLine: 0,
           autoRotate: true,
         });
         planeDataItem.dataContext = {};
-
+    
         planeDataItem.animate({
           key: "positionOnLine",
           to: 1,
@@ -2220,32 +2220,32 @@ Dextrose, Emulsier(Soya Lexithin), Whole Milk.
           loops: Infinity,
           easing: am5.ease.yoyo(am5.ease.linear),
         });
-
+    
         planeDataItem.on("positionOnLine", (value) => {
           if (planeDataItem.dataContext.prevPosition < value) {
             plane.set("rotation", 0);
           }
-
+    
           if (planeDataItem.dataContext.prevPosition > value) {
             plane.set("rotation", -180);
           }
           planeDataItem.dataContext.prevPosition = value;
         });
-
+    
         function addCity(coords, title) {
           return pointSeries.pushDataItem({
             latitude: coords.latitude,
             longitude: coords.longitude,
           });
         }
-
+    
         // Make stuff animate on load
         chart.appear(1000, 100);
       }); // end am5.ready()
     </script>
+    
 
-
-
+    
     <script>
       var swiper = new Swiper(".product-slider", {
         spaceBetween: 30,
