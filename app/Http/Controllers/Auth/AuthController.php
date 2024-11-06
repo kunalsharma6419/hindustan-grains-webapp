@@ -37,6 +37,9 @@ class AuthController extends Controller
             }elseif($user->usertype == 0) {
                 return redirect()->intended('/shop-index');
             }
+            elseif($user->usertype == 4) {
+                return redirect()->intended('/shopkeeper/dashboard');
+            }
         }
         else{
             return redirect()->route('login')->with(['status'=>"Login credentials don't match!!"]);

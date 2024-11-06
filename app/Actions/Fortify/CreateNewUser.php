@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use App\Models\User;
 use App\Models\PromoterSalaryTarget;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
@@ -21,24 +22,29 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
-        Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'phone' => ['required', 'string', 'phone', 'max:10', 'unique:users'],
-            'address' => ['required', 'string', 'max:2550'],
-            'password' => $this->passwordRules(),
-            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
-        ])->validate();
+        log::info('data',$input);
+        // $validator = Validator::make($input, [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'phone' => ['required', 'max:10', 'unique:users'],
+        //     'address' => ['required', 'string', 'max:2550'],
+        //     'password' => $this->passwordRules(),
+        //     // 'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : [],
+        // ])->validate();
+        
+        // dd($validator);
 
-        $user= User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'phone' => $input['phone'],
-            'address' => $input['address'],
-            'usertype' => 2,
-            'password' => Hash::make($input['password']),
-            
-        ]);
+        $data = [
+            'name'       => $input['name'],
+            'email'      => $input['email'],
+            'phone'      => $input['phone'],
+            'address'    => $input['address'],
+            'usertype'   => 2,
+            'password'   => Hash::make($input['password']),
+        ];
+    
+        $user= User::create($data);
+        
         $promoterId = $user->id;
         $targetAmountReceived = 0;
         $targetAmount = 50000;
@@ -59,5 +65,6 @@ class CreateNewUser implements CreatesNewUsers
         );
 
         return $user;
+   
     }
 }

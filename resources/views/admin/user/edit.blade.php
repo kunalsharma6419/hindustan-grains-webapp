@@ -50,6 +50,7 @@
 							    <option value="1" {{ $users->usertype == 1 ? 'selected' : '' }}>Admin</option>
 							    <option value="2" {{ $users->usertype == 2 ? 'selected' : '' }}>Promoter</option>
 							    <option value="3" {{ $users->usertype == 3 ? 'selected' : '' }}>Manager</option>
+							    <option value="4" {{ $users->usertype == 4 ? 'selected' : '' }}>ShopKeeper</option>
 							</select>
 
             			</div>
