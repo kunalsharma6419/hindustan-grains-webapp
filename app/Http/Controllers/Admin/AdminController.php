@@ -62,7 +62,6 @@ class AdminController extends Controller
         return view('admin.paymentStatusList', compact('payment_status'));
     }
 
-
     public function addInvoice(Request $request)
     {
         $product = Product::orderBy('id', 'desc')->get();

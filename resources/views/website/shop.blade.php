@@ -370,7 +370,6 @@
     </div>
  
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-    
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
      <script>
          const display = document.getElementById('display');

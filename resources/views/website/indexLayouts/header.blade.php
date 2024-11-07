@@ -105,11 +105,12 @@
             alt=""
           />
           <button id="cart-button" class="relative">
+            <a href="{{route('login')}}">
             <img
               class="w-[24px] h-[24px] lg:w-[32px] lg:h-[32px]"
               src="{{asset('assets/grainImages/Person_icon.png')}}"
               alt=""
-            />
+            /></a>
           </button>
 
           <!-- <ion-icon
@@ -166,4 +167,5 @@
       }
     }
   </script>
+  
 </html>

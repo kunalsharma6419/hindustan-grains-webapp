@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ShopKeeperController;
 use App\Http\Controllers\ClientSideController;
 use App\Http\Controllers\Manager\ManagerController;
 use App\Http\Controllers\WebsiteController;
+use App\Models\ShopkeeperCart;
 
 /*
 |--------------------------------------------------------------------------
@@ -132,7 +133,10 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'web']], function 
 Route::get('shopkeeper/dashboard',[ShopKeeperController::class,'index'])->name('shopkeeper.index');
 Route::get('shopkeeper/products',[ShopKeeperController::class,'showProducts'])->name('shopkeeper.products');
 Route::get('shopkeeper/cart/product/{id}',[ShopKeeperController::class,'cartProduct'])->name('shopkeeper.cart.products');
-
+Route::get('shopkeeper/cart',[ShopKeeperController::class,'addToShopkeeperCart'])->name('shopkeeper.cart');
+Route::get('shopkeeper/cart/items',[ShopKeeperController::class,'shopKeeperCartItems'])->name('shopkeeper.cart.items');
+Route::get('update/shopkeeper/cart/items',[ShopKeeperController::class,'updateShopKeeperCart'])->name('update.shopkeeper.cart');
+Route::get('shopkeeper/cart/item/delete',[ShopKeeperController::class,'deleteCartItem'])->name('shopkeeper.cartItem.delete');
 
 
 Route::get('/',[WebsiteController::class,'index']);
